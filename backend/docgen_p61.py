@@ -18,6 +18,7 @@ Dua aturan yang dijaga di sini:
      sini dengan rumus kedua.
 """
 import doc_layout as dl
+import doc_script as ds
 import opname as op
 import pdf_layout as pl
 from db import db
@@ -143,9 +144,16 @@ async def render(org: str, *, target: str, isi: dict, clauses: list, draft: bool
         # subkontraktor/penyedia, dan namanya sudah diketahui sistem — tidak perlu
         # dibiarkan kosong untuk diisi tangan.
         sigs[1] = {**sigs[1], "title": judul, "name": nama or sigs[1].get("name")}
+    # Fase 66: naskah yang ditulis pemakai untuk jenis dokumen ini tercetak sebagai
+    # PEMBUKA di atas rincian yang dirakit sistem — naskah tidak lagi berhenti di layar.
+    pembuka = await ds.intro_for(org, target, {
+        "doc_number": isi.get("doc_number") or "", "date": tanggal or "",
+        "org_name": (layout.get("brand") or {}).get("company_name") or "",
+        "sales_name": issuer.get("name") or ""})
+    isi_naskah = "\n\n".join(x for x in [pembuka, isi.get("content") or ""] if x.strip())
     return pl.render_letter(
         layout, imgs, title=isi["title"], doc_number=isi.get("doc_number") or "",
-        content=isi.get("content") or "", meta=isi.get("meta"),
+        content=isi_naskah, meta=isi.get("meta"),
         item_table=isi.get("item_table"), clauses=clauses,
         note=isi.get("note") or "", signatures_override=sigs,
         attachment_pages=attachment_pages)

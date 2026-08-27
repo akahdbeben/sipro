@@ -16,6 +16,7 @@ halaman lampiran pada SPK-nya, karena pasal 1 SPK menyebut "sesuai gambar dan sp
 yang menjadi lampiran surat ini" — sebelum ini lampiran itu tidak pernah ada.
 """
 import doc_layout as dl
+import doc_script as ds
 import pdf_layout as pl
 import storage
 from db import db
@@ -114,8 +115,14 @@ async def sp_pdf(org: str, letter: dict, issuer: dict) -> bytes:
         sigs[1] = {**sigs[1], "title": "Diterima oleh (Pembeli)",
                    "name": letter.get("buyer_name") or ""}
     isi = sp_content(letter)
+    # Fase 66: naskah pemakai untuk jenis dokumen ini tercetak sebagai pembuka.
+    pembuka = await ds.intro_for(org, SP_TARGET, {
+        "doc_number": isi["doc_number"], "date": _tgl(letter.get("created_at")),
+        "org_name": (layout.get("brand") or {}).get("company_name") or "",
+        "sales_name": issuer.get("name") or ""})
+    isi_naskah = "\n\n".join(x for x in [pembuka, isi["content"]] if x.strip())
     return pl.render_letter(layout, imgs, title=isi["title"], doc_number=isi["doc_number"],
-                            content=isi["content"], meta=isi["meta"],
+                            content=isi_naskah, meta=isi["meta"],
                             item_table=isi["item_table"], clauses=sp_clauses(letter),
                             note=isi["note"], signatures_override=sigs)
 
@@ -192,8 +199,14 @@ async def ba_pdf(org: str, claim: dict, spk: dict, issuer: dict) -> bytes:
         sigs[1] = {**sigs[1], "title": "Pihak Kedua (Subkontraktor)",
                    "name": spk.get("subcontractor_name") or ""}
     isi = ba_content(claim, spk)
+    # Fase 66: naskah pemakai untuk jenis dokumen ini tercetak sebagai pembuka.
+    pembuka = await ds.intro_for(org, BA_TARGET, {
+        "doc_number": isi["doc_number"], "date": (layout.get("options") or {}).get("doc_date") or "",
+        "org_name": (layout.get("brand") or {}).get("company_name") or "",
+        "sales_name": issuer.get("name") or ""})
+    isi_naskah = "\n\n".join(x for x in [pembuka, isi["content"]] if x.strip())
     return pl.render_letter(layout, imgs, title=isi["title"], doc_number=isi["doc_number"],
-                            content=isi["content"], meta=isi["meta"],
+                            content=isi_naskah, meta=isi["meta"],
                             item_table=isi["item_table"], clauses=BA_CLAUSES,
                             note=isi["note"], signatures_override=sigs)
 
@@ -250,8 +263,14 @@ async def punch_pdf(org: str, rows: list, ctx: dict, issuer: dict) -> bytes:
     if len(sigs) > 1:
         sigs[1] = {**sigs[1], "title": "Pihak Pelaksana (Subkontraktor)"}
     isi = punch_content(rows, ctx)
+    # Fase 66: naskah pemakai untuk jenis dokumen ini tercetak sebagai pembuka.
+    pembuka = await ds.intro_for(org, PUNCH_TARGET, {
+        "doc_number": isi["doc_number"], "date": _tgl(ctx.get("today")),
+        "org_name": (layout.get("brand") or {}).get("company_name") or "",
+        "sales_name": issuer.get("name") or ""})
+    isi_naskah = "\n\n".join(x for x in [pembuka, isi["content"]] if x.strip())
     return pl.render_letter(layout, imgs, title=isi["title"], doc_number=isi["doc_number"],
-                            content=isi["content"], meta=isi["meta"],
+                            content=isi_naskah, meta=isi["meta"],
                             item_table=isi["item_table"], clauses=PUNCH_CLAUSES,
                             note=isi["note"], signatures_override=sigs)
 

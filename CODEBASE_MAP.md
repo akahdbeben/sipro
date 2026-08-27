@@ -1614,3 +1614,35 @@ gate 47 (K10b2, K10b3, D14b) + mutan M14/M47/M48.
   (12 uji).
 - **Status:** `run_all_gates.sh` → OVERALL PASS (56 gates); pytest 12/12; layar diperiksa
   1920×800 (103 notifikasi → 22 kelompok, dialog preferensi, ringkasan WhatsApp manual).
+
+## Fase 66 — Template Dokumen disatukan: naskah + tampilan + gaya tabel (gate 57)
+- **Backend:**
+  - `doc_script.py` (BARU) — naskah per JENIS dokumen. Kosakata placeholder diturunkan dari
+    konteks mesin penerbit yang nyata (`DOCGEN_TOKENS` dari `docgen.build_context`,
+    `BAP_TOKENS` dari `cancellation_engine`, `DEAL_TOKENS` dari `documents_router`), jadi
+    layar tidak menawarkan token yang tak pernah terisi. `unknown_tokens()` menolak token
+    liar, `intro_for()` menempelkan naskah ke dokumen yang dirakit sistem, `sample_script()`
+    mengisi nilai contoh untuk pratinjau. Naskah tetap disimpan di `document_templates`
+    (koleksi yang dipakai penerbit dokumen) — satu naskah, bukan dua.
+  - `doc_layout.py` — `_table_default()` + kunci `table` pada `default_layout()`, ikut
+    diwarisi `_merge`; `list_targets()` membawa `category/category_label/has_script/custom`;
+    `known_code()` mengizinkan kode template buatan sendiri; TARGETS + SPR/PPJB/AJB.
+  - `pdf_layout.py` — `_tcfg()` + `_table_style()`: garis `full|horizontal|none`
+    (transparan), `show_header` (nama kolom bisa tidak dicetak), `header_fill`, `zebra`,
+    `total_highlight`, `font_size`, `grid_color`; dipakai `_grid()`, `_money_table()`, dan
+    `render_table(intro=...)` (laporan pun bisa bernaskah).
+  - `routers/doc_layout_router.py` — `GET/PUT /api/doc-layouts/{code}/script`
+    (PUT butuh `settings:update` — naskah = teks resmi perusahaan), `POST .../preview`
+    menerima `script` (naskah belum tersimpan) dan mencetaknya.
+  - `docgen_p61.py` / `docgen_p62.py` — SPK, PO, Surat Peringatan, BA opname, punchlist
+    memakai `ds.intro_for()` sehingga naskah pemakai IKUT tercetak sebagai pembuka.
+  - `models_p60.py` — `TableIn` (validasi grid/warna), `DocScriptSave`, `DocPreviewIn`.
+- **Frontend:** `master/DocTemplatesPanel.js` (dua sub-tab lama DIHAPUS; hanya dialog
+  "Tambah jenis dokumen" + panel gabungan), `master/DocLayoutPanel.js` (tab Naskah / Kop &
+  kertas / Baris & biaya / Tabel / Tanda tangan + pratinjau yang memakai naskah yang sedang
+  disunting), `docLayout/ScriptForm.js` (chip placeholder, peringatan token asing HIDUP saat
+  mengetik), `docLayout/TableForm.js`, testIds `p60.js`.
+- **Gate:** `scripts/verify_p66.py` (gate 57, 53 pemeriksaan — membaca ISI PDF, bukan hanya
+  status 200) + `backend/tests/test_doc_p66.py` (17 uji, dibuat testing agent).
+- **Status:** `run_all_gates.sh` → OVERALL PASS (57 gates); pytest 29/29 (p65+p66);
+  testing agent iterasi 101: backend 17/17, alur UI inti 100%, tanpa cacat blokir.

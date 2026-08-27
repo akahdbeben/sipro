@@ -53,6 +53,22 @@ export const P60 = {
   placeDate: "doc-layout-place-date",
   place: "doc-layout-place",
 
+  // Fase 66 — SATU layar per jenis dokumen: naskah + tampilan + gaya tabel + pratinjau.
+  tabScript: "doc-layout-tab-script",
+  tabTable: "doc-layout-tab-table",
+  scriptText: "doc-layout-script-text",
+  scriptSave: "doc-layout-script-save",
+  scriptDefault: "doc-layout-script-default",
+  scriptPlaceholder: "doc-layout-script-placeholder",
+  scriptUnknown: "doc-layout-script-unknown",
+  scriptCategory: "doc-layout-script-category",
+  tableGrid: "doc-layout-table-grid",
+  tableShowHeader: "doc-layout-table-show-header",
+  tableHeaderFill: "doc-layout-table-header-fill",
+  tableZebra: "doc-layout-table-zebra",
+  tableTotal: "doc-layout-table-total",
+  tableFontSize: "doc-layout-table-font-size",
+
   preview: "doc-layout-preview",
   previewRefresh: "doc-layout-preview-refresh",
   previewReal: "doc-layout-preview-real",

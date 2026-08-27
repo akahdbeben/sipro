@@ -194,39 +194,76 @@ def _kv(rows, st, accent):
     return t
 
 
-def _money_table(rows, st, accent):
-    data = [[Paragraph("<b>Komponen</b>", st["body"]),
-             Paragraph("<b>Nilai</b>", st["right"])]]
+def _tcfg(layout: dict) -> dict:
+    """Gaya tabel efektif (Fase 66) — bawaan aman bila organisasi belum menyetelnya."""
+    t = dict((layout or {}).get("table") or {})
+    return {"grid": t.get("grid") or "full",
+            "show_header": t.get("show_header", True) is not False,
+            "header_fill": t.get("header_fill", True) is not False,
+            "zebra": t.get("zebra", True) is not False,
+            "total_highlight": t.get("total_highlight", True) is not False,
+            "font_size": float(t.get("font_size") or 8.5),
+            "grid_color": t.get("grid_color") or "#e2e8f0"}
+
+
+def _table_style(cfg: dict, accent, *, has_header: bool, has_total: bool) -> list:
+    """Perintah gaya tabel dari konfigurasi — SATU tempat, dipakai semua tabel dokumen."""
+    style = [("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+             ("TOPPADDING", (0, 0), (-1, -1), 3),
+             ("BOTTOMPADDING", (0, 0), (-1, -1), 3)]
+    garis = cfg["grid"]
+    warna = _hex(cfg["grid_color"], "#e2e8f0")
+    if garis == "full":
+        style.append(("GRID", (0, 0), (-1, -1), 0.3, warna))
+    elif garis == "horizontal":
+        style.append(("LINEBELOW", (0, 0), (-1, -2), 0.3, warna))
+    # garis == "none": TIDAK ada perintah garis sama sekali (tabel transparan).
+    if has_header and cfg["header_fill"]:
+        style += [("BACKGROUND", (0, 0), (-1, 0), accent),
+                  ("TEXTCOLOR", (0, 0), (-1, 0), colors.white)]
+    if cfg["zebra"]:
+        awal = 1 if has_header else 0
+        style.append(("ROWBACKGROUNDS", (0, awal), (-1, -1),
+                      [colors.white, colors.HexColor("#f8fafc")]))
+    if has_total and cfg["total_highlight"]:
+        style.append(("BACKGROUND", (0, -1), (-1, -1), colors.HexColor("#ecfdf5")))
+    return style
+
+
+def _money_table(rows, st, accent, cfg=None):
+    cfg = cfg or _tcfg({})
+    data = []
+    if cfg["show_header"]:
+        data.append([Paragraph("<b>Komponen</b>", st["body"]),
+                     Paragraph("<b>Nilai</b>", st["right"])])
     for r in rows:
         label = r["label"] + (" *" if r.get("manual") else "")
         data.append([Paragraph(label, st["body"]), Paragraph(_rp(r.get("amount")), st["right"])])
-    t = Table(data, colWidths=[105 * mm, 55 * mm], repeatRows=1)
-    t.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, 0), accent),
-        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-        ("GRID", (0, 0), (-1, -1), 0.3, colors.HexColor("#e2e8f0")),
-        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f8fafc")]),
-        ("TOPPADDING", (0, 0), (-1, -1), 3), ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
-    ]))
+    t = Table(data, colWidths=[105 * mm, 55 * mm],
+              repeatRows=1 if cfg["show_header"] else 0)
+    t.setStyle(TableStyle(_table_style(cfg, accent, has_header=cfg["show_header"],
+                                       has_total=False)))
     return t
 
 
-def _grid(columns, rows, total_row, st, accent):
-    """Tabel rincian umum (item PO, lingkup SPK, baris laporan) — satu gaya untuk semua."""
-    data = [[Paragraph(f"<b>{c}</b>", st["small"]) for c in columns]]
-    data += [[Paragraph(str(c), st["small"]) for c in r] for r in rows]
+def _grid(columns, rows, total_row, st, accent, cfg=None):
+    """Tabel rincian umum (item PO, lingkup SPK, baris laporan) — satu gaya untuk semua.
+
+    Gaya (garis penuh/horizontal/transparan, nama kolom tampil atau tidak, baris belang,
+    ukuran huruf) diambil dari konfigurasi dokumen — bukan lagi tertanam di kode.
+    """
+    cfg = cfg or _tcfg({})
+    small = ParagraphStyle("g66", parent=st["small"], fontSize=cfg["font_size"],
+                           leading=cfg["font_size"] + 3)
+    data = []
+    if cfg["show_header"]:
+        data.append([Paragraph(f"<b>{c}</b>", small) for c in columns])
+    data += [[Paragraph(str(c), small) for c in r] for r in rows]
     if total_row:
-        data.append([Paragraph(f"<b>{c}</b>", st["small"]) for c in total_row])
-    t = Table(data, repeatRows=1)
-    style = [("BACKGROUND", (0, 0), (-1, 0), accent),
-             ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-             ("GRID", (0, 0), (-1, -1), 0.3, colors.HexColor("#e2e8f0")),
-             ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f8fafc")]),
-             ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-             ("TOPPADDING", (0, 0), (-1, -1), 3), ("BOTTOMPADDING", (0, 0), (-1, -1), 3)]
-    if total_row:
-        style.append(("BACKGROUND", (0, -1), (-1, -1), colors.HexColor("#ecfdf5")))
-    t.setStyle(TableStyle(style))
+        data.append([Paragraph(f"<b>{c}</b>", small) for c in total_row])
+    t = Table(data, repeatRows=1 if cfg["show_header"] else 0)
+    t.setStyle(TableStyle(_table_style(cfg, accent, has_header=cfg["show_header"],
+                                       has_total=bool(total_row))))
     return t
 
 
@@ -284,7 +321,7 @@ def _doc(layout: dict, title: str):
     return buf, doc
 
 
-def _attachment_flow(pages, st, accent):
+def _attachment_flow(pages, st, accent, cfg=None):
     """Halaman LAMPIRAN (Fase 62): daftar berkas + gambar kerja yang dirender apa adanya."""
     from reportlab.platypus import Image as RLImage
     from reportlab.platypus import PageBreak
@@ -297,7 +334,7 @@ def _attachment_flow(pages, st, accent):
         flow.append(Spacer(1, 8))
         if page.get("table"):
             kolom, baris = page["table"]
-            flow.append(_grid(kolom, baris, None, st, accent))
+            flow.append(_grid(kolom, baris, None, st, accent, cfg))
         for img in page.get("images") or []:
             reader = _reader(img.get("data"))
             if not reader:
@@ -319,6 +356,7 @@ def render_letter(layout: dict, imgs: dict, *, title: str, doc_number: str = "",
     st = _styles(layout)
     o = layout.get("options") or {}
     accent = _hex((layout.get("brand") or {}).get("accent_color"))
+    tcfg = _tcfg(layout)
     buf, doc = _doc(layout, doc_number or title)
     flow = []
     if o.get("show_title", True):
@@ -331,7 +369,7 @@ def render_letter(layout: dict, imgs: dict, *, title: str, doc_number: str = "",
         flow.append(Spacer(1, 6))
     if money_rows:
         flow.append(Paragraph("Rincian biaya", st["sec"]))
-        flow.append(_money_table(money_rows, st, accent))
+        flow.append(_money_table(money_rows, st, accent, tcfg))
         if any(r.get("manual") for r in money_rows):
             flow.append(Paragraph("* baris tambahan yang diisi manual oleh penerbit dokumen.",
                                   st["small"]))
@@ -339,7 +377,7 @@ def render_letter(layout: dict, imgs: dict, *, title: str, doc_number: str = "",
     if item_table:
         kolom, baris, total = item_table
         flow.append(Paragraph("Rincian", st["sec"]))
-        flow.append(_grid(kolom, baris, total, st, accent))
+        flow.append(_grid(kolom, baris, total, st, accent, tcfg))
         flow.append(Spacer(1, 4))
     for raw in (content or "").split("\n"):
         line = raw.rstrip()
@@ -366,22 +404,34 @@ def render_letter(layout: dict, imgs: dict, *, title: str, doc_number: str = "",
     if signatures_override is not None:
         sig_layout["signatures"] = signatures_override
     flow.append(KeepTogether(_signature_block(sig_layout, imgs, st)))
-    flow += _attachment_flow(attachment_pages, st, accent)
+    flow += _attachment_flow(attachment_pages, st, accent, tcfg)
     doc.build(flow, onFirstPage=_Frame(layout, imgs), onLaterPages=_Frame(layout, imgs))
     return buf.getvalue()
 
 
 def render_table(layout: dict, imgs: dict, *, title: str, subtitle: str = "", columns,
-                 rows, total_row=None, note: str = "") -> bytes:
-    """Laporan tabel — kop & footer yang sama dengan surat, jadi satu identitas."""
+                 rows, total_row=None, note: str = "", intro: str = "") -> bytes:
+    """Laporan tabel — kop & footer yang sama dengan surat, jadi satu identitas.
+
+    `intro` adalah NASKAH laporan (Fase 66): kalimat pembuka yang tercetak di atas tabel,
+    sehingga laporan pun punya isi, bukan tabel telanjang.
+    """
     st = _styles(layout)
     accent = _hex((layout.get("brand") or {}).get("accent_color"))
+    tcfg = _tcfg(layout)
     buf, doc = _doc(layout, title)
     flow = [Paragraph(title, st["title"])]
     if subtitle:
         flow.append(Paragraph(subtitle, st["num"]))
     flow.append(Spacer(1, 10))
-    flow.append(_grid(columns, rows, total_row, st, accent))
+    for baris in (intro or "").split("\n"):
+        if baris.strip():
+            flow.append(Paragraph(baris.strip(), st["body"]))
+        else:
+            flow.append(Spacer(1, 5))
+    if (intro or "").strip():
+        flow.append(Spacer(1, 8))
+    flow.append(_grid(columns, rows, total_row, st, accent, tcfg))
     if note:
         flow.append(Spacer(1, 10))
         flow.append(Paragraph(note, st["small"]))

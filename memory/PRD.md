@@ -5,7 +5,7 @@ keuangan/GL, konstruksi berbukti, portal pembeli, dan dokumen PDF ber-kop.
 Bahasa produk & komunikasi: **Indonesia**.
 
 ## Aturan kerja yang tidak boleh dilanggar
-- `bash scripts/run_all_gates.sh` adalah nyawa proyek. Semua gate harus PASS (sekarang **56 gate**).
+- `bash scripts/run_all_gates.sh` adalah nyawa proyek. Semua gate harus PASS (sekarang **57 gate**).
 - Batas ukuran berkas: Python < 800 baris, JS < 500 baris (`validate_compliance.py`).
 - Form: tidak boleh `<Input>` bebas untuk nilai enum/relasi (`audit_forms_deep.py`); setiap
   `<Input>` wajib punya label/placeholder/aria-label.
@@ -13,6 +13,20 @@ Bahasa produk & komunikasi: **Indonesia**.
 - Kredensial uji: `/app/memory/test_credentials.md` (sandi demo `Sipro#2026`).
 
 ## Riwayat implementasi (terbaru di atas)
+### 27 Jun 2026 (lanjutan) — Fase 66: Template Dokumen disatukan (gate 57)
+- **Satu layar per jenis dokumen**: dua sub-tab lama ("Isi template" vs "Tampilan & kop
+  surat") dihapus; naskah, kop/kertas, baris biaya, GAYA TABEL, dan tanda tangan disetel
+  berdampingan dengan pratinjau yang memakai naskah yang sedang disunting.
+- **Naskah per jenis dokumen** (`backend/doc_script.py`, `GET/PUT /api/doc-layouts/{code}/script`):
+  placeholder diturunkan dari konteks mesin penerbit sungguhan, token asing ditolak 400 +
+  diperingatkan saat mengetik. Naskah tersimpan di `document_templates` sehingga benar-benar
+  tercetak; dokumen yang dirakit sistem (SPK/PO/SP/BA) memakainya sebagai pembuka.
+- **Gaya tabel bisa dikonfigurasi**: `layout.table` (garis penuh/mendatar/TRANSPARAN, nama
+  kolom bisa disembunyikan, zebra, sorot total, ukuran huruf, warna garis) berlaku pada semua
+  tabel dokumen. Naskah resmi butuh izin `settings:update`.
+- Gate baru `scripts/verify_p66.py` (57 gate, 53 pemeriksaan — memeriksa ISI PDF) +
+  `backend/tests/test_doc_p66.py` (17 uji).
+
 ### 27 Jun 2026 (lanjutan) — Fase 65: notifikasi kembar berkelompok & preferensi (gate 56)
 - **Pengelompokan kembar**: `notif_center.group_key()` (jenis + entitas + judul yang
   dinormalkan — nomor dokumen/kode jadi `#`) + `group_rows()`; `GET /api/notifications?group=true`

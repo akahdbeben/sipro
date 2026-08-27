@@ -43,9 +43,12 @@ DEFAULT_CODE = "__default__"
 # Dokumen yang memakai konfigurasi ini. `kind` menentukan bentuk pratinjaunya.
 TARGETS = {
     DEFAULT_CODE: ("Bawaan seluruh dokumen (identitas & gaya)", "letter"),
+    "SPR": ("Surat Pemesanan Rumah (SPR)", "letter"),
     "SPR_CASH": ("Surat Pesanan Rumah — Cash Keras", "letter"),
     "SPR_CASH_STAGED": ("Surat Pesanan Rumah — Cash Bertahap", "letter"),
     "SPR_KPR": ("Surat Pesanan Rumah — KPR", "letter"),
+    "PPJB": ("Perjanjian Pengikatan Jual Beli (PPJB)", "letter"),
+    "AJB": ("Akta Jual Beli (AJB)", "letter"),
     "SPKT": ("Surat Pernyataan Kelebihan Tanah", "letter"),
     "BAP": ("Berita Acara Pembatalan & Refund", "letter"),
     "BAST": ("Berita Acara Serah Terima unit", "letter"),
@@ -96,10 +99,30 @@ def _brand_default() -> dict:
     }
 
 
+def _table_default() -> dict:
+    """Gaya TABEL dokumen (Fase 66).
+
+    Sebelum ini semua tabel tercetak dengan kotak penuh, kepala tabel berwarna aksen, dan
+    nama kolom yang selalu tampil — tidak bisa diubah tanpa menyentuh kode. Pemakai yang
+    memakai kertas berkop cetakan sendiri meminta garis TRANSPARAN (tanpa kotak) dan tabel
+    TANPA nama kolom; keduanya sekarang konfigurasi, bukan permintaan fitur baru.
+    """
+    return {
+        "grid": "full",            # full | horizontal | none (transparan)
+        "show_header": True,       # nama kolom tercetak?
+        "header_fill": True,       # kepala tabel berwarna aksen (atau polos)
+        "zebra": True,             # baris belang
+        "total_highlight": True,   # baris total diberi latar
+        "font_size": 8.5,
+        "grid_color": "#e2e8f0",
+    }
+
+
 def default_layout(code: str = DEFAULT_CODE) -> dict:
     return {
         "code": code,
         "brand": _brand_default(),
+        "table": _table_default(),
         "sections": [{"key": k, "label": lbl, "visible": True, "order": i * 10}
                      for i, (k, lbl) in enumerate(SECTIONS)],
         "money_rows": [{"code": c, "label": lbl, "visible": True, "order": i * 10,
@@ -128,7 +151,7 @@ def _merge(base: dict, over: dict) -> dict:
     out = {k: (dict(v) if isinstance(v, dict) else list(v) if isinstance(v, list) else v)
            for k, v in base.items()}
     for key, val in (over or {}).items():
-        if key in ("brand", "options") and isinstance(val, dict):
+        if key in ("brand", "options", "table") and isinstance(val, dict):
             out[key] = {**out.get(key, {}), **val}
         elif key in ("sections", "money_rows", "signatures") and isinstance(val, list) and val:
             out[key] = val
@@ -155,6 +178,14 @@ async def get_layout(org: str = ORG_ID, code: str = DEFAULT_CODE) -> dict:
     return base
 
 
+async def known_code(org: str, code: str) -> bool:
+    """Kode dokumen yang boleh disetel: terdaftar di `TARGETS` ATAU punya naskah sendiri."""
+    if code in TARGETS:
+        return True
+    return bool(await db.document_templates.find_one({"org_id": org, "code": code},
+                                                     {"_id": 0, "id": 1}))
+
+
 async def save_layout(org: str, code: str, layout: dict, actor: str) -> dict:
     ts = now_iso()
     cur = await db.document_layouts.find_one({"org_id": org, "code": code}, {"_id": 0})
@@ -175,14 +206,36 @@ async def reset_layout(org: str, code: str) -> dict:
 
 
 async def list_targets(org: str = ORG_ID) -> list:
+    """Daftar SEMUA jenis dokumen yang bisa disetel — naskah maupun tampilannya.
+
+    Fase 66: satu layar untuk satu jenis dokumen, jadi daftar ini juga membawa keadaan
+    NASKAH-nya (`has_script`) dan kategorinya. Kode template buatan sendiri yang belum
+    terdaftar di `TARGETS` ikut ditampilkan (`custom`) supaya naskahnya tidak jadi yatim
+    seperti sebelumnya (dulu ada di tab lain yang tidak tahu-menahu soal tampilan).
+    """
+    import doc_script as ds
     rows = {d["code"]: d for d in await db.document_layouts.find(
         {"org_id": org}, {"_id": 0, "code": 1, "version": 1, "updated_at": 1,
-                          "updated_by": 1}).to_list(50)}
-    return [{"code": c, "label": lbl, "kind": kind,
-             "customized": c in rows, "version": (rows.get(c) or {}).get("version"),
-             "updated_at": (rows.get(c) or {}).get("updated_at"),
-             "updated_by": (rows.get(c) or {}).get("updated_by")}
-            for c, (lbl, kind) in TARGETS.items()]
+                          "updated_by": 1}).to_list(1000)}
+    scripts = {d["code"]: d for d in await db.document_templates.find(
+        {"org_id": org}, {"_id": 0, "code": 1, "name": 1, "content": 1,
+                          "is_active": 1}).to_list(1000)}
+    daftar = [(c, lbl, kind, False) for c, (lbl, kind) in TARGETS.items()]
+    daftar += [(c, (s.get("name") or c), "letter", True)
+               for c, s in sorted(scripts.items()) if c not in TARGETS]
+    out = []
+    for code, label, kind, custom in daftar:
+        s = scripts.get(code) or {}
+        out.append({
+            "code": code, "label": label, "kind": kind, "custom": custom,
+            "category": ds.category_of(code),
+            "category_label": ds.CATEGORIES[ds.category_of(code)],
+            "has_script": bool((s.get("content") or "").strip()),
+            "script_active": s.get("is_active", True),
+            "customized": code in rows, "version": (rows.get(code) or {}).get("version"),
+            "updated_at": (rows.get(code) or {}).get("updated_at"),
+            "updated_by": (rows.get(code) or {}).get("updated_by")})
+    return out
 
 
 # ============================================================ pemakaian saat mencetak

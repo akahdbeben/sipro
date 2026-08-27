@@ -100,6 +100,11 @@ GATES=(
   # memilih sendiri kategori/saluran yang boleh mengganggunya — kecuali permintaan TINDAKAN
   # yang tidak boleh bisa dibungkam (kalau bisa, persetujuan menggantung tanpa sebab).
   verify_p65.py
+  # Fase 66 — gate ke-57: SATU layar per jenis dokumen. Naskah menempel pada jenis
+  # dokumennya (kosakata placeholder diturunkan dari mesin penerbit), naskah benar-benar
+  # TERCETAK (dibuktikan dengan membaca PDF), dan gaya tabel (garis transparan, nama kolom
+  # tidak tampil) menjadi konfigurasi — bukan permintaan fitur.
+  verify_p66.py
 )
 
 fail=0

@@ -102,8 +102,9 @@ def bagian_kui():
     sign = read(FE / "components" / "master" / "docLayout" / "SignaturesForm.js")
     tabs = read(FE / "components" / "master" / "DocTemplatesPanel.js")
     ids = read(FE / "constants" / "testIds" / "p60.js")
-    check("DocLayoutPanel" in tabs and "P60.tabPage" in tabs,
-          "KUI1 tab 'Tampilan & kop surat' benar-benar dirender di Template Dokumen")
+    check("DocLayoutPanel" in tabs and "P60.tabScript" in panel
+          and "TabsTrigger" not in tabs,
+          "KUI1 Template Dokumen = SATU panel (naskah + tampilan + pratinjau), bukan dua tab")
     check("P60.panel" in panel and "P60.preview" in panel,
           "KUI2 panel & pratinjau punya testId (bisa diuji, bukan komponen mati)")
     check("iframe" in panel and "lg:grid-cols-2" in panel,

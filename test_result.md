@@ -4519,3 +4519,54 @@ test_plan:
 agent_communication:
     -agent: "main"
     -message: "Lingkungan dipulihkan dari GitHub (env: DEFAULT_ORG_ID=org-sipro, PORTAL_MASTER_OTP=000000 — nilai yang diharapkan gate). Baseline 55 gate PASS sebelum implementasi. Fase 65 selesai: run_all_gates.sh OVERALL PASS (56 gates), pytest backend/tests/test_notif_p65.py 12/12. Atas permintaan pengguna, verifikasi cukup lewat gate (testing agent tidak dijalankan)."
+
+## Fase 66 — Template Dokumen disatukan (naskah + tampilan + gaya tabel)
+backend:
+  - task: "Naskah dokumen per jenis (GET/PUT /api/doc-layouts/{code}/script) + kosakata placeholder per jenis"
+    implemented: true
+    working: "NA"
+    file: "backend/doc_script.py, backend/routers/doc_layout_router.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Kosakata placeholder diturunkan dari konteks mesin penerbit (docgen/cancellation/documents_router). Token asing -> 400. PUT butuh settings:update."
+  - task: "Naskah tercetak di dokumen & pratinjau; gaya tabel bisa dikonfigurasi (garis transparan, tanpa nama kolom)"
+    implemented: true
+    working: "NA"
+    file: "backend/pdf_layout.py, backend/doc_layout.py, backend/docgen_p61.py, backend/docgen_p62.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "layout.table = {grid: full|horizontal|none, show_header, header_fill, zebra, total_highlight, font_size, grid_color}; dipakai tabel biaya, rincian item, dan laporan. Naskah masuk sebagai pembuka pada SPK/PO/SP/BA lewat ds.intro_for."
+
+frontend:
+  - task: "Template Dokumen = SATU panel (tab Naskah, Kop, Baris & biaya, Tabel, Tanda tangan) + pratinjau memakai naskah"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/master/DocTemplatesPanel.js, DocLayoutPanel.js, docLayout/{ScriptForm,TableForm}.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Dua tab lama (Isi template vs Tampilan & kop) dihapus; pemilih jenis dokumen dikelompokkan per kategori; placeholder chip; peringatan token asing."
+
+test_plan:
+  current_focus:
+    - "Naskah per jenis dokumen tersimpan & tercetak"
+    - "Gaya tabel (transparan / tanpa nama kolom) berlaku di PDF"
+    - "Panel gabungan Template Dokumen di /admin/master-data"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+    -agent: "main"
+    -message: "Gate 57 (scripts/verify_p66.py, 53 pemeriksaan) HIJAU dan run_all_gates.sh OVERALL PASS (57 gates). Perlu verifikasi UI end-to-end oleh testing agent."

@@ -100,6 +100,36 @@ class SignatureIn(BaseModel):
         return v.strip()
 
 
+class TableIn(BaseModel):
+    """Gaya tabel dokumen (Fase 66) — garis, kepala tabel, baris belang, ukuran huruf."""
+    grid: str | None = None            # full | horizontal | none (transparan)
+    show_header: bool | None = None
+    header_fill: bool | None = None
+    zebra: bool | None = None
+    total_highlight: bool | None = None
+    font_size: float | None = Field(default=None, ge=6, le=12)
+    grid_color: str | None = None
+
+    @field_validator("grid")
+    @classmethod
+    def _v_grid(cls, v):
+        if v and v not in ("full", "horizontal", "none"):
+            raise ValueError("Gaya garis tabel hanya: full, horizontal, none.")
+        return v
+
+    @field_validator("grid_color")
+    @classmethod
+    def _v_grid_color(cls, v):
+        if v and not HEX.match(v):
+            raise ValueError("Warna garis tabel harus heksadesimal, mis. #e2e8f0.")
+        return v
+
+
+class DocScriptSave(BaseModel):
+    """Naskah dokumen per jenis (Fase 66) — isi yang benar-benar tercetak."""
+    content: str = Field(min_length=0, max_length=20000)
+    name: str | None = None
+
 class OptionsIn(BaseModel):
     show_materai: bool | None = None
     materai_note: str | None = None
@@ -115,7 +145,18 @@ class OptionsIn(BaseModel):
 
 class DocLayoutSave(BaseModel):
     brand: BrandIn | None = None
+    table: TableIn | None = None
     sections: list[SectionIn] | None = None
     money_rows: list[MoneyRowIn] | None = None
     signatures: list[SignatureIn] | None = Field(default=None, max_length=4)
     options: OptionsIn | None = None
+
+
+class DocPreviewIn(DocLayoutSave):
+    """Pratinjau: rancangan tampilan + NASKAH yang belum disimpan.
+
+    Naskah ikut dikirim karena pratinjau yang tidak menampilkan isi dokumen membuat orang
+    menyetel kop surat tanpa tahu naskahnya akan tercetak seperti apa — itulah keluhan yang
+    ditutup Fase 66.
+    """
+    script: str | None = None

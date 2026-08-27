@@ -203,7 +203,25 @@ lama ikut patuh tanpa diubah. Kontrak Fase 64 utuh: tanpa `group=true` bentuk da
 Kriteria selesai: `run_all_gates.sh` → **OVERALL PASS (56 gates)**;
 `python3 -m pytest backend/tests/test_notif_p65.py` 12/12; layar diperiksa 1920×800.
 
-## 7) Tugas berikutnya (sesudah Fase 65)
+---
+
+## 3h) Fase 66 — Template Dokumen disatukan (SELESAI, gate 57)
+
+| Keluhan pemakai | Perbaikan | Bukti |
+|---|---|---|
+| "Template dokumen terbelah dua: isi template dan tampilan kop surat" | satu panel per JENIS dokumen: tab Naskah / Kop & kertas / Baris & biaya / Tabel / Tanda tangan, pratinjau berdampingan | gate 57 KUI1-KUI3, KUI12 |
+| "Isi template harus menyesuaikan kategori/jenis dokumen" | naskah menempel pada kode dokumen; kosakata placeholder DITURUNKAN dari konteks mesin penerbit (docgen / cancellation / documents_router), berbeda per jenis | gate 57 K1-K3, D4-D6 |
+| "Naskah harusnya masuk ke dalam dokumen" | naskah disimpan di koleksi yang dipakai penerbit; `ds.intro_for()` menempelkannya ke SPK/PO/SP/BA yang dirakit sistem; pratinjau mencetak naskah + nilai contoh | gate 57 K5-K6, K18-K19, D10-D12 (isi PDF dibaca) |
+| "Format tabel bisa dikonfigurasi: garis transparan, nama kolom tidak tampil" | `layout.table`: `grid=full|horizontal|none`, `show_header`, `header_fill`, `zebra`, `total_highlight`, `font_size`, `grid_color` — dipakai tabel biaya, rincian item, dan laporan | gate 57 K7-K13, D13-D19 |
+| Token liar tercetak mentah di dokumen resmi | `unknown_tokens()` menolak 400 + peringatan HIDUP saat mengetik di layar | gate 57 K4, KUI8, D7 |
+
+Naskah resmi butuh izin `settings:update` (sekelas kop surat) — sales yang boleh menerbitkan
+dokumen tidak boleh mengubah kalimat yang mengikat perusahaan (gate 57 D20).
+
+Kriteria selesai: `run_all_gates.sh` → **OVERALL PASS (57 gates)**;
+`pytest backend/tests/test_doc_p66.py` 17/17; testing agent iterasi 101 tanpa cacat blokir.
+
+## 7) Tugas berikutnya (sesudah Fase 66)
 1. `scripts/mutasi_62.py`, `mutasi_63.py`, `mutasi_65.py` — uji mutan gate 53/54/56.
 2. Ringkasan harian notifikasi (email/WA) per preferensi — sekarang ringkasan disusun
    saat diminta, belum ada jadwal harian.
