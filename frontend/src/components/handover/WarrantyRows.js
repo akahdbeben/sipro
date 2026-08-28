@@ -36,7 +36,7 @@ export default function WarrantyRows({ rows = [], missing, detail, compact = fal
           <ShieldCheck className="h-4 w-4 text-primary" /> Masa garansi per bagian
         </p>
       ) : null}
-      <div className="overflow-x-auto rounded-xl border bg-card">
+      <div className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
         <table className="w-full text-[13px]">
           <thead className="bg-secondary/60 text-left text-[12px] text-muted-foreground">
             <tr>

@@ -111,10 +111,10 @@ export default function AppointmentsPage() {
     <div data-testid={APPTS.page} className="space-y-5">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="flex items-center gap-2 font-heading text-2xl font-semibold tracking-tight">
+          <h1 className="page-title flex items-center gap-2">
             <CalendarDays className="h-5 w-5 text-primary" /> Agenda &amp; Survey
           </h1>
-          <p className="text-sm text-muted-foreground">
+          <p className="page-desc">
             Survei pembeli, rapat internal, kunjungan proyek, dan rapat vendor — satu
             kalender kerja untuk semuanya.
           </p>

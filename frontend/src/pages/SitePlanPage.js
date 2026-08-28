@@ -148,7 +148,7 @@ export default function SitePlanPage() {
         <div className="flex items-center gap-2">
           <MapIcon className="h-5 w-5 text-primary" />
           <div>
-            <h1 className="font-heading text-xl font-semibold">Site Plan & Showroom Digital</h1>
+            <h1 className="page-title">Site Plan & Showroom Digital</h1>
             <p className="text-xs text-muted-foreground">
               Peta interaktif: sorot untuk ringkas, klik untuk kartu kavling, lalu buka detail lengkap.
               {svgPlan ? ` Peta ${svgPlan.source === "uploaded" ? "dari SVG arsitek" : "hasil generator"} · cakupan ${svgPlan.stats?.coverage_pct || 0}%.`

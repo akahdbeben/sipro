@@ -76,7 +76,7 @@ export default function CalibrationTemplatePanel({
         ) : null}
       </div>
 
-      <div className="overflow-x-auto rounded-lg border bg-card">
+      <div className="overflow-x-auto rounded-lg border bg-card shadow-[var(--shadow-card)]">
         <table className="w-full text-xs">
           <thead className="bg-secondary text-left">
             <tr>

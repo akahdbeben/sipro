@@ -56,7 +56,7 @@ export default function AssetDetailSheet({ assetId, onClose }) {
 
         {loading ? <LoadingCards count={2} /> : error ? <ErrorState message={error} onRetry={load} /> : a ? (
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border bg-card p-3">
+            <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <Row label="Kategori" value={<RefLabel group="asset_category" value={a.category} />} />
               <Row label="Kelompok fiskal" value={<RefLabel group="asset_tax_group" value={a.tax_group} />} />
               <Row label="Metode" value={<RefLabel group="depreciation_method" value={a.method} />} />
@@ -86,7 +86,7 @@ export default function AssetDetailSheet({ assetId, onClose }) {
                 Riwayat penyusutan terposting ({(data.history || []).length})
               </p>
               {(data.history || []).length ? (
-                <div className="overflow-x-auto rounded-xl border bg-card">
+                <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
                   <Table>
                     <TableHeader>
                       <TableRow>
@@ -122,7 +122,7 @@ export default function AssetDetailSheet({ assetId, onClose }) {
                 Proyeksi jadwal penyusutan ({(data.schedule || []).length} bulan)
               </p>
               {(data.schedule || []).length ? (
-                <div className="max-h-72 overflow-y-auto rounded-xl border bg-card">
+                <div className="max-h-72 overflow-y-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
                   <Table>
                     <TableHeader>
                       <TableRow>

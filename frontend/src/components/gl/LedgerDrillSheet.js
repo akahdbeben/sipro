@@ -70,11 +70,11 @@ export default function LedgerDrillSheet({ accountCode, period, open, onOpenChan
             ) : (
               <>
                 <div className="mt-4 grid grid-cols-3 gap-2 text-sm">
-                  <div className="rounded-lg border bg-card p-2.5">
+                  <div className="rounded-lg border bg-card p-2.5 shadow-[var(--shadow-card)]">
                     <p className="text-[11px] text-muted-foreground">Saldo awal</p>
                     <p className="font-semibold tabular-nums">{formatIDR(data.opening)}</p>
                   </div>
-                  <div className="rounded-lg border bg-card p-2.5">
+                  <div className="rounded-lg border bg-card p-2.5 shadow-[var(--shadow-card)]">
                     <p className="text-[11px] text-muted-foreground">Mutasi (D / K)</p>
                     <p className="font-semibold tabular-nums">
                       {formatIDR(data.total_debit)} / {formatIDR(data.total_credit)}
@@ -85,7 +85,7 @@ export default function LedgerDrillSheet({ accountCode, period, open, onOpenChan
                     <p className="font-semibold tabular-nums text-primary">{formatIDR(data.closing)}</p>
                   </div>
                 </div>
-                <div className="mt-3 w-full max-w-full overflow-x-auto rounded-xl border bg-card">
+                <div className="mt-3 w-full max-w-full overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
                   <Table>
                     <TableHeader><TableRow>
                       <TableHead className="whitespace-nowrap">Tanggal</TableHead><TableHead>No.</TableHead><TableHead>Keterangan</TableHead>
@@ -121,7 +121,7 @@ export default function LedgerDrillSheet({ accountCode, period, open, onOpenChan
               </DialogDescription>
             </DialogHeader>
             <p className="rounded-lg bg-secondary p-3 text-sm">{journal?.memo}</p>
-            <div className="overflow-x-auto rounded-xl border bg-card">
+            <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
               <Table>
                 <TableHeader><TableRow>
                   <TableHead>Akun</TableHead>

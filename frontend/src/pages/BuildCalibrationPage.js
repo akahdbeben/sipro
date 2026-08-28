@@ -126,7 +126,7 @@ export default function BuildCalibrationPage() {
           <div className="flex items-center gap-2">
             <SlidersHorizontal className="h-5 w-5 text-primary" />
             <div>
-              <h1 className="font-heading text-xl font-semibold">Kalibrasi Template Jadwal</h1>
+              <h1 className="page-title">Kalibrasi Template Jadwal</h1>
               <p className="text-xs text-muted-foreground">
                 Ubah durasi atau waktu tunggu langkah pekerjaan langsung dari bukti telat —
                 dengan pratinjau dampak, alasan wajib, dan bisa dibatalkan.
@@ -152,7 +152,7 @@ export default function BuildCalibrationPage() {
       </div>
 
       <div className="flex flex-wrap items-center gap-2">
-        <div data-testid={CALIB.scope} className="inline-flex rounded-lg border bg-card p-0.5">
+        <div data-testid={CALIB.scope} className="inline-flex rounded-lg border bg-card p-0.5 shadow-[var(--shadow-card)]">
           {[["all", "Semua proyek"], ["project", "Per proyek"]].map(([v, label]) => (
             <button key={v} type="button" data-scope={v}
               onClick={() => { setScope(v); if (v === "all") setProjectId(null); }}
@@ -209,7 +209,7 @@ export default function BuildCalibrationPage() {
 
           {!can.calibrate ? (
             <p data-testid={CALIB.viewerNote}
-              className="rounded-xl border bg-card p-2.5 text-[11px] text-muted-foreground">
+              className="rounded-xl border bg-card p-2.5 text-[11px] text-muted-foreground shadow-[var(--shadow-card)]">
               Anda bisa melihat bukti telat, usulan, angka template, dan riwayat kalibrasi.
               Menerapkan atau membatalkan kalibrasi hanya untuk admin/direksi/Manajer Proyek
               karena durasi &amp; waktu tunggu template menjadi dasar seluruh tenggat,

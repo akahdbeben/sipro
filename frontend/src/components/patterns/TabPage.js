@@ -62,7 +62,7 @@ export default function TabPage({ tabs = [], header = null, paramKey = "tab", te
     <div data-testid={testId || TABPAGE.root} className="space-y-4">
       {header}
       <div data-testid={TABPAGE.tabs} role="tablist"
-        className="flex flex-wrap gap-1 rounded-lg border bg-card p-1">
+        className="flex flex-wrap gap-1 rounded-xl border border-border bg-[hsl(var(--surface-sunken))] p-1.5 shadow-[var(--shadow-card)]">
         {list.map((t) => {
           const on = active?.key === t.key;
           const Icon = t.icon;
@@ -70,10 +70,10 @@ export default function TabPage({ tabs = [], header = null, paramKey = "tab", te
             <button key={t.key} type="button" role="tab" aria-selected={on}
               data-testid={`${TABPAGE.tab}-${t.key}`} data-active={on ? "true" : "false"}
               onClick={() => go(t.key)}
-              className={cn("inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm",
-                "transition-colors",
-                on ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:bg-secondary hover:text-foreground")}>
+              className={cn("inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm",
+                "transition-[background-color,color,box-shadow] duration-150",
+                on ? "bg-primary font-semibold text-primary-foreground shadow-sm"
+                  : "font-medium text-muted-foreground hover:bg-card hover:text-foreground hover:shadow-sm")}>
               {Icon ? <Icon className="h-4 w-4" /> : null}
               {t.label}
               {t.badge !== undefined && t.badge !== null ? (

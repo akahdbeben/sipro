@@ -86,7 +86,7 @@ export default function CashFlowProjectsPanel({ period }) {
         <EmptyState icon={Waypoints} title="Belum ada mutasi kas pada periode ini"
           description="Begitu ada penerimaan/pembayaran kas, laporan ini membaginya per proyek beserta bukti tie-out." />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <Table>
             <TableHeader><TableRow>
               <TableHead>Proyek</TableHead>

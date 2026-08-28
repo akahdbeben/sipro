@@ -89,7 +89,7 @@ function BoQItemsTab({ projectId }) {
           {summary.categories?.length ? (
             <div className="flex flex-wrap gap-2">
               {summary.categories.map((c) => (
-                <span key={c.category} className="rounded-full border bg-card px-3 py-1 text-xs">
+                <span key={c.category} className="rounded-full border bg-card px-3 py-1 text-xs shadow-[var(--shadow-card)]">
                   <span className="text-muted-foreground">{labelOf("work_category", c.category)}:</span>{" "}
                   <span className="font-medium tabular-nums">{formatIDR(c.amount)}</span>
                 </span>
@@ -113,7 +113,7 @@ function BoQItemsTab({ projectId }) {
           description="Tambahkan item pekerjaan (kode biaya, volume, harga satuan) untuk menyusun anggaran."
           actionLabel={canManage ? "Tambah Item" : undefined} onAction={() => setAddOpen(true)} />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <Table>
             <TableHeader><TableRow>
               <TableHead>Kode</TableHead><TableHead>Kategori</TableHead><TableHead>Uraian</TableHead>
@@ -181,7 +181,7 @@ export default function BoQPage() {
   const header = (
     <div className="flex flex-wrap items-center justify-between gap-3">
       <div>
-        <h1 className="flex items-center gap-2 font-heading text-xl font-semibold">
+        <h1 className="page-title flex items-center gap-2">
           <Calculator className="h-5 w-5 text-primary" /> RAB / Anggaran Proyek
         </h1>
         <p className="max-w-3xl text-[12px] text-muted-foreground">

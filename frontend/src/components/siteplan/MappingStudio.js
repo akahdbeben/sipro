@@ -100,19 +100,19 @@ export default function MappingStudio({ open, onOpenChange, projectId, plan, uni
 
         <div className="space-y-4">
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-lg border bg-card p-3">
+            <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <p className="text-[11px] uppercase text-muted-foreground">Sumber peta</p>
               <p className="text-sm font-semibold">
                 {plan ? (plan.source === "uploaded" ? `SVG unggahan${plan.filename ? ` (${plan.filename})` : ""}` : "Dibangkitkan sistem") : "Belum ada peta"}
               </p>
             </div>
-            <div className="rounded-lg border bg-card p-3">
+            <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <p className="text-[11px] uppercase text-muted-foreground">Cakupan pemetaan</p>
               <p data-testid={SITE_PLAN.coverage} className="text-sm font-semibold">
                 {plan?.stats?.mapped || 0} / {units.length} kavling ({plan?.stats?.coverage_pct || 0}%)
               </p>
             </div>
-            <div className="rounded-lg border bg-card p-3">
+            <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <p className="text-[11px] uppercase text-muted-foreground">Bentuk terbaca</p>
               <p className="text-sm font-semibold">
                 {plan?.stats?.total_shapes || 0} bentuk · {plan?.stats?.total_lots || 0} kavling
@@ -145,7 +145,7 @@ export default function MappingStudio({ open, onOpenChange, projectId, plan, uni
                 Bentuk kavling belum terpetakan ({unmappedLots.length})
               </p>
               {unmappedLots.length ? (
-                <div className="max-h-56 space-y-1.5 overflow-y-auto rounded-lg border bg-card p-2">
+                <div className="max-h-56 space-y-1.5 overflow-y-auto rounded-lg border bg-card p-2 shadow-[var(--shadow-card)]">
                   {unmappedLots.slice(0, 60).map((s) => (
                     <div key={s.shape_id} data-testid={SITE_PLAN.shapeRow}
                       className="flex flex-wrap items-center gap-2 rounded-md bg-card px-2 py-1.5">

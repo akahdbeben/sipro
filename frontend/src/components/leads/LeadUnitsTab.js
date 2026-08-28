@@ -80,7 +80,7 @@ export default function LeadUnitsTab({
           {deals.map((d) => (
             <div key={d.id} data-testid="lead-deal-row" data-deal={d.id}
               aria-label={`Deal unit ${d.unit_code || "-"}`}
-              className="flex flex-wrap items-center justify-between gap-3 rounded-lg border bg-card p-3">
+              className="flex flex-wrap items-center justify-between gap-3 rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <div>
                 <p className="text-sm font-medium">
                   {d.unit_id ? (

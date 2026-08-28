@@ -159,7 +159,7 @@ export default function ProjectPhasesPanel({ projectId, onChanged }) {
           <div className="space-y-2">
             {logs.slice(0, 10).map((lg) => (
               <div key={lg.id} data-testid={CONSTRUCTION.logItem} data-log={lg.id}
-                className="flex gap-3 rounded-lg border bg-card p-3">
+                className="flex gap-3 rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
                 {lg.photo ? (
                   <img src={photoSrc(lg.photo)} alt="Dokumentasi log kawasan"
                     className="h-14 w-14 shrink-0 rounded-md border object-cover" />

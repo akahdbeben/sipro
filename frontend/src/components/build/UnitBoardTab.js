@@ -261,7 +261,7 @@ export default function UnitBoardTab({ projectId: fixedProject = null }) {
         <b>Unit 360 → tab Pembangunan</b> (kurva-S, langkah + bukti, mutu, izin, aksi kerja).
       </p>
 
-      <div className="rounded-xl border bg-card">
+      <div className="rounded-xl border bg-card shadow-[var(--shadow-card)]">
         <button type="button" data-testid={UNIT_BOARD.extrasToggle}
           onClick={() => setExtras((v) => !v)}
           className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-medium">

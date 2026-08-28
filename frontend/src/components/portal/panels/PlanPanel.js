@@ -51,7 +51,7 @@ export default function PlanPanel() {
       <div className="rounded-xl border bg-white p-5">
         <div className="flex flex-wrap items-start justify-between gap-2">
           <div>
-            <p className="font-heading text-base font-semibold">{project.project_name}</p>
+            <p className="section-title">{project.project_name}</p>
             <p className="flex items-center gap-1.5 text-xs text-slate-500">
               <MapPin className="h-3.5 w-3.5" /> {project.location || "Lokasi proyek"}
             </p>

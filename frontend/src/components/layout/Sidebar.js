@@ -32,9 +32,12 @@ function NavItem({ item }) {
       className={({ isActive }) =>
         cn(
           "flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card",
+          // Fase 67: menu aktif ditandai blok aksen + garis kiri (bukan hanya warna teks),
+          // dan menu tidak aktif punya hover yang terasa (dulu nyaris tidak berubah).
           isActive
-            ? "bg-primary text-primary-foreground shadow-sm"
-            : "text-foreground/80 hover:bg-secondary",
+            ? "bg-primary text-primary-foreground shadow-sm ring-1 ring-primary/20"
+            : "text-foreground/75 hover:bg-secondary hover:text-foreground",
         )
       }
     >
@@ -49,10 +52,10 @@ export default function Sidebar({ role, onNavigate }) {
   return (
     <aside
       data-testid={NAV.sidebar}
-      className="flex h-full w-64 shrink-0 flex-col border-r bg-card"
+      className="flex h-full w-64 shrink-0 flex-col border-r border-border bg-card shadow-[var(--shadow-card)]"
       onClick={onNavigate}
     >
-      <div className="flex items-center gap-2.5 px-5 py-4 border-b">
+      <div className="flex items-center gap-2.5 border-b border-border bg-[hsl(var(--surface-sunken))] px-5 py-4">
         <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
           <Building2 className="h-5 w-5" />
         </div>
@@ -68,7 +71,7 @@ export default function Sidebar({ role, onNavigate }) {
           }
           return (
             <div key={group.groupId}>
-              <p className="px-3 pb-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+              <p className="px-3 pb-1.5 text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-foreground/80">
                 {group.label}
               </p>
               <div className="space-y-0.5">

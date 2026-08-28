@@ -92,7 +92,7 @@ export default function KprPanel({ contract, onChanged }) {
   const fields = NEEDS[stage] || ["note"];
 
   return (
-    <section data-testid={P53.kprPanel} className="space-y-3 rounded-lg border bg-card p-4">
+    <section data-testid={P53.kprPanel} className="space-y-3 rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
           <h3 className="flex items-center gap-2 font-heading text-base font-semibold">

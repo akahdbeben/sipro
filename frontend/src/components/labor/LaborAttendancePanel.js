@@ -193,7 +193,7 @@ export default function LaborAttendancePanel({ projectId, onChanged }) {
             </p>
           ) : null}
 
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <table className="w-full text-sm">
               <thead className="bg-secondary/60 text-xs uppercase text-muted-foreground">
                 <tr>
@@ -246,7 +246,7 @@ export default function LaborAttendancePanel({ projectId, onChanged }) {
           </div>
 
           <div data-testid={LABOR.summary}
-            className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-card p-3">
+            className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
             <div className="flex flex-wrap gap-4 text-sm">
               <span className="flex items-center gap-1.5">
                 <CalendarCheck className="h-4 w-4 text-emerald-600" />

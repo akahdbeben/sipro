@@ -56,7 +56,7 @@ export default function ProjectsPage() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <Building2 className="h-5 w-5 text-primary" />
-          <h1 className="font-heading text-xl font-semibold">Proyek & Unit</h1>
+          <h1 className="page-title">Proyek & Unit</h1>
         </div>
         {canManage ? (
           <Button data-testid={PROJECTS.addBtn} size="sm" onClick={() => setAddOpen(true)}>
@@ -191,7 +191,7 @@ function ProjectDetail({ projectId, open, onOpenChange, canManage, onChanged }) 
                 {detail.phases.map((ph) => (
                   <div key={ph.id} data-testid="project-phase-row"
                     data-phase-name={ph.name} data-phase-progress={ph.progress ?? 0}
-                    className="rounded-lg border bg-card p-2.5">
+                    className="rounded-lg border bg-card p-2.5 shadow-[var(--shadow-card)]">
                     <div className="flex items-center justify-between text-sm">
                       <span className="font-medium">{ph.name} <span className="text-xs text-muted-foreground">(bobot {ph.weight}%)</span></span>
                       <span className="flex items-center gap-1.5">
@@ -228,7 +228,7 @@ function ProjectDetail({ projectId, open, onOpenChange, canManage, onChanged }) 
                 {detail.units.map((u) => (
                   <div key={u.id} data-testid="project-unit-card"
                     data-unit-code={u.code} data-unit-status={u.status}
-                    className="rounded-lg border bg-card p-2.5 text-sm">
+                    className="rounded-lg border bg-card p-2.5 text-sm shadow-[var(--shadow-card)]">
                     <div className="flex items-center justify-between">
                       <span className="font-semibold">{u.code}</span>
                       <StatusPill status={u.status} group="unit_status" />

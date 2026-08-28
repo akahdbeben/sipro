@@ -73,7 +73,7 @@ export default function ChannelsPanel() {
         <div className="grid gap-2 md:grid-cols-2">
           {rows.map((c) => (
             <div key={c.id} data-testid={OMNI.channelRow}
-              className="flex items-center justify-between rounded-xl border bg-card p-3">
+              className="flex items-center justify-between rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <div>
                 <div className="flex items-center gap-2">
                   <p className="font-medium">{c.name}</p>

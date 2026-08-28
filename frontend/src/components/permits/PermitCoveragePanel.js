@@ -72,7 +72,7 @@ export default function PermitCoveragePanel({ unitId = null, projectId = null,
   const required = cov?.required || [];
 
   return (
-    <div data-testid={PERMIT_COVERAGE.panel} className="rounded-xl border bg-card p-4">
+    <div data-testid={PERMIT_COVERAGE.panel} className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
           <h3 className="flex items-center gap-1.5 font-heading text-base font-semibold">

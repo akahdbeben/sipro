@@ -84,7 +84,7 @@ export default function ConflictsTab() {
         <EmptyState icon={Scale} title="Tidak ada sengketa atribusi"
           description="Belum ada nomor yang diklaim lebih dari satu mitra." />
       ) : (
-        <div className="overflow-x-auto rounded-lg border bg-card">
+        <div className="overflow-x-auto rounded-lg border bg-card shadow-[var(--shadow-card)]">
           <table data-testid={PARTNERS.conflictsTable} className="w-full text-sm">
             <thead className="bg-muted/50 text-xs uppercase text-muted-foreground">
               <tr>

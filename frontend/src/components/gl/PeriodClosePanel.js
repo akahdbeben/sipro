@@ -70,7 +70,7 @@ export default function PeriodClosePanel() {
   return (
     <div data-testid={GL.periodsPanel} className="space-y-4">
       <div>
-        <p className="font-heading text-base font-semibold">Tutup Periode Akuntansi</p>
+        <p className="section-title">Tutup Periode Akuntansi</p>
         <p className="text-xs text-muted-foreground">
           Menutup periode mencegah jurnal manual mengubah angka historis. Transaksi nyata yang
           terlambat masuk akan otomatis dibukukan di periode terbuka berikutnya.
@@ -81,7 +81,7 @@ export default function PeriodClosePanel() {
         <EmptyState icon={ShieldCheck} title="Belum ada periode dengan jurnal"
           description="Periode akan muncul otomatis setelah ada jurnal (transaksi atau penyesuaian)." />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <Table>
             <TableHeader><TableRow>
               <TableHead>Periode</TableHead>
@@ -90,7 +90,7 @@ export default function PeriodClosePanel() {
               <TableHead className="text-right">Beban</TableHead>
               <TableHead className="text-right">Laba (Rugi)</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead className="text-right">Aksi</TableHead>
+              <TableHead className="col-actions-head text-right">Aksi</TableHead>
             </TableRow></TableHeader>
             <TableBody>
               {rows.map((r) => (
@@ -114,7 +114,7 @@ export default function PeriodClosePanel() {
                       </p>
                     ) : null}
                   </TableCell>
-                  <TableCell className="text-right">
+                  <TableCell className="col-actions text-right">
                     {r.status === "open" ? (
                       <Button data-testid={GL.periodCloseBtn} data-period={r.period}
                         aria-label={`Tutup periode ${label(r.period)}`} size="sm" variant="outline"

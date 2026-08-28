@@ -131,7 +131,7 @@ export default function RulesPanel() {
         <div className="space-y-2">
           {rules.map((r) => (
             <div key={r.id} data-testid={OMNI.ruleRow}
-              className="flex items-start justify-between gap-3 rounded-xl border bg-card p-3">
+              className="flex items-start justify-between gap-3 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
                   <p className="font-medium">{r.name}</p>

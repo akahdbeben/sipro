@@ -93,7 +93,7 @@ export default function PettyCashPage() {
         <div className="flex items-center gap-2">
           <Wallet className="h-5 w-5 text-primary" />
           <div>
-            <h1 className="font-heading text-xl font-semibold">Kas Bon</h1>
+            <h1 className="page-title">Kas Bon</h1>
             <p className="text-xs text-muted-foreground">
               Uang muka karyawan (akun 1-1500) — dicairkan, dipakai, lalu dipertanggungjawabkan.
             </p>
@@ -140,7 +140,7 @@ export default function PettyCashPage() {
                 actionLabel="Ajukan Kas Bon" onAction={() => setOpenRequest(true)} />
             </div>
           ) : (
-            <div data-testid={PETTY.table} className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+            <div data-testid={PETTY.table} className="overflow-hidden rounded-xl border bg-card shadow-sm">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -152,7 +152,7 @@ export default function PettyCashPage() {
                     <TableHead className="text-right">Dicairkan</TableHead>
                     <TableHead className="text-right">Realisasi</TableHead>
                     <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Aksi</TableHead>
+                    <TableHead className="col-actions-head text-right">Aksi</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -177,7 +177,7 @@ export default function PettyCashPage() {
                         {r.expense_total ? formatIDR(r.expense_total) : "—"}
                       </TableCell>
                       <TableCell><StatusPill status={r.status} group="cashbon_status" /></TableCell>
-                      <TableCell>
+                      <TableCell className="col-actions">
                         <div className="flex flex-wrap justify-end gap-1.5">
                           <Button size="sm" variant="ghost" data-testid={PETTY.detailBtn}
                             onClick={() => setDetail(r)}>Detail</Button>

@@ -98,7 +98,7 @@ export default function WarrantyPanel() {
           className="rounded-2xl border bg-white p-4 shadow-sm">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <p className="font-heading text-base font-semibold">
+              <p className="section-title">
                 Rumah {r.unit.code} · {r.unit.type || "—"}
               </p>
               <p className="text-sm text-slate-500">{r.detail}</p>
@@ -140,7 +140,7 @@ export default function WarrantyPanel() {
       ))}
 
       <div className="space-y-2">
-        <h3 className="font-heading text-base font-semibold">Klaim yang pernah saya ajukan</h3>
+        <h3 className="section-title">Klaim yang pernah saya ajukan</h3>
         {!claims.length ? (
           <p className="rounded-xl border bg-white p-4 text-sm text-slate-500">
             Belum ada klaim garansi yang Anda ajukan.
@@ -197,7 +197,7 @@ export default function WarrantyPanel() {
         <div className="fixed inset-0 z-30 grid place-items-center bg-slate-900/40 p-4">
           <div data-testid={P50.portalClaimDialog}
             className="w-full max-w-md rounded-2xl bg-white p-4 shadow-xl">
-            <p className="font-heading text-base font-semibold">
+            <p className="section-title">
               Ajukan klaim garansi — rumah {form.unit_code}
             </p>
             <p className="mt-0.5 text-xs text-slate-500">

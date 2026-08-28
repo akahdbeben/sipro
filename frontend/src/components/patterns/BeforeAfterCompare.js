@@ -93,7 +93,7 @@ export default function BeforeAfterCompare({
           return (
             <div key={r.punch_id} data-testid={FIELD.repairPair}
               data-repair-resolved={r.resolved ? "1" : "0"}
-              className="rounded-xl border bg-card p-3">
+              className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
                 <p className="min-w-0 truncate text-sm font-semibold">{r.title}</p>
                 <span className="flex shrink-0 items-center gap-1.5">

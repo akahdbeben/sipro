@@ -73,13 +73,13 @@ export default function InboxContextPanel({ leadId, conversationId, onChanged })
 
   if (!leadId) {
     return (
-      <div className="rounded-xl border bg-card p-4 text-sm text-muted-foreground">
+      <div className="rounded-xl border bg-card p-4 text-sm text-muted-foreground shadow-[var(--shadow-card)]">
         Percakapan ini belum tertaut ke lead.
       </div>
     );
   }
-  if (loading) return <div className="rounded-xl border bg-card p-4 text-sm text-muted-foreground">Memuat konteks…</div>;
-  if (!lead) return <div className="rounded-xl border bg-card p-4 text-sm text-muted-foreground">Lead tidak ditemukan.</div>;
+  if (loading) return <div className="rounded-xl border bg-card p-4 text-sm text-muted-foreground shadow-[var(--shadow-card)]">Memuat konteks…</div>;
+  if (!lead) return <div className="rounded-xl border bg-card p-4 text-sm text-muted-foreground shadow-[var(--shadow-card)]">Lead tidak ditemukan.</div>;
 
   const attr = lead.attribution || {};
   const next = NEXT_STAGE[lead.stage];
@@ -87,7 +87,7 @@ export default function InboxContextPanel({ leadId, conversationId, onChanged })
   const suggestions = nba?.suggestions || [];
 
   return (
-    <div data-testid={INBOX.contextPanel} className="space-y-3 rounded-xl border bg-card p-4">
+    <div data-testid={INBOX.contextPanel} className="space-y-3 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="flex items-center gap-2">
         <UserRound className="h-4 w-4 text-primary" />
         <p className="font-medium">{lead.name}</p>

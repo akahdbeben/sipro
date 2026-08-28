@@ -227,7 +227,7 @@ export default function PerformanceTab() {
 
       {unmatched.leads ? (
         <p className="flex items-start gap-2 rounded-lg border bg-card p-3 text-xs
-          text-muted-foreground">
+          text-muted-foreground shadow-[var(--shadow-card)]">
           <Info className="mt-0.5 h-4 w-4 shrink-0" />
           <span>
             <strong>{unmatched.leads} lead</strong> membawa nama kampanye yang belum terdaftar

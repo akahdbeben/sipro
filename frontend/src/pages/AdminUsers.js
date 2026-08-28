@@ -69,7 +69,7 @@ export default function AdminUsers() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Users2 className="h-5 w-5 text-primary" />
-          <h1 className="font-heading text-xl font-semibold">Pengguna</h1>
+          <h1 className="page-title">Pengguna</h1>
           <span className="rounded-full bg-secondary px-2 py-0.5 text-xs text-muted-foreground tabular-nums">{rows.length}</span>
         </div>
         <Dialog open={open} onOpenChange={setOpen}>
@@ -107,7 +107,7 @@ export default function AdminUsers() {
         rows.length === 0 ? (
           <EmptyState icon={Users2} title="Belum ada pengguna" description="Tambahkan pengguna pertama untuk organisasi ini." actionLabel="Tambah Pengguna" onAction={() => setOpen(true)} />
         ) : (
-        <div data-testid={ADMIN.usersTable} className="overflow-hidden rounded-xl border bg-card">
+        <div data-testid={ADMIN.usersTable} className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <table className="w-full text-sm">
             <thead className="bg-secondary/60 text-left text-xs uppercase text-muted-foreground">
               <tr>

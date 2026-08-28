@@ -105,7 +105,7 @@ export default function ReqToPoDialog({ requisition, onOpenChange, onDone }) {
               <div data-testid={T.shortageBox} className="space-y-2">
                 {rows.map((r) => (
                   <div key={r.material_id} data-testid={T.shortageRow}
-                    className="rounded-lg border bg-card p-3">
+                    className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
                     <div className="flex items-center justify-between text-sm">
                       <div>
                         <p className="font-medium">{r.name}</p>

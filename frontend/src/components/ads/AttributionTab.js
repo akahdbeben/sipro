@@ -171,7 +171,7 @@ export default function AttributionTab() {
       <div data-testid={ADS.channelMix} className="grid gap-3 sm:grid-cols-3">
         {mix.map((m) => (
           <div key={m.channel_group} data-channel={m.channel_group}
-            className="rounded-lg border bg-card p-3.5">
+            className="rounded-lg border bg-card p-3.5 shadow-[var(--shadow-card)]">
             <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
               {m.label}
             </p>

@@ -65,7 +65,7 @@ export default function VendorDetailSheet({ vendorId, onOpenChange, onEdit, onCh
             </SheetHeader>
 
             <div className="mt-5 space-y-5">
-              <div className="grid grid-cols-2 gap-2 rounded-xl border bg-card p-3 text-sm">
+              <div className="grid grid-cols-2 gap-2 rounded-xl border bg-card p-3 text-sm shadow-[var(--shadow-card)]">
                 <Info label="PIC" value={v.pic_name} />
                 <Info label="Telepon" value={v.phone} />
                 <Info label="NPWP" value={v.npwp} />
@@ -90,7 +90,7 @@ export default function VendorDetailSheet({ vendorId, onOpenChange, onEdit, onCh
                   <div className="space-y-1.5">
                     {data.prices.map((p) => (
                       <div key={p.id}
-                        className="flex items-center justify-between rounded-lg border bg-card p-2 text-sm">
+                        className="flex items-center justify-between rounded-lg border bg-card p-2 text-sm shadow-[var(--shadow-card)]">
                         <div>
                           <p className="font-medium">{p.item_name}</p>
                           <p className="text-[11px] text-muted-foreground">
@@ -114,7 +114,7 @@ export default function VendorDetailSheet({ vendorId, onOpenChange, onEdit, onCh
                   </p>
                 ) : data.pos.slice(0, 8).map((p) => (
                   <div key={p.id}
-                    className="flex items-center justify-between rounded-lg border bg-card p-2 text-sm">
+                    className="flex items-center justify-between rounded-lg border bg-card p-2 text-sm shadow-[var(--shadow-card)]">
                     <div>
                       <p className="font-mono text-xs">{p.po_number}</p>
                       <p className="text-[11px] text-muted-foreground">
@@ -141,7 +141,7 @@ export default function VendorDetailSheet({ vendorId, onOpenChange, onEdit, onCh
                 <EvaluationCard evaluation={evalData?.data} />
                 {(evalData?.assessments || []).map((a) => (
                   <div key={a.id} data-testid={T.assessRow}
-                    className="rounded-lg border bg-card p-3 text-sm">
+                    className="rounded-lg border bg-card p-3 text-sm shadow-[var(--shadow-card)]">
                     <div className="flex items-center justify-between">
                       <span className="font-medium">Penilaian {a.period} · {a.assessor}</span>
                       <span className="tabular-nums">rata-rata {a.average}</span>
@@ -177,7 +177,7 @@ function Info({ label, value }) {
 
 function Stat({ label, value }) {
   return (
-    <div className="rounded-xl border bg-card p-3">
+    <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
       <p className="text-[11px] uppercase text-muted-foreground">{label}</p>
       <p className="font-medium tabular-nums">{value}</p>
     </div>

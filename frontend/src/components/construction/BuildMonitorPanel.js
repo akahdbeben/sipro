@@ -126,7 +126,7 @@ export default function BuildMonitorPanel({ projectId }) {
         </div>
       ) : null}
 
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-card p-2.5">
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-card p-2.5 shadow-[var(--shadow-card)]">
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs text-muted-foreground">Status jadwal</span>
           <div className="w-48">

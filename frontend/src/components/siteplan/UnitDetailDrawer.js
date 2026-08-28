@@ -81,7 +81,7 @@ export default function UnitDetailDrawer({ projectId, unit, onClose, canSeePriva
             </TabsList>
 
             <TabsContent value="summary" className="mt-3">
-              <div className="rounded-xl border bg-card p-3">
+              <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                 <Row label="Tipe unit" value={u.type || "-"} />
                 <Row label="Luas bangunan" value={`${u.luas_bangunan || 0} m²`} />
                 <Row label="Luas tanah" value={`${u.luas_tanah || 0} m²`} />
@@ -98,7 +98,7 @@ export default function UnitDetailDrawer({ projectId, unit, onClose, canSeePriva
             </TabsContent>
 
             <TabsContent value="sales" className="mt-3 space-y-3">
-              <div className="rounded-xl border bg-card p-3">
+              <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                 <Row label="Pembeli" value={canSeePrivate ? (data?.lead?.name || u.buyer_name || "—") : "disembunyikan"} />
                 <Row label="Tahap lead"
                   value={data?.lead?.stage ? <RefLabel group="lead_stage" value={data.lead.stage} /> : "—"} />
@@ -109,7 +109,7 @@ export default function UnitDetailDrawer({ projectId, unit, onClose, canSeePriva
                 <Row label="Sales penanggung jawab" value={data?.deal?.assigned_to || "—"} />
               </div>
               {ar ? (
-                <div className="rounded-xl border bg-card p-3">
+                <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                   <p className="mb-1 text-xs font-semibold uppercase text-muted-foreground">
                     Tagihan (AR)
                   </p>
@@ -135,7 +135,7 @@ export default function UnitDetailDrawer({ projectId, unit, onClose, canSeePriva
                 </p>
               )}
               {data?.financing ? (
-                <div className="rounded-xl border bg-card p-3">
+                <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                   <p className="mb-1 text-xs font-semibold uppercase text-muted-foreground">KPR</p>
                   <Row label="Bank" value={data.financing.bank_name || "—"} />
                   <Row label="Status"
@@ -146,7 +146,7 @@ export default function UnitDetailDrawer({ projectId, unit, onClose, canSeePriva
             </TabsContent>
 
             <TabsContent value="build" className="mt-3 space-y-3">
-              <div className="rounded-xl border bg-card p-3">
+              <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                 <div className="mb-2 flex items-center justify-between">
                   <span className="text-sm font-medium">Progres unit ini</span>
                   <span className="font-heading text-xl font-semibold tabular-nums">
@@ -161,7 +161,7 @@ export default function UnitDetailDrawer({ projectId, unit, onClose, canSeePriva
                   Status: <RefLabel group="construction_status" value={c?.status} />
                 </p>
               </div>
-              <div className="rounded-xl border bg-card p-3">
+              <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                 <p className="mb-2 text-xs font-semibold uppercase text-muted-foreground">
                   Fase konstruksi proyek
                 </p>
@@ -177,7 +177,7 @@ export default function UnitDetailDrawer({ projectId, unit, onClose, canSeePriva
                   </div>
                 ))}
               </div>
-              <div className="rounded-xl border bg-card p-3">
+              <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                 <p className="mb-2 text-xs font-semibold uppercase text-muted-foreground">
                   Foto progres terbaru ({(c?.photos || []).length})
                 </p>
@@ -185,7 +185,7 @@ export default function UnitDetailDrawer({ projectId, unit, onClose, canSeePriva
                   itemTestId={SITE_PLAN.photoItem}
                   emptyText="Belum ada foto. Foto muncul otomatis dari Buku Harian lapangan dan temuan punch list berfoto pada kavling ini." />
               </div>
-              <div className="rounded-xl border bg-card p-3">
+              <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                 <p className="mb-2 text-xs font-semibold uppercase text-muted-foreground">
                   Bukti perbaikan: sebelum → sesudah ({(c?.repairs || []).length})
                 </p>
@@ -194,7 +194,7 @@ export default function UnitDetailDrawer({ projectId, unit, onClose, canSeePriva
                     emptyText="Belum ada bukti perbaikan. Lampirkan foto saat menutup temuan punch list pada kavling ini." />
                 </div>
               </div>
-              <div className="rounded-xl border bg-card p-3">
+              <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                 <p className="mb-2 text-xs font-semibold uppercase text-muted-foreground">
                   Punch list unit ({(c?.punch_open || []).length} terbuka dari {c?.punch_total || 0})
                 </p>
@@ -213,7 +213,7 @@ export default function UnitDetailDrawer({ projectId, unit, onClose, canSeePriva
               {(data?.activities || []).length ? (
                 <div className="space-y-2">
                   {data.activities.map((a) => (
-                    <div key={a.id} className="rounded-lg border bg-card p-2.5">
+                    <div key={a.id} className="rounded-lg border bg-card p-2.5 shadow-[var(--shadow-card)]">
                       <p className="text-sm">{a.body}</p>
                       <p className="mt-0.5 text-[11px] text-muted-foreground">
                         {a.actor || "sistem"} · {formatDateTimeWIB(a.created_at)}

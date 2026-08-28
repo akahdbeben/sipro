@@ -70,7 +70,7 @@ export default function HandoverDocCard({ doc, onChanged }) {
         ? "border-slate-200 bg-slate-50" : "border-emerald-200 bg-emerald-50/60"}`}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="font-heading text-base font-semibold">
+          <p className="section-title">
             {doc.number} · {doc.state_label}
           </p>
           <p className="text-[13px] text-muted-foreground">

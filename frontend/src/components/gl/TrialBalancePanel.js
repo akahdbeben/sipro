@@ -30,7 +30,7 @@ export default function TrialBalancePanel() {
         {data.balanced ? <CheckCircle2 className="h-4 w-4" /> : <AlertTriangle className="h-4 w-4" />}
         {data.balanced ? "Neraca saldo seimbang (debit = kredit)." : "Neraca saldo TIDAK seimbang — periksa jurnal."}
       </div>
-      <div className="overflow-x-auto rounded-xl border bg-card">
+      <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
         <Table>
           <TableHeader><TableRow>
             <TableHead>Kode</TableHead><TableHead>Nama Akun</TableHead><TableHead>Tipe</TableHead>

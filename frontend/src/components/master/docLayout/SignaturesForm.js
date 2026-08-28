@@ -41,7 +41,7 @@ export default function SignaturesForm({ signatures, options, setSignatures, set
 
       {signatures.map((s, i) => (
         <div key={`sig-${i}`} data-testid={P60.signItem}
-          className="space-y-2 rounded-lg border bg-card p-2.5">
+          className="space-y-2 rounded-lg border bg-card p-2.5 shadow-[var(--shadow-card)]">
           <div className="grid gap-2 sm:grid-cols-3">
             <div>
               <Label htmlFor={`dl-st-${i}`} className="text-[11px]">Judul kolom / peran</Label>

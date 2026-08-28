@@ -43,7 +43,7 @@ export default function CommissionBreakdown() {
       {loading ? (
         <div className="grid grid-cols-2 gap-3">
           {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="rounded-lg border bg-card p-3">
+            <div key={i} className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <Skeleton className="h-3 w-1/2" /><Skeleton className="mt-2 h-5 w-2/3" />
             </div>
           ))}

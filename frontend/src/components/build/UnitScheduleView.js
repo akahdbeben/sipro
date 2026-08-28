@@ -95,7 +95,7 @@ export default function UnitScheduleView({ unitId, onChanged, embedded = false }
 
   return (
     <div data-testid={UNIT_BUILD.schedule} className={embedded ? "space-y-4" : "space-y-4 pb-10"}>
-      <div data-testid={BUILD.sheetMetrics} className="rounded-xl border bg-card p-3">
+      <div data-testid={BUILD.sheetMetrics} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
         <div className="flex flex-wrap items-end justify-between gap-2">
           <div>
             <p className="text-[11px] text-muted-foreground">

@@ -69,7 +69,7 @@ export default function PlaybookPanel() {
 
   return (
     <div data-testid={OMNI.playbookPanel} className="space-y-3">
-      <p className="rounded-xl border bg-card p-3 text-xs text-muted-foreground">
+      <p className="rounded-xl border bg-card p-3 text-xs text-muted-foreground shadow-[var(--shadow-card)]">
         Playbook bekerja berdasarkan <span className="font-medium text-foreground">tahap lead</span>{" "}
         dan kondisi nyata (lead diam, survey besok, tagihan jatuh tempo). Pengiriman memakai
         template pra-approved dan <span className="font-medium text-foreground">mode SIMULASI</span>{" "}
@@ -107,14 +107,14 @@ export default function PlaybookPanel() {
             </div>
 
             <div className="grid grid-cols-2 gap-2">
-              <div className="flex items-center justify-between rounded-lg border bg-card px-2.5 py-1.5">
+              <div className="flex items-center justify-between rounded-lg border bg-card px-2.5 py-1.5 shadow-[var(--shadow-card)]">
                 <Label className="text-xs" htmlFor={`auto-${p.key}`}>Kirim otomatis</Label>
                 <Switch id={`auto-${p.key}`} data-testid={`${OMNI.playbookAuto}-${p.key}`}
                   checked={!!p.auto_send} disabled={busy === p.key}
                   onCheckedChange={(v) => patch(p.key, { auto_send: v },
                     v ? "Playbook akan mengirim otomatis." : "Pengiriman otomatis dimatikan.")} />
               </div>
-              <div className="flex items-center justify-between rounded-lg border bg-card px-2.5 py-1.5">
+              <div className="flex items-center justify-between rounded-lg border bg-card px-2.5 py-1.5 shadow-[var(--shadow-card)]">
                 <Label className="text-xs" htmlFor={`task-${p.key}`}>Buat tugas</Label>
                 <Switch id={`task-${p.key}`} checked={!!p.create_task} disabled={busy === p.key}
                   onCheckedChange={(v) => patch(p.key, { create_task: v },

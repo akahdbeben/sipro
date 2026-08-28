@@ -135,7 +135,7 @@ export default function UnitDetailPage() {
         </TabsList>
 
         <TabsContent value="summary" className="grid gap-4 lg:grid-cols-2">
-          <div className="rounded-lg border bg-card p-4">
+          <div className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
             <h2 className="mb-2 font-heading text-base font-semibold">Spesifikasi</h2>
             <Row label="Tipe" value={u.type} />
             <Row label="Luas tanah" value={u.luas_tanah ? `${u.luas_tanah} m²` : null} />
@@ -148,7 +148,7 @@ export default function UnitDetailPage() {
                 ? `${formatIDR(u.excess_land_price_agreed)} /m²` : "belum disepakati"} />
             <Row label="Harga unit" value={formatIDR(u.price)} />
           </div>
-          <div className="rounded-lg border bg-card p-4">
+          <div className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
             <h2 className="mb-2 font-heading text-base font-semibold">Usulan spek tambahan</h2>
             {(data?.suggested_addons || []).length ? (
               <div className="space-y-2">
@@ -176,7 +176,7 @@ export default function UnitDetailPage() {
         </TabsContent>
 
         <TabsContent value="sales" className="space-y-4">
-          <div className="rounded-lg border bg-card p-4">
+          <div className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
             <h2 className="mb-2 font-heading text-base font-semibold">Pembeli & transaksi</h2>
             <Row label="Status penjualan"
               value={<StatusPill status={u.status} group="unit_status" />} />
@@ -186,7 +186,7 @@ export default function UnitDetailPage() {
             <Row label="Status pembayaran" value={u.payment_status || "belum ada"} />
           </div>
           {(data?.deals || []).length ? (
-            <div className="overflow-x-auto rounded-md border bg-card">
+            <div className="overflow-x-auto rounded-md border bg-card shadow-[var(--shadow-card)]">
               <table className="w-full text-sm">
                 <thead className="bg-secondary text-left">
                   <tr>
@@ -230,7 +230,7 @@ export default function UnitDetailPage() {
               tambah/perpanjang. Sebelumnya hanya daftar mati tanpa masa berlaku. */}
           <PermitCoveragePanel unitId={id}
             title={`Perizinan yang berlaku untuk unit ${u.code || ""}`} />
-          <div className="rounded-lg border bg-card p-4">
+          <div className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
             <h2 className="mb-2 font-heading text-base font-semibold">Dokumen unit</h2>
             {(data?.documents || []).length ? (
               <ul className="space-y-1 text-sm">
@@ -253,7 +253,7 @@ export default function UnitDetailPage() {
         </TabsContent>
 
         <TabsContent value="history">
-          <div className="rounded-lg border bg-card p-4">
+          <div className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
             <h2 className="mb-3 font-heading text-base font-semibold">Riwayat status & harga</h2>
             {(data?.history || []).length ? (
               <ol className="space-y-2">

@@ -56,7 +56,7 @@ export default function MigrationRunsPanel() {
   const runs = data?.data || [];
 
   return (
-    <section data-testid={AUDIT.migrationPanel} className="rounded-xl border bg-card p-4">
+    <section data-testid={AUDIT.migrationPanel} className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
         <h2 className="flex items-center gap-2 text-sm font-semibold">
           <Database className="h-4 w-4 text-primary" /> Migrasi & Pembenahan Data (V2)

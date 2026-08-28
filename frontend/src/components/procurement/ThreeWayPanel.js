@@ -60,7 +60,7 @@ export default function ThreeWayPanel() {
           <EmptyState icon={ShieldCheck} title="Belum ada tagihan berbasis PO"
             description="Tagihan yang dibuat dari Purchase Order akan otomatis melewati 3-way match (PO → GRN → Tagihan)." />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>No. PO</TableHead><TableHead>Vendor</TableHead>
@@ -104,7 +104,7 @@ export default function ThreeWayPanel() {
                 <SheetDescription>{sel.vendor} · 3-Way Match</SheetDescription>
               </SheetHeader>
               <div className="mt-5 space-y-4">
-                <div className="rounded-xl border bg-card p-4 text-sm">
+                <div className="rounded-xl border bg-card p-4 text-sm shadow-[var(--shadow-card)]">
                   <div className="flex justify-between py-1"><span className="text-muted-foreground">Nilai PO (Ordered)</span><span className="font-medium tabular-nums">{formatIDR(md.po_total)}</span></div>
                   <div className="flex justify-between py-1"><span className="text-muted-foreground">Diterima (GRN)</span><span className="font-medium tabular-nums">{formatIDR(md.received_value)}</span></div>
                   <div className="flex justify-between py-1"><span className="text-muted-foreground">Ditagih kumulatif</span><span className="font-medium tabular-nums">{formatIDR(md.billed_after)}</span></div>

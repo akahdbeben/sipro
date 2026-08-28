@@ -100,7 +100,7 @@ export default function ClosingChecklistPanel({ onChanged }) {
 
   return (
     <div data-testid={P49.closingPanel} className="space-y-4">
-      <div className="flex flex-wrap items-end justify-between gap-3 rounded-xl border bg-card p-3">
+      <div className="flex flex-wrap items-end justify-between gap-3 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
         <div className="space-y-1">
           <Label className="text-xs" htmlFor="p49-closing-month">Periode (bulan buku)</Label>
           <Input id="p49-closing-month" type="month" className="w-[170px]"
@@ -124,12 +124,12 @@ export default function ClosingChecklistPanel({ onChanged }) {
       </div>
 
       <div data-testid={P49.closingStatus} data-status={data?.status}
-        className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-card p-3.5">
+        className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-card p-3.5 shadow-[var(--shadow-card)]">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <StatusPill status={closed ? "closed" : "open"}
               label={closed ? "Periode DITUTUP" : "Periode TERBUKA"} />
-            <p className="font-heading text-base font-semibold">{monthLabel(period)}</p>
+            <p className="section-title">{monthLabel(period)}</p>
           </div>
           <p className="text-xs text-muted-foreground">{data?.detail}</p>
           {closed && data?.closed_by ? (
@@ -196,7 +196,7 @@ export default function ClosingChecklistPanel({ onChanged }) {
         {(data?.items || []).map((item) => (
           <div key={item.code} data-testid={P49.closingItem} data-code={item.code}
             data-state={item.state}
-            className="flex flex-wrap items-start justify-between gap-3 rounded-xl border bg-card p-3">
+            className="flex flex-wrap items-start justify-between gap-3 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
             <div className="min-w-0 space-y-1">
               <div className="flex flex-wrap items-center gap-2">
                 {item.state === "ok"
@@ -215,7 +215,7 @@ export default function ClosingChecklistPanel({ onChanged }) {
             </div>
             {item.link ? (
               <a href={item.link} data-testid={P49.closingItemLink} data-code={item.code}
-                className="inline-flex items-center gap-1 rounded-lg border bg-card px-2.5 py-1.5 text-xs font-medium text-primary hover:bg-accent">
+                className="inline-flex items-center gap-1 rounded-lg border bg-card px-2.5 py-1.5 text-xs font-medium text-primary hover:bg-accent shadow-[var(--shadow-card)]">
                 Buka sumbernya <ExternalLink className="h-3 w-3" />
               </a>
             ) : null}

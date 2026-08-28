@@ -35,7 +35,8 @@ export default function NotificationRows({ rows = [], onRead, onDismiss, emptySt
     return (
       <EmptyState testId={NOTIF.empty} icon={Bell} title={emptyState?.title || "Bersih"}
         description={emptyState?.description
-          || "Tidak ada notifikasi pada tampilan ini."} />
+          || "Tidak ada notifikasi pada tampilan ini."}
+        actionLabel={emptyState?.actionLabel} onAction={emptyState?.onAction} />
     );
   }
 
@@ -45,7 +46,7 @@ export default function NotificationRows({ rows = [], onRead, onDismiss, emptySt
   };
 
   return (
-    <ul className="divide-y rounded-xl border bg-card">
+    <ul className="divide-y rounded-xl border bg-card shadow-[var(--shadow-card)]">
       {rows.map((n) => {
         const Icon = CATEGORY_ICON[n.category] || Info;
         const kembar = (n.group_count || 1) > 1;

@@ -29,7 +29,7 @@ export default function AdvanceDetailSheet({ advance, onClose }) {
         </SheetHeader>
 
         <div className="mt-4 space-y-4">
-          <div className="rounded-xl border bg-card p-3">
+          <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
             <Row label="Pemohon" value={a.requester_name || a.requested_by} />
             <Row label="Kategori" value={<RefLabel group="cashbon_category" value={a.category} />} />
             <Row label="Proyek" value={a.project_name || "—"} />
@@ -38,7 +38,7 @@ export default function AdvanceDetailSheet({ advance, onClose }) {
             <Row label="Catatan" value={a.note || "—"} />
           </div>
 
-          <div className="rounded-xl border bg-card p-3">
+          <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
             <p className="mb-1 text-xs font-semibold uppercase text-muted-foreground">Jejak proses</p>
             <Row label="Diajukan" value={formatDateTimeWIB(a.created_at)} />
             <Row label="Disetujui"
@@ -57,7 +57,7 @@ export default function AdvanceDetailSheet({ advance, onClose }) {
           </div>
 
           {(a.expenses || []).length ? (
-            <div className="rounded-xl border bg-card p-3">
+            <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <p className="mb-2 text-xs font-semibold uppercase text-muted-foreground">
                 Rincian pengeluaran
               </p>

@@ -60,7 +60,7 @@ export default function DataHealthPanel() {
         </div>
       ) : null}
 
-      <div data-testid={MASTER.healthStale} className="rounded-xl border bg-card p-4">
+      <div data-testid={MASTER.healthStale} className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
         <p className="flex items-center gap-2 text-sm font-semibold">
           <ShieldCheck className="h-4 w-4 text-primary" />
           Nama/kode salinan basi ({stale.length})
@@ -70,7 +70,7 @@ export default function DataHealthPanel() {
           saat startup dan setiap master di-update.
         </p>
         {stale.length ? (
-          <div className="mt-3 overflow-x-auto">
+          <div className="mt-3 overflow-hidden">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Koleksi</TableHead><TableHead>ID</TableHead><TableHead>Field</TableHead>
@@ -92,7 +92,7 @@ export default function DataHealthPanel() {
         ) : <p className="mt-2 text-sm text-muted-foreground">Tidak ada.</p>}
       </div>
 
-      <div data-testid={MASTER.healthInvalid} className="rounded-xl border bg-card p-4">
+      <div data-testid={MASTER.healthInvalid} className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
         <p className="flex items-center gap-2 text-sm font-semibold">
           <AlertTriangle className="h-4 w-4 text-amber-600" />
           Nilai referensi tidak dikenal ({invalid.length})
@@ -102,7 +102,7 @@ export default function DataHealthPanel() {
           dropdown terkontrol dipasang).
         </p>
         {invalid.length ? (
-          <div className="mt-3 overflow-x-auto">
+          <div className="mt-3 overflow-hidden">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Koleksi</TableHead><TableHead>Field</TableHead>
@@ -123,7 +123,7 @@ export default function DataHealthPanel() {
         ) : <p className="mt-2 text-sm text-muted-foreground">Tidak ada.</p>}
       </div>
 
-      <div data-testid="master-health-orphan" className="rounded-xl border bg-card p-4">
+      <div data-testid="master-health-orphan" className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
         <p className="flex items-center gap-2 text-sm font-semibold">
           <Unlink className="h-4 w-4 text-rose-600" />
           Referensi menggantung ({orphans.length})
@@ -132,7 +132,7 @@ export default function DataHealthPanel() {
           Dokumen yang menunjuk induk yang sudah tidak ada (mis. tugas yang leadnya sudah hilang).
         </p>
         {orphans.length ? (
-          <div className="mt-3 overflow-x-auto">
+          <div className="mt-3 overflow-hidden">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Koleksi</TableHead><TableHead>ID</TableHead><TableHead>Field</TableHead>

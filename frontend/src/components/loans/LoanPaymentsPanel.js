@@ -43,7 +43,7 @@ export default function LoanPaymentsPanel() {
         <EmptyState icon={Receipt} title="Belum ada pembayaran angsuran"
           description="Pembayaran angsuran akan tampil di sini beserta nomor jurnalnya." />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader>
               <TableRow>

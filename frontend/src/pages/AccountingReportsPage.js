@@ -38,7 +38,7 @@ export default function AccountingReportsPage() {
         <div className="flex items-center gap-2">
           <Scale className="h-5 w-5 text-primary" />
           <div>
-            <h1 className="font-heading text-xl font-semibold">Laporan Keuangan</h1>
+            <h1 className="page-title">Laporan Keuangan</h1>
             <p className="text-xs text-muted-foreground">
               Laba Rugi, Neraca, Neraca Lajur, Arus Kas (termasuk per proyek), Rasio, Paket Owner &amp; Tutup Periode
             </p>

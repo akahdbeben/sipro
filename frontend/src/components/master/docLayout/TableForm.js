@@ -25,7 +25,7 @@ const GRID = [
 export default function TableForm({ table, setTable }) {
   const t = table || {};
   const row = (id, testId, label, keterangan, checked, onChange) => (
-    <div className="flex items-start justify-between gap-3 rounded-lg border bg-card px-3 py-2">
+    <div className="flex items-start justify-between gap-3 rounded-lg border bg-card px-3 py-2 shadow-[var(--shadow-card)]">
       <div>
         <Label htmlFor={id} className="text-[12px]">{label}</Label>
         <p className="text-[11px] text-muted-foreground">{keterangan}</p>

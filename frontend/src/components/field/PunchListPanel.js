@@ -104,7 +104,7 @@ export default function PunchListPanel({ projectId }) {
             description="Catat cacat/temuan yang perlu diperbaiki sebelum serah terima."
             actionLabel={canManage ? "Tambah Punch" : undefined} onAction={() => setAddOpen(true)} />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Temuan</TableHead><TableHead>Kavling</TableHead>

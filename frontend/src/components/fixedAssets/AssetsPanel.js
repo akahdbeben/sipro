@@ -89,7 +89,7 @@ export default function AssetsPanel() {
             actionLabel="Tambah Aset" onAction={() => setOpenAdd(true)} />
         </div>
       ) : (
-        <div data-testid={ASSETS.table} className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div data-testid={ASSETS.table} className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader>
               <TableRow>
@@ -102,7 +102,7 @@ export default function AssetsPanel() {
                 <TableHead className="text-right">Nilai Buku</TableHead>
                 <TableHead className="text-right">Susut/bln</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead className="text-right">Aksi</TableHead>
+                <TableHead className="col-actions-head text-right">Aksi</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -135,7 +135,7 @@ export default function AssetsPanel() {
                     {formatIDR(r.monthly_depreciation)}
                   </TableCell>
                   <TableCell><StatusPill status={r.status} group="asset_status" /></TableCell>
-                  <TableCell>
+                  <TableCell className="col-actions">
                     <div className="flex justify-end gap-1.5">
                       <Button size="sm" variant="ghost" data-testid={ASSETS.detailBtn}
                         onClick={() => setDetailId(r.id)}>Detail</Button>

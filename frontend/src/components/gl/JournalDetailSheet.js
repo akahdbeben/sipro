@@ -19,7 +19,7 @@ export default function JournalDetailSheet({ journal, open, onOpenChange }) {
         </SheetHeader>
         <div className="mt-5 space-y-4">
           <p className="rounded-lg bg-secondary p-3 text-sm">{journal.memo}</p>
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Akun</TableHead><TableHead className="text-right">Debit</TableHead><TableHead className="text-right">Kredit</TableHead>

@@ -91,7 +91,7 @@ export default function ComplaintDetailSheet({ complaintId, open, onOpenChange, 
           <p className="mt-6 text-sm text-muted-foreground">Memuat…</p>
         ) : (
           <div className="mt-5 space-y-5">
-            <div className="rounded-xl border bg-card p-4">
+            <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <StatusPill status={c.status} group="complaint_status" />
                 <StatusPill status={c.priority} group="priority" />
@@ -108,7 +108,7 @@ export default function ComplaintDetailSheet({ complaintId, open, onOpenChange, 
               </div>
               <p className="mt-3 rounded-lg bg-secondary p-3 text-sm">{c.message}</p>
               {warranty ? (
-                <div className="mt-3 rounded-lg border bg-card p-3 text-[13px]">
+                <div className="mt-3 rounded-lg border bg-card p-3 text-[13px] shadow-[var(--shadow-card)]">
                   <p className="flex items-center gap-1.5 font-medium">
                     <ShieldCheck className="h-3.5 w-3.5 text-primary" /> Garansi rumah ini
                   </p>
@@ -131,7 +131,7 @@ export default function ComplaintDetailSheet({ complaintId, open, onOpenChange, 
               ) : (
                 <div className="space-y-2">
                   {c.responses.map((r, i) => (
-                    <div key={i} className="rounded-lg border bg-card p-3 text-sm">
+                    <div key={i} className="rounded-lg border bg-card p-3 text-sm shadow-[var(--shadow-card)]">
                       <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <UserCheck className="h-3.5 w-3.5" /> {r.by}
                         <Clock className="ml-2 h-3.5 w-3.5" /> {formatDateTimeWIB(r.at)}
@@ -144,7 +144,7 @@ export default function ComplaintDetailSheet({ complaintId, open, onOpenChange, 
             </div>
 
             {c.status !== "resolved" ? (
-              <div className="space-y-3 rounded-xl border bg-card p-4">
+              <div className="space-y-3 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
                 <Textarea data-testid={COMPLAINTS.respondInput} rows={3} placeholder="Tulis balasan ke pembeli…"
                   value={reply} onChange={(e) => setReply(e.target.value)} />
                 <div className="flex flex-wrap gap-2">

@@ -99,7 +99,7 @@ export default function PriceListPanel() {
 
       {compare ? (
         <div data-testid={T.compareBox}
-          className="rounded-xl border bg-card p-4">
+          className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
           <p className="flex items-center gap-2 font-heading text-sm font-semibold">
             <Scale className="h-4 w-4 text-primary" />
             Pembanding harga{materialName ? ` — ${materialName}` : ""}
@@ -146,7 +146,7 @@ export default function PriceListPanel() {
           description={"Catat harga penawaran vendor supaya harga PO punya pembanding dan "
             + "kenaikan harga bisa terlihat — sistem tidak akan menebak harga wajar."} />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <Table>
             <TableHeader><TableRow>
               <TableHead>Barang</TableHead><TableHead>Vendor</TableHead>

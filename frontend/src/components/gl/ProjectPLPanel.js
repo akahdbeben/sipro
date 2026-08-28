@@ -48,7 +48,7 @@ export default function ProjectPLPanel({ period }) {
     <div data-testid={GL.projPanel} className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
-          <p className="font-heading text-base font-semibold">Laporan Keuangan per Proyek</p>
+          <p className="section-title">Laporan Keuangan per Proyek</p>
           <p className="text-xs text-muted-foreground">Periode {data.period.label} · segmentasi dari sumber jurnal</p>
         </div>
         <Button data-testid={GL.exportBtn} size="sm" variant="outline" onClick={exportCsv}
@@ -61,7 +61,7 @@ export default function ProjectPLPanel({ period }) {
         <EmptyState icon={Building2} title="Belum ada aktivitas keuangan proyek pada periode ini"
           description="Pilih periode lain, atau catat transaksi (pembayaran, tagihan AP, komisi, BAST) agar laporan per proyek terbentuk." />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <Table>
             <TableHeader><TableRow>
               <TableHead>Proyek</TableHead>

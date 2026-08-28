@@ -57,7 +57,7 @@ export default function UnitReadinessCard({ readiness, canStart, onChanged }) {
 
   return (
     <div data-testid={READINESS.card} data-state={state}
-      className="rounded-xl border bg-card p-4">
+      className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="text-xs uppercase tracking-wide text-muted-foreground">

@@ -103,14 +103,14 @@ export default function PODetailSheet({ poId, open, onOpenChange, onChanged }) {
               <SheetDescription>{po.vendor} · {po.project_name}</SheetDescription>
             </SheetHeader>
             <div className="mt-5 space-y-5">
-              <div className="rounded-xl border bg-card p-4">
+              <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
                 <Row label="Nilai PO" value={formatIDR(po.total)} />
                 <Row label="Diterima (GRN)" value={formatIDR(po.received_value)} />
                 <Row label="Sudah Ditagih" value={formatIDR(po.billed_value)} />
                 {po.high_value ? <p className="mt-2 rounded-md bg-rose-50 p-2 text-xs text-rose-700">Nilai tinggi — persetujuan Owner.</p> : null}
               </div>
 
-              <div className="rounded-xl border bg-card p-4">
+              <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
                 <p className="mb-2 text-sm font-semibold">Item</p>
                 {po.items.map((it, i) => (
                   <div key={i} className="flex items-center justify-between border-t py-1.5 text-sm first:border-t-0">
@@ -149,7 +149,7 @@ export default function PODetailSheet({ poId, open, onOpenChange, onChanged }) {
               </div>
 
               {mode === "grn" ? (
-                <div className="space-y-2 rounded-xl border bg-card p-4">
+                <div className="space-y-2 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
                   <p className="text-sm font-semibold">Penerimaan Barang (GRN)</p>
                   {po.items.map((it, i) => {
                     const remaining = (it.qty || 0) - (it.received_qty || 0);
@@ -167,7 +167,7 @@ export default function PODetailSheet({ poId, open, onOpenChange, onChanged }) {
               ) : null}
 
               {mode === "bill" ? (
-                <div className="space-y-2 rounded-xl border bg-card p-4">
+                <div className="space-y-2 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
                   <p className="text-sm font-semibold">Buat Tagihan (3-Way Match)</p>
                   <div className="grid grid-cols-2 gap-2">
                     <div className="space-y-1"><Label className="text-xs">Nilai Klaim (Rp)</Label><Input type="number" value={bill.claimed} onChange={(e) => setBill((b) => ({ ...b, claimed: e.target.value }))} /></div>
@@ -195,7 +195,7 @@ export default function PODetailSheet({ poId, open, onOpenChange, onChanged }) {
               ) : null}
 
               {d.grns?.length ? (
-                <div className="rounded-xl border bg-card p-4">
+                <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
                   <p className="mb-2 text-sm font-semibold">Penerimaan ({d.grns.length})</p>
                   {d.grns.map((g) => (
                     <div key={g.id} className="flex justify-between border-t py-1.5 text-sm first:border-t-0">
@@ -205,7 +205,7 @@ export default function PODetailSheet({ poId, open, onOpenChange, onChanged }) {
                 </div>
               ) : null}
               {d.bills?.length ? (
-                <div className="rounded-xl border bg-card p-4">
+                <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
                   <p className="mb-2 text-sm font-semibold">Tagihan ({d.bills.length})</p>
                   {d.bills.map((b) => (
                     <div key={b.id} className="flex items-center justify-between border-t py-1.5 text-sm first:border-t-0">

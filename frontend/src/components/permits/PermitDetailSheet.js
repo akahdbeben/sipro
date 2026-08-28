@@ -73,7 +73,7 @@ export default function PermitDetailSheet({ permit, open, canManage, onOpenChang
           </SheetDescription>
         </SheetHeader>
         <div className="mt-5 space-y-5">
-          <div className="rounded-xl border bg-card p-4">
+          <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
             <div className="mb-2 flex flex-wrap items-center gap-2">
               <StatusPill status={permit.status} group="permit_status" />
               <StatusPill status={permit.health} group="permit_health"
@@ -113,7 +113,7 @@ export default function PermitDetailSheet({ permit, open, canManage, onOpenChang
             ) : null}
           </div>
           {canManage ? (
-            <div className="space-y-2 rounded-xl border bg-card p-4">
+            <div className="space-y-2 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
               <p className="text-sm font-semibold">Perbarui Status</p>
               <Select value={status} onValueChange={setStatus}>
                 <SelectTrigger data-testid={PERMITS.statusSelect}><SelectValue /></SelectTrigger>
@@ -130,7 +130,7 @@ export default function PermitDetailSheet({ permit, open, canManage, onOpenChang
             </div>
           ) : null}
           {canManage ? (
-            <div className="space-y-2 rounded-xl border bg-card p-4">
+            <div className="space-y-2 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
               <p className="text-sm font-semibold">Perpanjang masa berlaku</p>
               <p className="text-[11px] text-muted-foreground">
                 Masa berlaku sekarang: {expiryText(permit)}. Tanggal lama tetap tersimpan

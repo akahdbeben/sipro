@@ -50,7 +50,7 @@ export default function UnitQualityPanel({ unitId, projectId, unitCode, onChange
 
   return (
     <div data-testid={UNIT_BUILD.quality} className="space-y-4">
-      <div className="rounded-xl border bg-card p-4">
+      <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
         <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
           <h3 className="flex items-center gap-1.5 font-heading text-base font-semibold">
             <ClipboardCheck className="h-4 w-4 text-primary" /> Inspeksi mutu (QC) unit ini
@@ -82,7 +82,7 @@ export default function UnitQualityPanel({ unitId, projectId, unitCode, onChange
         )}
       </div>
 
-      <div className="rounded-xl border bg-card p-4">
+      <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
         <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
           <h3 className="flex items-center gap-1.5 font-heading text-base font-semibold">
             <Wrench className="h-4 w-4 text-primary" /> Temuan / punch list unit ini
@@ -122,7 +122,7 @@ export default function UnitQualityPanel({ unitId, projectId, unitCode, onChange
         )}
       </div>
 
-      <div data-testid={UNIT_BUILD.weekly} className="rounded-xl border bg-card p-4">
+      <div data-testid={UNIT_BUILD.weekly} className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
         <h3 className="mb-2 flex items-center gap-1.5 font-heading text-base font-semibold">
           <FileBarChart2 className="h-4 w-4 text-primary" /> Rapor mingguan proyek terbaru
         </h3>

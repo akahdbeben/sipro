@@ -60,7 +60,7 @@ export default function FakturPanel() {
         <EmptyState icon={FileText} title="Belum ada faktur pajak"
           description="Terbitkan Faktur Pajak Keluaran untuk deal yang sudah memiliki jadwal AR." />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader>
               <TableRow>
@@ -86,7 +86,7 @@ export default function FakturPanel() {
                   <TableCell className="text-right tabular-nums font-semibold text-primary">{formatIDR(f.ppn)}</TableCell>
                   <TableCell className="text-muted-foreground">{formatDateWIB(f.issued_at)}</TableCell>
                   <TableCell><StatusPill status={f.status} group="faktur_status" /></TableCell>
-                  <TableCell>
+                  <TableCell className="col-actions">
                     <div className="flex justify-end">
                       <Button size="sm" variant="outline" data-testid={TAX.fakturPdfBtn}
                         onClick={() => downloadPdf(f)} disabled={busyId === f.id}>

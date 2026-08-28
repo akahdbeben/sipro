@@ -100,7 +100,7 @@ export default function PunchDetailSheet({ punch, open, canManage, onOpenChange,
           <SheetDescription>Detail temuan, bukti foto, & pembaruan status perbaikan.</SheetDescription>
         </SheetHeader>
         <div className="mt-5 space-y-5">
-          <div className="rounded-xl border bg-card p-4">
+          <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
             <div className="mb-2 flex items-center justify-between">
               <StatusPill status={punch.status} group="punch_status" />
               <StatusPill status={punch.severity} group="punch_severity" />
@@ -114,7 +114,7 @@ export default function PunchDetailSheet({ punch, open, canManage, onOpenChange,
             {punch.description ? <p className="mt-2 rounded-lg bg-secondary p-3 text-sm">{punch.description}</p> : null}
           </div>
 
-          <div className="space-y-3 rounded-xl border bg-card p-4">
+          <div className="space-y-3 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
             <p className="text-sm font-semibold">Bukti kerja: sebelum → sesudah</p>
             <BeforeAfterCompare repairs={pairs}
               emptyText="Belum ada foto temuan maupun bukti perbaikan pada item ini." />
@@ -134,7 +134,7 @@ export default function PunchDetailSheet({ punch, open, canManage, onOpenChange,
           </div>
 
           {canManage ? (
-            <div className="space-y-3 rounded-xl border bg-card p-4">
+            <div className="space-y-3 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
               <p className="text-sm font-semibold">Perbarui Status</p>
               <Select value={status} onValueChange={setStatus}>
                 <SelectTrigger data-testid={FIELD.punchStatusSelect} aria-label="Status temuan"><SelectValue /></SelectTrigger>

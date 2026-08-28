@@ -74,7 +74,7 @@ export default function MetricDetailDialog({ metric, open, onOpenChange, range }
           ) : null}
           {rows.length ? (
             <div data-testid={BI.detailTable}
-              className="overflow-x-auto rounded-lg border bg-card">
+              className="overflow-x-auto rounded-lg border bg-card shadow-[var(--shadow-card)]">
               <table className="w-full text-sm">
                 <thead className="bg-muted/50 text-xs uppercase text-muted-foreground">
                   <tr>{keys.map((k) => (

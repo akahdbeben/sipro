@@ -74,7 +74,7 @@ export default function MaterialsPage() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <Boxes className="h-5 w-5 text-primary" />
-          <h1 className="font-heading text-xl font-semibold">Material, Permintaan & Anggaran</h1>
+          <h1 className="page-title">Material, Permintaan & Anggaran</h1>
         </div>
         {canView ? (
           <ProjectSelect value={projectId} onChange={setProjectId} testId={MATERIALS.projectSelect} />
@@ -109,14 +109,14 @@ export default function MaterialsPage() {
                 </Button>
               </div>
             ) : null}
-            <div className="overflow-x-auto rounded-xl border bg-card">
+            <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
               <Table>
                 <TableHeader>
                   <TableRow>
                     <TableHead>Kode</TableHead><TableHead>Material</TableHead>
                     <TableHead className="text-right">Stok (buku)</TableHead>
                     <TableHead>Satuan</TableHead><TableHead>Opname terakhir</TableHead>
-                    {canUpdate ? <TableHead className="text-right">Aksi</TableHead> : null}
+                    {canUpdate ? <TableHead className="col-actions-head text-right">Aksi</TableHead> : null}
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -128,7 +128,7 @@ export default function MaterialsPage() {
                       <TableCell className="text-sm text-muted-foreground">{m.uom}</TableCell>
                       <TableCell className="text-xs text-muted-foreground">{m.last_opname ? formatDateTimeWIB(m.last_opname) : "-"}</TableCell>
                       {canUpdate ? (
-                        <TableCell className="text-right">
+                        <TableCell className="col-actions text-right">
                           <div className="flex justify-end gap-1.5">
                             <Button data-testid={MATERIALS.txnBtn} data-material-code={m.code}
                               aria-label={`Transaksi stok ${m.name}`} size="sm" variant="outline" onClick={() => setTxnMat(m)}>
@@ -155,7 +155,7 @@ export default function MaterialsPage() {
               {!txns.length ? <p className="text-sm text-muted-foreground">Belum ada transaksi.</p> : (
                 <div className="space-y-2">
                   {txns.slice(0, 30).map((t) => (
-                    <div key={t.id} className="flex items-center justify-between rounded-lg border bg-card p-2.5 text-sm">
+                    <div key={t.id} className="flex items-center justify-between rounded-lg border bg-card p-2.5 text-sm shadow-[var(--shadow-card)]">
                       <div>
                         <span className={`mr-2 rounded-full border px-2 py-0.5 text-xs ${
                           t.type === "in" ? "border-emerald-200 bg-emerald-50 text-emerald-700"

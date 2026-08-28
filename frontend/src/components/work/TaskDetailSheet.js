@@ -119,10 +119,10 @@ export default function TaskDetailSheet({ taskId, open, onOpenChange, onChanged 
               </div>
 
               {t.description ? (
-                <p className="rounded-xl border bg-card p-3 text-sm">{t.description}</p>
+                <p className="rounded-xl border bg-card p-3 text-sm shadow-[var(--shadow-card)]">{t.description}</p>
               ) : null}
 
-              <div className="rounded-xl border bg-card p-3">
+              <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                 <p className="mb-1 flex items-center gap-1.5 text-xs font-semibold uppercase text-muted-foreground">
                   <Info className="h-3.5 w-3.5" /> Aturan jobdesk
                 </p>
@@ -155,7 +155,7 @@ export default function TaskDetailSheet({ taskId, open, onOpenChange, onChanged 
               ) : null}
 
               {(t.proof || []).length ? (
-                <div className="rounded-xl border bg-card p-3">
+                <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                   <p className="mb-2 text-xs font-semibold uppercase text-muted-foreground">
                     Bukti kerja terlampir ({t.proof.length})
                   </p>
@@ -194,7 +194,7 @@ export default function TaskDetailSheet({ taskId, open, onOpenChange, onChanged 
               ) : null}
 
               {canSubmit ? (
-                <div className="space-y-3 rounded-xl border bg-card p-3">
+                <div className="space-y-3 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                   <p className="text-sm font-semibold">Ajukan hasil kerja</p>
                   {isOpenState ? (
                     <Button variant="outline" size="sm" data-testid={WORK.taskStartBtn}
@@ -237,7 +237,7 @@ export default function TaskDetailSheet({ taskId, open, onOpenChange, onChanged 
               ) : null}
 
               {data?.can_verify ? (
-                <div className="space-y-2 rounded-xl border bg-card p-3">
+                <div className="space-y-2 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                   <p className="text-sm font-semibold">Tindakan supervisor</p>
                   <div className="flex flex-wrap gap-2">
                     <Button size="sm" data-testid={WORK.taskVerifyBtn} disabled={busy || !canVerify}

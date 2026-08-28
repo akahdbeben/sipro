@@ -16,7 +16,7 @@ import { P50 } from "@/constants/testIds";
 
 function Kpi({ label, value, hint, testId }) {
   return (
-    <div data-testid={testId} className="rounded-xl border bg-card p-3">
+    <div data-testid={testId} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
       <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
         {label}
       </p>
@@ -127,7 +127,7 @@ export default function WarrantyBoardPanel({ projectId }) {
           <div className="flex flex-wrap gap-1.5">
             {Object.entries(report?.per_state || {}).map(([k, v]) => (
               <span key={k}
-                className="rounded-full border bg-card px-2 py-0.5 text-[11px] text-muted-foreground">
+                className="rounded-full border bg-card px-2 py-0.5 text-[11px] text-muted-foreground shadow-[var(--shadow-card)]">
                 {k}: <span className="font-semibold text-foreground tabular-nums">{v}</span>
               </span>
             ))}
@@ -136,14 +136,14 @@ export default function WarrantyBoardPanel({ projectId }) {
       </div>
 
       <div className="space-y-2">
-        <h4 className="font-heading text-base font-semibold">Rumah dalam masa garansi</h4>
+        <h4 className="section-title">Rumah dalam masa garansi</h4>
         {!board.length ? (
           <div data-testid={P50.boardEmpty}>
             <EmptyState icon={ShieldCheck} title="Belum ada rumah yang diserahterimakan"
               description="Papan ini terisi begitu BAST serah terima diterbitkan dari tab Serah Terima & Garansi di halaman unit." />
           </div>
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <table className="w-full text-[13px]">
               <thead className="bg-secondary/60 text-left text-[12px] text-muted-foreground">
                 <tr>
@@ -196,7 +196,7 @@ export default function WarrantyBoardPanel({ projectId }) {
 
       <div data-testid={P50.claimsPanel} className="space-y-3">
         <div className="flex flex-wrap items-end justify-between gap-3">
-          <h4 className="font-heading text-base font-semibold">Daftar kerja klaim garansi</h4>
+          <h4 className="section-title">Daftar kerja klaim garansi</h4>
           <div className="flex flex-wrap items-end gap-2">
             <div className="w-48 space-y-1">
               <Label className="text-[11px]">Status</Label>

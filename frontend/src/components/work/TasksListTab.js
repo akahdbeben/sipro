@@ -210,7 +210,7 @@ export default function TasksListTab({ scopes = [], onOpenTask, onChanged }) {
         </div>
       ) : (
         <span data-testid={`${WORK.scopePrefix}-mine`}
-          className="inline-block rounded-lg border bg-card px-3 py-1 text-sm text-muted-foreground">
+          className="inline-block rounded-lg border bg-card px-3 py-1 text-sm text-muted-foreground shadow-[var(--shadow-card)]">
           Tugas yang ditugaskan kepada saya
         </span>
       )}

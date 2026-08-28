@@ -107,7 +107,7 @@ export default function RealizationDialog({ item, open, onOpenChange }) {
                   <div className="flex flex-wrap gap-2">
                     {data.by_source.map((s) => (
                       <span key={s.source} data-testid={BUDGET.drillSource}
-                        className="rounded-full border bg-card px-3 py-1 text-[11px]">
+                        className="rounded-full border bg-card px-3 py-1 text-[11px] shadow-[var(--shadow-card)]">
                         <span className="text-muted-foreground">
                           {labelOf("cost_source", s.source)}:
                         </span>{" "}
@@ -125,7 +125,7 @@ export default function RealizationDialog({ item, open, onOpenChange }) {
                     Belum ada dokumen biaya yang menyusun angka item ini.
                   </p>
                 ) : (
-                  <div className="overflow-x-auto rounded-xl border bg-card">
+                  <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
                     <Table>
                       <TableHeader><TableRow>
                         <TableHead>Jenis dokumen</TableHead>
@@ -197,7 +197,7 @@ export default function RealizationDialog({ item, open, onOpenChange }) {
                 ) : null}
 
                 {(data.revision || []).length ? (
-                  <div className="rounded-xl border bg-card p-3">
+                  <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                     <p className="text-sm font-semibold">Riwayat revisi anggaran</p>
                     <ul className="mt-1.5 space-y-1 text-[12px]">
                       {[...data.revision].reverse().map((r, i) => (
@@ -214,7 +214,7 @@ export default function RealizationDialog({ item, open, onOpenChange }) {
                 ) : null}
 
                 {(data.alerts || []).length ? (
-                  <div className="rounded-xl border bg-card p-3">
+                  <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                     <p className="text-sm font-semibold">Riwayat peringatan</p>
                     <ul className="mt-1.5 space-y-1 text-[12px]">
                       {[...data.alerts].reverse().map((a, i) => (

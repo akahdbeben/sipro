@@ -15,7 +15,7 @@ const SECTIONS = [
 
 function Section({ id, title, hint, section, onDrill }) {
   return (
-    <div className="rounded-xl border bg-card p-4">
+    <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <p className="font-heading text-sm font-semibold">{title}</p>
       <p className="mb-2 text-[11px] text-muted-foreground">{hint}</p>
       {section.lines.length ? section.lines.map((r) => (
@@ -77,7 +77,7 @@ export default function CashFlowStatementPanel({ period, onDrill }) {
     <div data-testid={GL.cfPanel} className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
-          <p className="font-heading text-base font-semibold">Laporan Arus Kas (metode langsung)</p>
+          <p className="section-title">Laporan Arus Kas (metode langsung)</p>
           <p className="text-xs text-muted-foreground">
             Periode {data.period.label} · sumber: mutasi akun kas &amp; bank ({data.cash_accounts.join(", ")})
           </p>

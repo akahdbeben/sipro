@@ -69,7 +69,7 @@ export default function BuildTemplatePanel({ projectId }) {
 
   return (
     <div data-testid={BUILD.templatePanel} className="space-y-4">
-      <div className="flex flex-wrap items-start justify-between gap-2 rounded-xl border bg-card p-3">
+      <div className="flex flex-wrap items-start justify-between gap-2 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
         <p className="max-w-2xl text-xs text-muted-foreground">
           Template menentukan <b>urutan pekerjaan, bobot progres, waktu tunggu (curing),
           hold point, dan checklist mutu</b>. Jadwal unit yang sudah dibuat tidak berubah

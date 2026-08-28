@@ -92,7 +92,7 @@ function TemplateDialog({ open, onOpenChange, initial, onDone }) {
               </Button>
             </div>
             {items.length ? (
-              <div className="space-y-1.5 rounded-lg border bg-card p-2">
+              <div className="space-y-1.5 rounded-lg border bg-card p-2 shadow-[var(--shadow-card)]">
                 {items.map((it, i) => (
                   <div key={`${it.label}-${i}`} className="flex items-center justify-between gap-2 text-sm">
                     <span className="flex items-center gap-2">
@@ -184,7 +184,7 @@ export default function QcTemplatesPanel() {
           {rows.map((t) => (
             <div key={t.id} data-testid={MASTER.qcRow} data-template-code={t.code}
               data-template-archived={t.is_active === false ? "true" : "false"}
-              className="rounded-xl border bg-card p-4">
+              className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <p className="font-heading text-sm font-semibold">{t.name}</p>

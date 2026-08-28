@@ -63,7 +63,7 @@ export default function ReferencePanel() {
         <div className="relative w-full sm:w-72">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input data-testid={MASTER.refSearch} value={q} onChange={(e) => setQ(e.target.value)}
-            className="pl-8" placeholder="Cari grup, nilai, atau label…" aria-label="Cari kamus data" />
+            className="search-field pl-9" placeholder="Cari grup, nilai, atau label…" aria-label="Cari kamus data" />
         </div>
       </div>
 

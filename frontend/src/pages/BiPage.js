@@ -34,7 +34,7 @@ export default function BiPage() {
   const header = (
     <div className="flex flex-wrap items-end justify-between gap-3">
       <div>
-        <h1 className="font-heading text-2xl font-semibold tracking-tight">Analitik & BI</h1>
+        <h1 className="page-title">Analitik & BI</h1>
         <p className="max-w-3xl text-sm text-muted-foreground">
           Lima dashboard untuk lima pertanyaan yang berbeda, semuanya dihitung dari data
           operasional yang sama — bukan hitungan kedua. Setiap angka membawa

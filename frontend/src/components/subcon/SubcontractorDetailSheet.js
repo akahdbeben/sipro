@@ -36,7 +36,7 @@ export default function SubcontractorDetailSheet({ sub, open, onOpenChange }) {
           <SheetDescription>{sub.code} · {sub.specialty || "Subkontraktor"}</SheetDescription>
         </SheetHeader>
         <div className="mt-5 space-y-5">
-          <div className="rounded-xl border bg-card p-4">
+          <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
             <Row label="PIC" value={sub.pic_name} />
             <Row label="Telepon" value={sub.phone} />
             <Row label="Email" value={sub.email} />
@@ -44,7 +44,7 @@ export default function SubcontractorDetailSheet({ sub, open, onOpenChange }) {
             <Row label="Alamat" value={sub.address} />
             <Row label="Rating" value={sub.rating ? `${sub.rating}/5` : "-"} />
           </div>
-          <div className="rounded-xl border bg-card p-4">
+          <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
             <p className="mb-2 text-sm font-semibold">SPK ({spk.length})</p>
             {!spk.length ? <p className="text-sm text-muted-foreground">Belum ada SPK.</p> :
               spk.map((s) => (

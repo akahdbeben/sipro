@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import ArrearsCandidatesPanel from "@/components/finance/ArrearsCandidatesPanel";
 import { P56 } from "@/constants/testIds";
+import SearchInput from "@/components/patterns/SearchInput";
 
 /**
  * CancellationsPanel (tab Keuangan → "Pembatalan & Refund") — Fase 56C.
@@ -117,10 +118,10 @@ export default function CancellationsPanel() {
             ))}
           </SelectContent>
         </Select>
-        <Input data-testid={P56.financeSearch} value={cari}
+        <SearchInput testId={P56.financeSearch} value={cari}
           placeholder="Cari nomor BTL, nama pembeli, atau kode unit…"
           className="w-[320px]"
-          onChange={(e) => setCari(e.target.value)}
+          onChange={setCari}
           onKeyDown={(e) => { if (e.key === "Enter") terapkanCari(); }}
           onBlur={terapkanCari} />
         {menyaring ? (
@@ -141,7 +142,7 @@ export default function CancellationsPanel() {
       ) : null}
 
       {!state.loading && !state.error && rows.length ? (
-        <div className="overflow-x-auto rounded-lg border bg-card">
+        <div className="overflow-hidden rounded-lg border bg-card shadow-[var(--shadow-card)]">
           <Table>
             <TableHeader>
               <TableRow>
@@ -206,7 +207,7 @@ export default function CancellationsPanel() {
                       {r.refund_hold ? r.refund_hold.detail
                         : (r.can_pay_refund ? "Siap dibayar Keuangan." : "—")}
                     </TableCell>
-                    <TableCell className="text-right">
+                    <TableCell className="col-actions text-right">
                       {r.customer_id ? (
                         <Button size="sm" variant="outline" asChild>
                           <Link to={`/customers/${r.customer_id}?tab=kontrak53`}>

@@ -40,7 +40,7 @@ export default function ImportReport({ report, testId }) {
           ["unchanged", labelOf("ads_row_status", "unchanged"), s.unchanged],
           ["rejected", labelOf("ads_row_status", "rejected"), s.rejected],
         ].map(([key, label, value]) => (
-          <div key={key} data-summary={key} className="rounded-lg border bg-card p-2.5">
+          <div key={key} data-summary={key} className="rounded-lg border bg-card p-2.5 shadow-[var(--shadow-card)]">
             <p className="text-xs text-muted-foreground">{label}</p>
             <p className="font-heading text-lg font-semibold tabular-nums">{value || 0}</p>
           </div>
@@ -71,7 +71,7 @@ export default function ImportReport({ report, testId }) {
 
       {rows.length ? (
         <div data-testid={ADS.importRowsTable}
-          className="max-h-72 overflow-auto rounded-lg border bg-card">
+          className="max-h-72 overflow-auto rounded-lg border bg-card shadow-[var(--shadow-card)]">
           <table className="w-full text-sm">
             <thead className="sticky top-0 bg-muted/70 text-xs uppercase text-muted-foreground">
               <tr>

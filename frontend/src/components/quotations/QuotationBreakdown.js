@@ -42,7 +42,7 @@ export default function QuotationBreakdown({ calc }) {
 
   return (
     <div data-testid={QUOTE.breakdown} className="space-y-3">
-      <div className="rounded-lg border bg-card p-3">
+      <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
         <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
           Rincian harga
         </p>
@@ -63,7 +63,7 @@ export default function QuotationBreakdown({ calc }) {
         </div>
       </div>
 
-      <div className="rounded-lg border bg-card p-3">
+      <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
         <div className="flex items-center justify-between">
           <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
             Skema pembayaran · {calc.scheme?.name || "belum dipilih"}

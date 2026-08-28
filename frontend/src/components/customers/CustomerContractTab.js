@@ -91,13 +91,13 @@ export default function CustomerContractTab({ customer }) {
       {gap}
 
       <div className="space-y-2">
-        <h3 className="font-heading text-base font-semibold">Transaksi (dasar kontrak)</h3>
+        <h3 className="section-title">Transaksi (dasar kontrak)</h3>
         {!deals.length ? (
           <p className="text-[13px] text-muted-foreground">
             Belum ada transaksi yang jadi — baru penawaran.
           </p>
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <table className="w-full text-[13px]">
               <thead className="bg-secondary/60 text-left text-[12px] text-muted-foreground">
                 <tr>
@@ -137,7 +137,7 @@ export default function CustomerContractTab({ customer }) {
       </div>
 
       <div className="space-y-2">
-        <h3 className="font-heading text-base font-semibold">
+        <h3 className="section-title">
           Penawaran & rincian harga yang tercatat
         </h3>
         {!quotes.length ? (
@@ -146,7 +146,7 @@ export default function CustomerContractTab({ customer }) {
           </p>
         ) : quotes.map((q) => (
           <div key={q.id} data-testid={CRMC.contractQuotationRow}
-            className="space-y-2 rounded-xl border bg-card p-3">
+            className="space-y-2 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
             <div className="flex flex-wrap items-start justify-between gap-2">
               <div>
                 <p className="font-medium">
@@ -183,7 +183,7 @@ export default function CustomerContractTab({ customer }) {
               ))}
             </div>
             {(q.addons || []).length ? (
-              <div className="overflow-x-auto rounded-lg border bg-card">
+              <div className="overflow-x-auto rounded-lg border bg-card shadow-[var(--shadow-card)]">
                 <table className="w-full text-[12px]">
                   <thead className="bg-secondary/60 text-left text-muted-foreground">
                     <tr>

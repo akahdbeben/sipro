@@ -38,7 +38,7 @@ export default function TargetSummaryCard({ projectId }) {
         </p>
         <MissingNote items={data.missing} title="Belum bisa ditampilkan karena:" />
         <Link to={data.drill}
-          className="mt-2 inline-block rounded-md border bg-card px-3 py-1.5 text-xs font-medium">
+          className="mt-2 inline-block rounded-md border bg-card px-3 py-1.5 text-xs font-medium shadow-[var(--shadow-card)]">
           Buat target di RAB/BoQ → Target &amp; Budget
         </Link>
       </div>
@@ -49,7 +49,7 @@ export default function TargetSummaryCard({ projectId }) {
   const cur = data.current_period;
   return (
     <div data-testid={BUDGET.projectTargetCard} data-state={data.state}
-      className="space-y-3 rounded-xl border bg-card p-4">
+      className="space-y-3 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="flex items-center gap-2 text-sm font-semibold">
           <Target className="h-4 w-4 text-primary" /> {data.target?.name}

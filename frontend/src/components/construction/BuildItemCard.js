@@ -32,7 +32,7 @@ export default function BuildItemCard({ item, can, currentEmail, onStart, onSubm
 
   return (
     <div data-testid={BUILD.item} data-step={item.step_code} data-status={item.status}
-      className="rounded-xl border bg-card p-3">
+      className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="min-w-0">
           <p className="flex flex-wrap items-center gap-1.5 text-sm font-medium">

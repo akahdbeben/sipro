@@ -67,7 +67,7 @@ export default function VatReturnPanel() {
           <div className="flex flex-wrap items-center gap-2">
             <StatusPill status={data?.state} group="vat_return_state" label={data?.state_label}
               tone={TONE[data?.state] || "snoozed"} />
-            <p className="font-heading text-base font-semibold">Masa {data?.period}</p>
+            <p className="section-title">Masa {data?.period}</p>
           </div>
           <p>{data?.detail}</p>
         </div>
@@ -93,7 +93,7 @@ export default function VatReturnPanel() {
           hint="Estimasi inklusif dari tagihan vendor" />
       </div>
 
-      <div data-testid={P49.vatReconstruct} className="space-y-2 rounded-xl border bg-card p-4">
+      <div data-testid={P49.vatReconstruct} className="space-y-2 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
         <p className="flex items-center gap-1.5 font-heading text-sm font-semibold">
           <Landmark className="h-4 w-4 text-primary" /> Cara angka ini dihitung (bisa diaudit)
         </p>

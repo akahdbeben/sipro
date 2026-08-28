@@ -192,7 +192,7 @@ export default function WorkCalendarDialog({
               <div className="mt-2 grid gap-2 sm:grid-cols-2">
                 {weekdays.map((w) => (
                   <div key={w.key} data-testid={CAL.patternRow} data-day={w.key}
-                    className="flex items-center justify-between gap-2 rounded-lg border bg-card p-2">
+                    className="flex items-center justify-between gap-2 rounded-lg border bg-card p-2 shadow-[var(--shadow-card)]">
                     <Label className="text-xs" htmlFor={`pattern-${w.key}`}>{w.label}</Label>
                     <div className="w-40">
                       <ReferenceSelect group="calendar_work_pattern"

@@ -133,7 +133,7 @@ export default function BroadcastPanel() {
         <div className="space-y-2">
           {rows.map((b) => (
             <div key={b.id} data-testid={OMNI.bcRow}
-              className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-card p-3">
+              className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
                   <p className="font-medium">{b.name}</p>
@@ -217,7 +217,7 @@ export default function BroadcastPanel() {
               </div>
             </div>
 
-            <label className="flex items-center justify-between rounded-lg border bg-card p-3">
+            <label className="flex items-center justify-between rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <span className="text-sm font-medium">Sertakan Customer (pembeli)</span>
               <Switch data-testid={OMNI.bcSegCustomers} checked={seg.include_customers}
                 onCheckedChange={(v) => setSeg({ ...seg, include_customers: !!v })} />
@@ -256,11 +256,11 @@ export default function BroadcastPanel() {
                 </SheetDescription>
               </SheetHeader>
               <div className="mt-4 grid grid-cols-3 gap-2 text-center">
-                <div className="rounded-lg border bg-card p-2"><p className="text-lg font-semibold">{formatNumber(detail.broadcast.total)}</p><p className="text-[11px] text-muted-foreground">Penerima</p></div>
-                <div className="rounded-lg border bg-card p-2"><p className="text-lg font-semibold text-emerald-600">{formatNumber(detail.broadcast.delivered)}</p><p className="text-[11px] text-muted-foreground">Terkirim</p></div>
-                <div className="rounded-lg border bg-card p-2"><p className="text-lg font-semibold text-indigo-600">{formatNumber(detail.broadcast.read)}</p><p className="text-[11px] text-muted-foreground">Dibaca</p></div>
+                <div className="rounded-lg border bg-card p-2 shadow-[var(--shadow-card)]"><p className="text-lg font-semibold">{formatNumber(detail.broadcast.total)}</p><p className="text-[11px] text-muted-foreground">Penerima</p></div>
+                <div className="rounded-lg border bg-card p-2 shadow-[var(--shadow-card)]"><p className="text-lg font-semibold text-emerald-600">{formatNumber(detail.broadcast.delivered)}</p><p className="text-[11px] text-muted-foreground">Terkirim</p></div>
+                <div className="rounded-lg border bg-card p-2 shadow-[var(--shadow-card)]"><p className="text-lg font-semibold text-indigo-600">{formatNumber(detail.broadcast.read)}</p><p className="text-[11px] text-muted-foreground">Dibaca</p></div>
               </div>
-              <div className="mt-4 overflow-x-auto rounded-xl border bg-card">
+              <div className="mt-4 overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
                 <Table>
                   <TableHeader>
                     <TableRow>

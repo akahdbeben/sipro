@@ -114,7 +114,7 @@ export default function SurveyPanel({ appointment, onChanged }) {
   const completed = survey?.status === "completed";
 
   return (
-    <section data-testid={SURVEY.section} className="rounded-xl border bg-card p-4">
+    <section data-testid={SURVEY.section} className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="mb-3 flex items-center justify-between">
         <h3 className="flex items-center gap-2 text-sm font-semibold">
           <ClipboardCheck className="h-4 w-4 text-primary" /> Survey Lokasi
@@ -135,7 +135,7 @@ export default function SurveyPanel({ appointment, onChanged }) {
           <div className="space-y-2">
             {survey.checklist.map((c, i) => (
               <div key={c.key} data-testid={SURVEY.checklistItem}
-                className="rounded-lg border bg-card p-2.5">
+                className="rounded-lg border bg-card p-2.5 shadow-[var(--shadow-card)]">
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-sm font-medium">{c.label}</span>
                   {completed ? (

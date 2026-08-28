@@ -69,7 +69,7 @@ export default function SpkScopeSection({ spk, canManage, onChanged }) {
   const hasRows = !!rows?.length;
 
   return (
-    <div data-testid={SCOPE.section} className="space-y-3 rounded-xl border bg-card p-4">
+    <div data-testid={SCOPE.section} className="space-y-3 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
           <p className="flex items-center gap-1.5 text-sm font-semibold">
@@ -158,7 +158,7 @@ export default function SpkScopeSection({ spk, canManage, onChanged }) {
                 </div>
               ) : null}
 
-              <div className="overflow-x-auto rounded-lg border bg-card">
+              <div className="overflow-hidden rounded-lg border bg-card shadow-[var(--shadow-card)]">
                 <Table className="min-w-[680px]">
                   <TableHeader><TableRow>
                     <TableHead>Unit</TableHead><TableHead>Langkah pekerjaan</TableHead>

@@ -313,7 +313,7 @@ export default function TargetDialog({ projectId, target, open, onOpenChange, on
               </p>
             ))}
             <div data-testid={BUDGET.targetPreviewTable}
-              className="max-h-64 overflow-auto rounded-xl border bg-card">
+              className="max-h-64 overflow-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
               <Table>
                 <TableHeader><TableRow>
                   <TableHead>Bulan</TableHead>

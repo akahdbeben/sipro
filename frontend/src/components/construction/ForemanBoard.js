@@ -162,7 +162,7 @@ export default function ForemanBoard({ projectId, focusItemId, onFocusHandled })
 
       <OfflineQueuePanel />
 
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-card p-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
         <div data-testid={BUILD.boardCounts} className="flex flex-wrap items-center gap-2 text-xs">
           <span className="font-semibold">{data.as_of}</span>
           <Chip tone="rose" label={`${counts.overdue || 0} telat`} />

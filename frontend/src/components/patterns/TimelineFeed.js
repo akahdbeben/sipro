@@ -26,7 +26,7 @@ export default function TimelineFeed({ items = [], emptyText = "Belum ada riwaya
 
   if (!rows.length) {
     return (
-      <p data-testid={TIMELINE.empty} className="rounded-lg border bg-card p-4 text-sm text-muted-foreground">
+      <p data-testid={TIMELINE.empty} className="rounded-lg border bg-card p-4 text-sm text-muted-foreground shadow-[var(--shadow-card)]">
         {emptyText}
       </p>
     );
@@ -38,7 +38,7 @@ export default function TimelineFeed({ items = [], emptyText = "Belum ada riwaya
         const Icon = ICON[it.kind] || CircleDot;
         return (
           <li key={`${it.at}-${i}`} data-testid={TIMELINE.item} data-kind={it.kind || "activity"}
-            className="flex gap-3 rounded-lg border bg-card p-3">
+            className="flex gap-3 rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
             <span className={cn("mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center",
               "rounded-full bg-secondary text-muted-foreground")}>
               <Icon className="h-3.5 w-3.5" />

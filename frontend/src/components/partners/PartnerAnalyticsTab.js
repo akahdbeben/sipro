@@ -104,7 +104,7 @@ export default function PartnerAnalyticsTab() {
         <EmptyState title="Belum ada data mitra"
           description="Analitik akan terisi setelah ada lead beratribusi mitra." />
       ) : (
-        <div className="overflow-x-auto rounded-lg border bg-card">
+        <div className="overflow-x-auto rounded-lg border bg-card shadow-[var(--shadow-card)]">
           <table data-testid={PARTNERS.analyticsTable} className="w-full text-sm">
             <thead className="bg-muted/50 text-xs uppercase text-muted-foreground">
               <tr>

@@ -97,7 +97,7 @@ export default function TaxRecordsPanel() {
           <EmptyState icon={ReceiptText} title="Belum ada catatan pajak"
             description="Catatan PPN/PPh/BPHTB dihitung otomatis saat jadwal AR dibuat untuk sebuah deal." />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -110,7 +110,7 @@ export default function TaxRecordsPanel() {
                   <TableHead>NTPN</TableHead>
                   <TableHead>Jurnal GL</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead className="text-right">Aksi</TableHead>
+                  <TableHead className="col-actions-head text-right">Aksi</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -132,7 +132,7 @@ export default function TaxRecordsPanel() {
                       ) : <span className="text-xs text-muted-foreground">-</span>}
                     </TableCell>
                     <TableCell><StatusPill status={r.status} group="tax_status" /></TableCell>
-                    <TableCell>
+                    <TableCell className="col-actions">
                       <div className="flex justify-end">
                         <Button size="sm" variant="outline" data-testid={TAX.recordStatusBtn} onClick={() => openEdit(r)}>
                           <Settings2 className="mr-1 h-3.5 w-3.5" /> Status

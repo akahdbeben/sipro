@@ -131,7 +131,7 @@ export default function PaymentSchemePanel() {
     <div data-testid={P57.panel} className="space-y-4">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h3 className="font-heading text-base font-semibold">Skema pembayaran</h3>
+          <h3 className="section-title">Skema pembayaran</h3>
           <p className="max-w-3xl text-xs text-muted-foreground">
             Susun termin sesuai kebiasaan bisnis Anda: DP nominal atau persen, jumlah
             cicilan, tanggal jatuh tempo, toleransi, dan termin yang menunggu peristiwa
@@ -154,7 +154,7 @@ export default function PaymentSchemePanel() {
         <div className="space-y-2">
           {rows.map((r) => (
             <div key={r.id} data-testid={P57.row}
-              className="rounded-lg border bg-card p-3 text-sm">
+              className="rounded-lg border bg-card p-3 text-sm shadow-[var(--shadow-card)]">
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div className="min-w-0">
                   <p className="font-medium">

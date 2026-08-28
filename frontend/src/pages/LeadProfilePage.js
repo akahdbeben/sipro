@@ -259,7 +259,7 @@ export default function LeadProfilePage() {
         {
           key: "bi", label: "BI / SLIK", icon: ShieldCheck,
           content: (
-            <div className="rounded-lg border bg-card p-4 text-sm">
+            <div className="rounded-lg border bg-card p-4 text-sm shadow-[var(--shadow-card)]">
               <p className="font-medium">Pra-skrining BI/SLIK ada di tab Ringkasan.</p>
               <p className="mt-1 text-muted-foreground">
                 Panel SLIK menempel pada gerbang tahap (bukti iDeb wajib sebelum Booking).

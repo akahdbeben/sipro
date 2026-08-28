@@ -87,10 +87,10 @@ export default function TasksPage() {
     <div data-testid={WORK.tasksPage} className="space-y-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="font-heading text-2xl font-semibold tracking-tight">
+          <h1 className="page-title">
             Tugas &amp; Papan Divisi
           </h1>
-          <p className="text-sm text-muted-foreground">
+          <p className="page-desc">
             Satu pintu pekerjaan: apa yang harus dikerjakan, siapa PIC-nya, dan mana yang
             sudah lewat SLA.
           </p>

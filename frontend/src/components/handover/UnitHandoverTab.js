@@ -65,7 +65,7 @@ export default function UnitHandoverTab({ unitId, unitCode }) {
       <div className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <h3 className="font-heading text-base font-semibold">Klaim garansi rumah ini</h3>
+            <h3 className="section-title">Klaim garansi rumah ini</h3>
             <p className="text-[13px] text-muted-foreground">
               {claims.length
                 ? `${claims.length} klaim tercatat · ${data?.summary?.claims_open || 0} masih berjalan`

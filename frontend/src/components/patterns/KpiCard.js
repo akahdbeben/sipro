@@ -15,30 +15,41 @@ import { KPI } from "@/constants/testIds";
  * melihat tujuannya) — bukan div dengan onClick.
  */
 const TONE = {
-  primary: "text-primary", amber: "text-amber-600", rose: "text-rose-600",
-  emerald: "text-emerald-600", sky: "text-sky-700", muted: "text-muted-foreground",
+  primary: { text: "text-primary", bar: "bg-primary", chip: "bg-accent text-accent-foreground" },
+  amber: { text: "text-amber-600", bar: "bg-amber-500", chip: "bg-amber-50 text-amber-900" },
+  rose: { text: "text-rose-600", bar: "bg-rose-500", chip: "bg-rose-50 text-rose-800" },
+  emerald: { text: "text-emerald-600", bar: "bg-emerald-500", chip: "bg-emerald-50 text-emerald-800" },
+  sky: { text: "text-sky-700", bar: "bg-sky-500", chip: "bg-sky-50 text-sky-800" },
+  muted: { text: "text-muted-foreground", bar: "bg-muted-foreground/40", chip: "bg-secondary" },
 };
 
 export default function KpiCard({
   label, value, hint, delta = null, tone = "primary", icon: Icon = null, to = null,
   drillLabel = "Lihat daftar", testId, className,
 }) {
+  const t = TONE[tone] || TONE.primary;
   const body = (
     <>
+      {/* Garis aksen atas: memberi kartu angka "berat visual" dan menandai jenis kabarnya
+          (biru = informasi, merah = perlu perhatian) — dulu semua kartu tampak sama. */}
+      <span aria-hidden="true"
+        className={cn("absolute inset-x-0 top-0 h-[3px] rounded-t-xl", t.bar)} />
       <div className="flex items-start justify-between gap-2">
-        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-          {label}
-        </p>
-        {Icon ? <Icon className={cn("h-4 w-4", TONE[tone] || TONE.primary)} /> : null}
+        <p className="eyebrow">{label}</p>
+        {Icon ? (
+          <span className={cn("flex h-7 w-7 items-center justify-center rounded-lg", t.chip)}>
+            <Icon className="h-3.5 w-3.5" />
+          </span>
+        ) : null}
       </div>
       <p data-testid={`${testId || KPI.card}-value`}
-        className="mt-1.5 font-heading text-2xl font-semibold tabular-nums leading-none">
+        className="mt-2 font-heading text-[26px] font-semibold leading-none tabular-nums">
         {value}
       </p>
-      <div className="mt-1.5 flex items-center gap-1.5">
+      <div className="mt-2 flex items-center gap-1.5">
         {delta !== null && delta !== undefined ? (
-          <span className={cn("inline-flex items-center gap-0.5 text-xs tabular-nums",
-            Number(delta) < 0 ? "text-rose-600" : "text-emerald-600")}>
+          <span className={cn("inline-flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-xs font-semibold tabular-nums",
+            Number(delta) < 0 ? "bg-rose-50 text-rose-700" : "bg-emerald-50 text-emerald-700")}>
             {Number(delta) < 0 ? <TrendingDown className="h-3 w-3" />
               : <TrendingUp className="h-3 w-3" />}
             {Math.abs(Number(delta))}%
@@ -47,15 +58,18 @@ export default function KpiCard({
         {hint ? <span className="truncate text-xs text-muted-foreground">{hint}</span> : null}
       </div>
       {to ? (
-        <span className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-primary">
-          {drillLabel} <ArrowUpRight className="h-3 w-3" />
+        <span className="mt-2.5 inline-flex items-center gap-1 text-xs font-semibold text-primary">
+          {drillLabel}
+          <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </span>
       ) : null}
     </>
   );
 
-  const base = cn("block rounded-lg border bg-card p-3.5 text-left shadow-sm transition-colors",
-    to && "hover:border-primary/40 hover:bg-secondary/50", className);
+  const base = cn("group relative block overflow-hidden rounded-xl border border-border bg-card p-4 pt-4 text-left shadow-[var(--shadow-card)]",
+    "transition-[box-shadow,border-color,transform] duration-150",
+    to && "hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[var(--shadow-raised)]",
+    className);
 
   if (!to) {
     return <div data-testid={testId || KPI.card} className={base}>{body}</div>;

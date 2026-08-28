@@ -84,7 +84,7 @@ export default function ImportHistoryTab() {
         Pratinjau yang belum disimpan tetap tercatat (status <em>Pratinjau</em>) dan masih bisa
         disimpan dari sini — jadi pekerjaan validasi tidak pernah hilang karena dialog tertutup.
       </p>
-      <div data-testid={ADS.importsTable} className="overflow-x-auto rounded-lg border bg-card">
+      <div data-testid={ADS.importsTable} className="overflow-x-auto rounded-lg border bg-card shadow-[var(--shadow-card)]">
         <table className="w-full text-sm">
           <thead className="bg-muted/50 text-xs uppercase text-muted-foreground">
             <tr>

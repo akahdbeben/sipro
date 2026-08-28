@@ -132,7 +132,7 @@ export default function BuildCalendarPage() {
           <div className="flex items-center gap-2">
             <CalendarDays className="h-5 w-5 text-primary" />
             <div>
-              <h1 className="font-heading text-xl font-semibold">Kalender Jadwal</h1>
+              <h1 className="page-title">Kalender Jadwal</h1>
               <p className="text-xs text-muted-foreground">
                 Seluruh tenggat rumah dalam satu bulan — bentrok beban, tumpukan pekerjaan
                 kritis, dan tenggat yang jatuh di hari libur terlihat sebelum terjadi.

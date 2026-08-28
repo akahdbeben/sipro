@@ -108,7 +108,7 @@ export default function SettleAdvanceDialog({ advance, onClose, onSaved }) {
             </Button>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 rounded-lg border bg-card p-3">
+          <div className="grid grid-cols-3 gap-3 rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
             <div>
               <p className="text-xs text-muted-foreground">Total realisasi</p>
               <p data-testid={PETTY.settleTotal} className="font-semibold tabular-nums">

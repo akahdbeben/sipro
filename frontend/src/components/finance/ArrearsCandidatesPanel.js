@@ -78,7 +78,7 @@ export default function ArrearsCandidatesPanel() {
   const t = data.totals || {};
 
   return (
-    <div data-testid={P59.arrearsPanel} className="space-y-3 rounded-xl border bg-card p-3">
+    <div data-testid={P59.arrearsPanel} className="space-y-3 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <p className="flex items-center gap-1.5 font-heading text-[13px] font-semibold">
           <AlarmClock className="h-4 w-4 text-rose-600" />
@@ -116,7 +116,7 @@ export default function ArrearsCandidatesPanel() {
               + "menunggak."} />
         </div>
       ) : (
-        <div className="overflow-x-auto rounded-lg border bg-card">
+        <div className="overflow-hidden rounded-lg border bg-card shadow-[var(--shadow-card)]">
           <Table>
             <TableHeader>
               <TableRow>
@@ -161,7 +161,7 @@ export default function ArrearsCandidatesPanel() {
                       ? r.blocks.map((b) => b.detail).join(" ")
                       : "Tidak ada penghalang — pengajuan bisa dibuat Manajer Sales."}
                   </TableCell>
-                  <TableCell className="text-right">
+                  <TableCell className="col-actions text-right">
                     <div className="flex justify-end gap-1.5">
                       <Button size="sm" variant="outline" data-testid={P62.warnOpenBtn}
                         onClick={() => setWarnFor(r)}>

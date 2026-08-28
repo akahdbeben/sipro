@@ -94,7 +94,7 @@ export default function LeadWaPanel({ leadId, onChanged }) {
   }
 
   return (
-    <div data-testid={LEADS.waPanel} className="space-y-2 rounded-xl border bg-card p-3">
+    <div data-testid={LEADS.waPanel} className="space-y-2 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="flex items-center gap-1.5 text-sm font-semibold">
           <MessageSquare className="h-4 w-4 text-emerald-600" /> WhatsApp
@@ -160,7 +160,7 @@ export default function LeadWaPanel({ leadId, onChanged }) {
         </Button>
       </div>
 
-      <details className="rounded-lg border bg-card p-2">
+      <details className="rounded-lg border bg-card p-2 shadow-[var(--shadow-card)]">
         <summary className="cursor-pointer text-[11px] text-muted-foreground">
           Uji alur: simulasikan balasan pelanggan
         </summary>

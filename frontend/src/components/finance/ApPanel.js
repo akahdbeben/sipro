@@ -84,7 +84,7 @@ export default function ApPanel() {
           description="Catat tagihan subkontraktor/vendor beserta retensi, lalu proses approval & pembayaran."
           actionLabel="Tagihan Baru" onAction={() => setAddOpen(true)} />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader>
               <TableRow>
@@ -95,7 +95,7 @@ export default function ApPanel() {
                 <TableHead className="text-right">Sisa</TableHead>
                 <TableHead>Jatuh Tempo</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead className="text-right">Aksi</TableHead>
+                <TableHead className="col-actions-head text-right">Aksi</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -108,7 +108,7 @@ export default function ApPanel() {
                   <TableCell className="text-right tabular-nums">{formatIDR(b.outstanding)}</TableCell>
                   <TableCell className="text-muted-foreground">{formatDateWIB(b.due_date)}</TableCell>
                   <TableCell><StatusPill status={b.status} group="ap_status" /></TableCell>
-                  <TableCell>
+                  <TableCell className="col-actions">
                     <div className="flex justify-end gap-1.5">
                       {b.status === "pending_approval" ? (
                         <Button size="sm" variant="outline" data-testid={FINANCE.billApproveBtn}

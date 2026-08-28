@@ -48,7 +48,7 @@ export default function LedgerPanel() {
         ) : !data.lines?.length ? (
           <EmptyState icon={BookOpen} title="Belum ada mutasi" description={`Akun ${data.account?.name || ""} belum memiliki jurnal.`} />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <div className="flex items-center justify-between border-b p-3 text-sm">
               <span className="font-semibold">{data.account?.code} — {data.account?.name}</span>
               <span>Saldo akhir: <b className="tabular-nums">{formatIDR(data.balance)}</b></span>

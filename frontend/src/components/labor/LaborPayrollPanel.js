@@ -143,7 +143,7 @@ export default function LaborPayrollPanel({ projectId: fixedProject, mode = "fie
       ) : null}
 
       {!loading && !error && (rows || []).length ? (
-        <div className="overflow-x-auto rounded-xl border bg-card">
+        <div className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <table className="w-full text-sm">
             <thead className="bg-secondary/60 text-xs uppercase text-muted-foreground">
               <tr>

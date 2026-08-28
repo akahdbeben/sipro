@@ -20,7 +20,7 @@ export default function TargetPeriodTable({ periods }) {
   const rows = periods || [];
   if (!rows.length) return null;
   return (
-    <div data-testid={BUDGET.periodTable} className="overflow-x-auto rounded-xl border bg-card">
+    <div data-testid={BUDGET.periodTable} className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
       <Table>
         <TableHeader><TableRow>
           <TableHead>Bulan</TableHead>

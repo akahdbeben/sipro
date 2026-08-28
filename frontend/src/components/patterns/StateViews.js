@@ -7,7 +7,7 @@ export function LoadingCards({ count = 4 }) {
   return (
     <div data-testid={WORK.loadingState} className="grid gap-3">
       {Array.from({ length: count }).map((_, i) => (
-        <div key={i} className="rounded-xl border bg-card p-4">
+        <div key={i} className="rounded-xl border border-border bg-card p-4 shadow-[var(--shadow-card)]">
           <Skeleton className="h-4 w-2/3" />
           <Skeleton className="mt-2 h-3 w-1/3" />
         </div>
@@ -20,7 +20,7 @@ export function LoadingKpis({ count = 5 }) {
   return (
     <div data-testid={WORK.loadingState} className="grid grid-cols-2 gap-3 md:grid-cols-5">
       {Array.from({ length: count }).map((_, i) => (
-        <div key={i} className="rounded-xl border bg-card p-4">
+        <div key={i} className="rounded-xl border border-border bg-card p-4 shadow-[var(--shadow-card)]">
           <Skeleton className="h-3 w-1/2" />
           <Skeleton className="mt-3 h-6 w-1/3" />
         </div>
@@ -31,10 +31,13 @@ export function LoadingKpis({ count = 5 }) {
 
 export function ErrorState({ message, onRetry }) {
   return (
-    <div className="rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-800">
-      <p>{message || "Terjadi kesalahan saat memuat data."}</p>
+    <div className="rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900 shadow-[var(--shadow-card)]">
+      <p className="flex items-start gap-2 font-medium">
+        <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-rose-600" />
+        {message || "Terjadi kesalahan saat memuat data."}
+      </p>
       {onRetry ? (
-        <button data-testid={WORK.retryButton} onClick={onRetry} className="mt-2 rounded-lg border border-rose-300 bg-white px-3 py-1 text-rose-700 hover:bg-rose-100">
+        <button data-testid={WORK.retryButton} onClick={onRetry} className="mt-2.5 inline-flex items-center gap-1.5 rounded-lg border border-rose-300 bg-white px-3 py-1.5 font-semibold text-rose-700 shadow-sm transition-colors hover:bg-rose-100">
           Coba lagi
         </button>
       ) : null}

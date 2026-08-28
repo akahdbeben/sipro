@@ -50,8 +50,8 @@ export default function PartnersPage() {
   return (
     <div data-testid={PARTNERS.page} className="space-y-4">
       <div>
-        <h1 className="font-heading text-2xl font-semibold tracking-tight">Mitra &amp; Fee</h1>
-        <p className="text-sm text-muted-foreground">
+        <h1 className="page-title">Mitra &amp; Fee</h1>
+        <p className="page-desc">
           Mitra eksternal (agen, broker, aggregator, referral): kontrak, aturan fee, tagihan
           fee, sengketa atribusi lead, dan kinerja tiap mitra. Utang fee dibukukan di akun
           2-1500, bebannya 6-1200, PPh dipotong ke 2-1300.

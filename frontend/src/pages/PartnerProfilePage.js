@@ -78,7 +78,7 @@ export default function PartnerProfilePage() {
 
   const profileTab = (
     <div className="grid gap-4 lg:grid-cols-2">
-      <div className="rounded-lg border bg-card p-4">
+      <div className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
         <h3 className="mb-2 text-sm font-semibold">Identitas &amp; pembayaran</h3>
         <Row label="Kode mitra" value={p.code} />
         <Row label="Jenis" value={labelOf("partner_kind", p.partner_kind)} />
@@ -110,7 +110,7 @@ export default function PartnerProfilePage() {
             tone={stats.fee_outstanding ? "amber" : "primary"}
             hint="saldo 2-1500 milik mitra ini" />
         </div>
-        <div data-testid={PARTNERS.contractCard} className="rounded-lg border bg-card p-4">
+        <div data-testid={PARTNERS.contractCard} className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
           <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold">
             Kontrak kerja sama
             {data.contract_ok ? (
@@ -140,7 +140,7 @@ export default function PartnerProfilePage() {
         </div>
         <PartnerWebhookCard partner={p} webhook={data.webhook} canManage={canManage}
           onDone={load} />
-        {(p.status_history || []).length ? (          <div className="rounded-lg border bg-card p-4">
+        {(p.status_history || []).length ? (          <div className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
             <h3 className="mb-2 text-sm font-semibold">Riwayat status</h3>
             {(p.status_history || []).slice().reverse().map((h, i) => (
               <div key={`${h.at}-${i}`} className="border-b py-1.5 text-xs last:border-0">
@@ -157,7 +157,7 @@ export default function PartnerProfilePage() {
   );
 
   const leadsTab = (data.leads || []).length ? (
-    <div className="overflow-x-auto rounded-lg border bg-card">
+    <div className="overflow-x-auto rounded-lg border bg-card shadow-[var(--shadow-card)]">
       <table className="w-full text-sm">
         <thead className="bg-muted/50 text-xs uppercase text-muted-foreground">
           <tr>
@@ -196,7 +196,7 @@ export default function PartnerProfilePage() {
   );
 
   const feesTab = (data.fees || []).length ? (
-    <div className="overflow-x-auto rounded-lg border bg-card">
+    <div className="overflow-x-auto rounded-lg border bg-card shadow-[var(--shadow-card)]">
       <table className="w-full text-sm">
         <thead className="bg-muted/50 text-xs uppercase text-muted-foreground">
           <tr>
@@ -301,7 +301,7 @@ export default function PartnerProfilePage() {
         { key: "dokumen", label: "Dokumen Onboarding", icon: FileText,
           content: (
             <div className="space-y-3">
-              <p className="rounded-xl border bg-card p-3 text-[13px] text-muted-foreground">
+              <p className="rounded-xl border bg-card p-3 text-[13px] text-muted-foreground shadow-[var(--shadow-card)]">
                 Checklist dokumen onboarding mitra (KTP/NPWP/PKS bertanda tangan) memakai
                 mesin dokumen syarat yang sama dengan lead & pelanggan. Master syaratnya
                 diatur admin di <b>Dokumen &amp; Perizinan → Master Dokumen Syarat</b> dengan

@@ -37,7 +37,7 @@ const PRESETS = [
 export default function PeriodPicker({ value, onChange, hint }) {
   const set = (k, v) => onChange({ ...value, [k]: v });
   return (
-    <div className="flex flex-wrap items-end gap-3 rounded-xl border bg-card p-3">
+    <div className="flex flex-wrap items-end gap-3 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
       <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
         <CalendarRange className="h-4 w-4 text-primary" /> Periode
       </div>

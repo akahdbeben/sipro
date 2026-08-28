@@ -32,7 +32,7 @@ export default function EntityHeader({
               </span>
             ) : null}
           </div>
-          <h1 className="truncate font-heading text-2xl font-semibold leading-tight">{title}</h1>
+          <h1 className="page-title truncate">{title}</h1>
           {subtitle ? <p className="text-sm text-muted-foreground">{subtitle}</p> : null}
         </div>
         {actions ? <div className="flex flex-wrap items-center gap-2">{actions}</div> : null}

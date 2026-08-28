@@ -54,7 +54,7 @@ export default function DivisionReport({ division, onOpenTask }) {
 
   return (
     <div data-testid={WORK.report} className="space-y-4">
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-card px-3 py-2">
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-card px-3 py-2 shadow-[var(--shadow-card)]">
         <div>
           <p className="text-sm font-semibold">Rapor pekan {data.week}</p>
           <p className="text-[11px] text-muted-foreground">
@@ -143,7 +143,7 @@ export default function DivisionReport({ division, onOpenTask }) {
               {m.samples.map((s) => (
                 <button key={s.task_id} type="button" data-testid={WORK.reportEvidence}
                   onClick={() => onOpenTask && onOpenTask({ id: s.task_id })}
-                  className="w-full rounded-lg border bg-card p-2.5 text-left transition-colors hover:bg-secondary/60">
+                  className="w-full rounded-lg border bg-card p-2.5 text-left transition-colors hover:bg-secondary/60 shadow-[var(--shadow-card)]">
                   <div className="flex items-start justify-between gap-2">
                     <p className="min-w-0 text-xs font-medium">{s.title}</p>
                     <span className={cn("shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold",

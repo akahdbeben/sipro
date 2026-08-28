@@ -169,7 +169,7 @@ export default function FakturExportPanel() {
         <EmptyState icon={FileText} title="Belum ada faktur pada masa ini"
           description="Terbitkan faktur pajak keluaran di tab Faktur Pajak, lalu masa ini bisa diekspor ke Coretax." />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader><TableRow>
               <TableHead>No. Seri</TableHead>
@@ -180,7 +180,7 @@ export default function FakturExportPanel() {
               <TableHead>Terbit</TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Jejak</TableHead>
-              <TableHead className="text-right">Aksi</TableHead>
+              <TableHead className="col-actions-head text-right">Aksi</TableHead>
             </TableRow></TableHeader>
             <TableBody>
               {rows.map((f) => (
@@ -211,7 +211,7 @@ export default function FakturExportPanel() {
                     {f.cancel_reason ? <p className="text-rose-700">Batal: {f.cancel_reason}</p> : null}
                     {!f.replaced_by_number && !f.replaces_number && !f.cancel_reason ? "—" : null}
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="col-actions">
                     <div className="flex justify-end gap-1.5">
                       {canUpdate && (f.status || "issued") === "issued" ? (
                         <>

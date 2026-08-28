@@ -36,10 +36,10 @@ export default function DocumentsPage() {
   return (
     <div data-testid={DOCS.page} className="space-y-4">
       <div>
-        <h1 className="font-heading text-2xl font-semibold tracking-tight">
+        <h1 className="page-title">
           Dokumen &amp; Perizinan
         </h1>
-        <p className="text-sm text-muted-foreground">
+        <p className="page-desc">
           Dokumen transaksi (SPR/PPJB/AJB) dan daftar perizinan proyek/unit — sesuai hak akses
           Anda.
         </p>

@@ -118,7 +118,7 @@ export default function BankImportDialog({ open, onOpenChange, accountId, accoun
                   ["Sudah ada", counts.unchanged, "text-muted-foreground"],
                   ["Ditolak", counts.rejected, "text-rose-700"],
                 ].map(([label, value, tone]) => (
-                  <div key={label} className="rounded-lg border bg-card px-3 py-2">
+                  <div key={label} className="rounded-lg border bg-card px-3 py-2 shadow-[var(--shadow-card)]">
                     <p className="text-xs text-muted-foreground">{label}</p>
                     <p className={`font-heading text-lg font-semibold tabular-nums ${tone}`}>
                       {value ?? 0}
@@ -127,7 +127,7 @@ export default function BankImportDialog({ open, onOpenChange, accountId, accoun
                 ))}
               </div>
 
-              <div className="max-h-64 overflow-x-auto overflow-y-auto rounded-lg border bg-card">
+              <div className="max-h-64 overflow-x-auto overflow-y-auto rounded-lg border bg-card shadow-[var(--shadow-card)]">
                 <table className="w-full text-sm">
                   <thead className="bg-secondary/60 text-xs uppercase text-muted-foreground">
                     <tr>

@@ -100,7 +100,7 @@ export default function StockControlPanel({ projectId, onChanged }) {
 
       <section className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h3 className="font-heading text-base font-semibold">Peringatan stok &amp; nilai</h3>
+          <h3 className="section-title">Peringatan stok &amp; nilai</h3>
           {canTransfer ? (
             <Button data-testid={T.transferBtn} size="sm" onClick={() => setOpen(true)}>
               <ArrowLeftRight className="mr-1.5 h-4 w-4" /> Transfer antar proyek
@@ -111,7 +111,7 @@ export default function StockControlPanel({ projectId, onChanged }) {
           <EmptyState icon={PackageSearch} title="Belum ada material di proyek ini"
             description="Tambahkan material pada tab Stok &amp; Buku Besar terlebih dahulu." />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Material</TableHead>
@@ -179,13 +179,13 @@ export default function StockControlPanel({ projectId, onChanged }) {
       </section>
 
       <section className="space-y-3 border-t pt-6">
-        <h3 className="font-heading text-base font-semibold">Riwayat transfer antar proyek</h3>
+        <h3 className="section-title">Riwayat transfer antar proyek</h3>
         {!transfers?.data?.length ? (
           <EmptyState icon={ArrowLeftRight} title="Belum ada transfer material"
             description={"Transfer menulis sepasang mutasi bertaut satu nomor: keluar dari "
               + "proyek asal, masuk ke proyek tujuan — barang tidak pernah tercipta."} />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Nomor</TableHead><TableHead>Material</TableHead>

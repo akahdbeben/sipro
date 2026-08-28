@@ -103,7 +103,7 @@ export default function CalendarConflictPanel({
       )}
 
       {(outlook || []).length ? (
-        <div data-testid={CAL.outlook} className="rounded-xl border bg-card p-3">
+        <div data-testid={CAL.outlook} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
           <p className="text-xs font-semibold">Pandangan ke depan</p>
           <div className="mt-1.5 flex flex-wrap gap-2">
             {outlook.map((o) => (

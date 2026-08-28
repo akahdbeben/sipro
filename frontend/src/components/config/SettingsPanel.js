@@ -304,7 +304,7 @@ export default function SettingsPanel() {
           </DialogHeader>
           <div className="max-h-[50vh] space-y-2 overflow-y-auto">
             {(history?.items || []).length ? history.items.map((h, i) => (
-              <div key={i} className="rounded-md border bg-card p-2 text-sm">
+              <div key={i} className="rounded-md border bg-card p-2 text-sm shadow-[var(--shadow-card)]">
                 <div className="font-medium">{String(h.from)} → {String(h.to)}</div>
                 <div className="text-xs text-muted-foreground">
                   {h.by} · {formatDateTimeWIB(h.at)} · {h.scope}

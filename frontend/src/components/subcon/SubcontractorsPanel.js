@@ -13,6 +13,7 @@ import SubcontractorDetailSheet from "@/components/subcon/SubcontractorDetailShe
 import { useAuth } from "@/context/AuthContext";
 import api from "@/services/apiClient";
 import { PROCUREMENT } from "@/constants/testIds";
+import SearchInput from "@/components/patterns/SearchInput";
 
 
 export default function SubcontractorsPanel() {
@@ -42,7 +43,9 @@ export default function SubcontractorsPanel() {
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Cari nama / kode / bidang…" className="w-full sm:w-72" />
+        <SearchInput value={q} onChange={setQ} testId="subcon-search"
+          placeholder="Cari nama / kode / bidang…"
+          className="w-full sm:w-72" />
         {canManage ? (
           <Button data-testid={PROCUREMENT.subAddBtn} size="sm" onClick={() => setAddOpen(true)}>
             <Plus className="mr-1.5 h-4 w-4" /> Tambah Subkontraktor
@@ -55,7 +58,7 @@ export default function SubcontractorsPanel() {
             description="Daftarkan subkontraktor untuk membuat SPK dan Purchase Order."
             actionLabel={canManage ? "Tambah Subkontraktor" : undefined} onAction={() => setAddOpen(true)} />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Kode</TableHead><TableHead>Nama</TableHead><TableHead>Bidang</TableHead>

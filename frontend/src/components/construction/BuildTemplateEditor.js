@@ -160,7 +160,7 @@ export default function BuildTemplateEditor({ templateId, creating, open, onOpen
               </div>
             ) : null}
 
-            <div className="grid gap-3 rounded-xl border bg-card p-3 sm:grid-cols-2">
+            <div className="grid gap-3 rounded-xl border bg-card p-3 sm:grid-cols-2 shadow-[var(--shadow-card)]">
               <div className="space-y-1.5">
                 <Label htmlFor="tpcode">Kode template</Label>
                 <Input id="tpcode" data-testid={BUILD.templateCode} value={form.code}

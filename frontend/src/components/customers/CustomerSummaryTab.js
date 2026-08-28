@@ -64,7 +64,7 @@ export default function CustomerSummaryTab({ customer, onChanged }) {
 
   return (
     <div data-testid={CUSTPROFILE.summary} className="space-y-4">
-      <section className="rounded-lg border bg-card p-4">
+      <section className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
         <div className="mb-3 flex items-center justify-between gap-2">
           <h2 className="flex items-center gap-2 font-heading text-base font-semibold">
             <ShieldCheck className="h-4 w-4 text-primary" /> Identitas & KYC
@@ -88,7 +88,7 @@ export default function CustomerSummaryTab({ customer, onChanged }) {
         </div>
       </section>
 
-      <section className="rounded-lg border bg-card p-4">
+      <section className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
         <h2 className="mb-3 flex items-center gap-2 font-heading text-base font-semibold">
           <FileText className="h-4 w-4 text-primary" /> Lampiran KYC
         </h2>

@@ -23,7 +23,7 @@ import { HOME, KPI } from "@/constants/testIds";
 function TeamStat({ icon: Icon, label, value, tone, to }) {
   return (
     <Link to={to} data-testid="home-team-stat" data-stat={label} aria-label={`${label}: ${value}`}
-      className="flex items-center gap-2 rounded-lg border bg-card px-2.5 py-2 text-left transition-colors hover:border-primary/40 hover:bg-secondary/60">
+      className="flex items-center gap-2 rounded-lg border bg-card px-2.5 py-2 text-left transition-colors hover:border-primary/40 hover:bg-secondary/60 shadow-[var(--shadow-card)]">
       <Icon className={`h-4 w-4 ${tone || "text-muted-foreground"}`} />
       <span className="text-xs text-muted-foreground">{label}</span>
       <span className="ml-auto font-heading text-base font-semibold tabular-nums">{value}</span>
@@ -93,10 +93,10 @@ export default function Home() {
     <div data-testid={HOME.page} className="space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 data-testid={HOME.title} className="font-heading text-2xl font-semibold tracking-tight">
+          <h1 data-testid={HOME.title} className="page-title">
             {data?.title || "Beranda"}
           </h1>
-          <p className="text-sm text-muted-foreground">
+          <p className="page-desc">
             {greeting()}, {user?.name?.split(" ")[0] || ""} · {new Date().toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "long" })}
             {data?.division ? " · " : ""}
             {data?.division ? <RefLabel group="division" value={data.division} /> : null}

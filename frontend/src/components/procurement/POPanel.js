@@ -85,7 +85,7 @@ export default function POPanel() {
             description="Buat PO untuk material atau subkontraktor, lalu terima barang (GRN) & tagih dengan 3-way match."
             actionLabel={canCreate ? "Buat PO" : undefined} onAction={() => setAddOpen(true)} />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>No. PO</TableHead><TableHead>Jenis</TableHead><TableHead>Vendor</TableHead>

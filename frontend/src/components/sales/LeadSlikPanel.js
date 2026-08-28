@@ -79,7 +79,7 @@ export default function LeadSlikPanel({ lead, lifecycle, onChanged }) {
   };
 
   return (
-    <div data-testid={LEADS.slikPanel} className="rounded-xl border bg-card p-3">
+    <div data-testid={LEADS.slikPanel} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
       <p className="mb-1 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase text-muted-foreground">
         <ShieldQuestion className="h-3.5 w-3.5 text-primary" /> Pra-skrining BI/SLIK
         <span className="rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold normal-case text-amber-800">
@@ -198,7 +198,7 @@ export default function LeadSlikPanel({ lead, lifecycle, onChanged }) {
                     <span className="mt-1 flex flex-wrap gap-1.5">
                       {h.evidence.map((e) => (
                         <a key={e.file_id} href={fileUrl(e.file_id)} target="_blank" rel="noreferrer"
-                          className="flex items-center gap-1 rounded border bg-card px-1.5 py-0.5 hover:underline">
+                          className="flex items-center gap-1 rounded border bg-card px-1.5 py-0.5 hover:underline shadow-[var(--shadow-card)]">
                           <ClipboardCheck className="h-3 w-3" />
                           <span className="max-w-[140px] truncate">{e.filename || "bukti"}</span>
                         </a>

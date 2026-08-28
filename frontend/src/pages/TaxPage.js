@@ -34,7 +34,7 @@ export default function TaxPage() {
       <div data-testid={TAX.page} className="space-y-5">
         <div className="flex items-center gap-2">
           <Landmark className="h-5 w-5 text-primary" />
-          <h1 className="font-heading text-xl font-semibold">Perpajakan &amp; Kepatuhan</h1>
+          <h1 className="page-title">Perpajakan &amp; Kepatuhan</h1>
         </div>
         <AccessDenied testId={TAX.denied}
           title="Perpajakan &amp; Kepatuhan hanya untuk tim Keuangan"
@@ -49,7 +49,7 @@ export default function TaxPage() {
     <div data-testid={TAX.page} className="space-y-5">
       <div className="flex items-center gap-2">
         <Landmark className="h-5 w-5 text-primary" />
-        <h1 className="font-heading text-xl font-semibold">Perpajakan &amp; Kepatuhan</h1>
+        <h1 className="page-title">Perpajakan &amp; Kepatuhan</h1>
       </div>
 
       <Tabs value={tab} onValueChange={setTab}>

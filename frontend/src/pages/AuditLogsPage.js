@@ -48,7 +48,7 @@ export default function AuditLogsPage() {
     <div data-testid={AUDIT.page} className="space-y-5">
       <div className="flex items-center gap-2">
         <History className="h-5 w-5 text-primary" />
-        <h1 className="font-heading text-xl font-semibold tracking-tight">Jejak Audit</h1>
+        <h1 className="page-title">Jejak Audit</h1>
       </div>
       <p className="text-sm text-muted-foreground">
         Riwayat aksi sensitif: pembuatan/perubahan pengguna & hak akses, persetujuan PO,
@@ -90,7 +90,7 @@ export default function AuditLogsPage() {
           <EmptyState icon={History} title="Belum ada jejak audit"
             description="Jejak akan muncul setelah ada aksi sensitif (mis. menyetujui PO, mengubah hak akses, mengubah master data)." />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Waktu</TableHead><TableHead>Pelaku</TableHead><TableHead>Peran</TableHead>

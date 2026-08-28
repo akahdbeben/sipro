@@ -51,7 +51,7 @@ export default function ProgressPanel() {
       {data.map((u) => (
         <div key={u.deal_id} className="rounded-xl border bg-white p-5">
           <div className="mb-1 flex flex-wrap items-center justify-between gap-2">
-            <p className="font-heading text-base font-semibold">Rumah {u.unit_code}</p>
+            <p className="section-title">Rumah {u.unit_code}</p>
             <span className="text-sm font-semibold tabular-nums text-indigo-600">
               {u.build ? u.build.progress : u.construction_progress}%
             </span>

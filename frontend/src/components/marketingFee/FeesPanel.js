@@ -109,7 +109,7 @@ export default function FeesPanel() {
             onAction={canSubmit ? () => setOpenSubmit(true) : undefined} />
         </div>
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader>
               <TableRow>
@@ -122,7 +122,7 @@ export default function FeesPanel() {
                 <TableHead className="text-right">Netto</TableHead>
                 <TableHead className="text-right">Dibayar</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead className="text-right">Aksi</TableHead>
+                <TableHead className="col-actions-head text-right">Aksi</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -164,7 +164,7 @@ export default function FeesPanel() {
                       {formatDateWIB(r.created_at)}
                     </p>
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="col-actions">
                     <div className="flex flex-wrap justify-end gap-1.5">
                       {canApprove && r.status === "submitted" ? (
                         <>

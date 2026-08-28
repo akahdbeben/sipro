@@ -104,7 +104,7 @@ export default function ConstructionPage() {
           <div className="flex items-center gap-2">
             <HardHat className="h-5 w-5 text-primary" />
             <div>
-              <h1 className="font-heading text-xl font-semibold">Progres & Mutu Konstruksi</h1>
+              <h1 className="page-title">Progres & Mutu Konstruksi</h1>
               <p className="text-xs text-muted-foreground">
                 Setiap tahap pekerjaan menjadi tugas berinstruksi dengan bukti foto dan
                 verifikasi supervisor — progres rumah dihitung dari situ.

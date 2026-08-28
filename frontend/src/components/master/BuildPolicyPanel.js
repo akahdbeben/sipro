@@ -62,7 +62,7 @@ export default function BuildPolicyPanel() {
 
   return (
     <div data-testid={MASTER.buildPolicyPanel} className="space-y-4">
-      <div className="rounded-xl border bg-card p-4">
+      <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
         <p className="inline-flex items-center gap-1.5 font-heading text-base font-semibold">
           <ShieldCheck className="h-4 w-4 text-primary" /> Kebijakan bukti kerja konstruksi
         </p>

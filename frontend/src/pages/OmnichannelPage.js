@@ -90,7 +90,7 @@ export default function OmnichannelPage() {
     <div data-testid={OMNI.page} className="space-y-4">
       <div className="flex items-center gap-2">
         <Workflow className="h-5 w-5 text-primary" />
-        <h1 className="font-heading text-xl font-semibold">Automasi &amp; Channel</h1>
+        <h1 className="page-title">Automasi &amp; Channel</h1>
         <StatusPill status="simulation" />
       </div>
       <p className="text-sm text-muted-foreground">

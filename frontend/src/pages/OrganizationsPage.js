@@ -95,7 +95,7 @@ export default function OrganizationsPage() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <Building2 className="h-5 w-5 text-primary" />
-          <h1 className="font-heading text-xl font-semibold">Organisasi (Tenant)</h1>
+          <h1 className="page-title">Organisasi (Tenant)</h1>
           <span className="rounded-full bg-secondary px-2 py-0.5 text-xs tabular-nums text-muted-foreground">{rows.length}</span>
         </div>
         {isSuper ? (
@@ -127,7 +127,7 @@ export default function OrganizationsPage() {
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
-                    <p className="font-heading text-base font-semibold">{org.name}</p>
+                    <p className="section-title">{org.name}</p>
                     <StatusPill status={org.status === "suspended" ? "sold" : "available"}
                       label={org.status === "suspended" ? "Nonaktif" : "Aktif"} />
                     {isActive ? (

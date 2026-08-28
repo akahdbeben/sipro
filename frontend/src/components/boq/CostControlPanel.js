@@ -83,7 +83,7 @@ export default function CostControlPanel({ projectId, canManage, onMapped }) {
 
       <div>
         <p className="mb-2 text-sm font-semibold">Per kategori pekerjaan</p>
-        <div className="overflow-x-auto rounded-xl border bg-card">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <Table>
             <TableHeader><TableRow>
               <TableHead>Kategori</TableHead>
@@ -121,7 +121,7 @@ export default function CostControlPanel({ projectId, canManage, onMapped }) {
 
       <div>
         <p className="mb-2 text-sm font-semibold">Per kode biaya RAB (pemetaan ke langkah jadwal)</p>
-        <div className="overflow-x-auto rounded-xl border bg-card">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <Table>
             <TableHeader><TableRow>
               <TableHead>Kode</TableHead><TableHead>Uraian</TableHead>

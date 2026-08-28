@@ -98,10 +98,10 @@ export default function IncomeStatementPanel({ period, onDrill }) {
           hint={<span className="text-[11px] text-muted-foreground">Marjin bersih {data.net_margin_pct}%</span>} />
       </div>
 
-      <div className="rounded-xl border bg-card p-4">
+      <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <p className="font-heading text-base font-semibold">Laporan Laba Rugi</p>
+            <p className="section-title">Laporan Laba Rugi</p>
             <p className="text-xs text-muted-foreground">Periode {data.period.label} · klik akun untuk drill-down</p>
           </div>
           <Button data-testid={GL.exportBtn} size="sm" variant="outline" onClick={exportCsv}>

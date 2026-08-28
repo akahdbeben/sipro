@@ -66,7 +66,7 @@ export default function CalendarDayPanel({
         ) : null}
 
         {day && (day.load || []).length ? (
-          <div data-testid={CAL.dayLoad} className="mt-3 rounded-lg border bg-card p-2.5">
+          <div data-testid={CAL.dayLoad} className="mt-3 rounded-lg border bg-card p-2.5 shadow-[var(--shadow-card)]">
             <p className="inline-flex items-center gap-1.5 text-xs font-semibold">
               <Users className="h-3.5 w-3.5" /> Beban per pelaksana hari ini
             </p>
@@ -91,7 +91,7 @@ export default function CalendarDayPanel({
           ) : null}
 
           {grouped.map((g) => (
-            <div key={g.kind} className="rounded-xl border bg-card p-2.5">
+            <div key={g.kind} className="rounded-xl border bg-card p-2.5 shadow-[var(--shadow-card)]">
               <p className="mb-1.5 inline-flex items-center gap-1.5 text-xs font-semibold">
                 <span className={`rounded-full border px-2 py-0.5 ${KIND_TONE[g.kind] || ""}`}>
                   <RefLabel group="calendar_event_kind" value={g.kind} />

@@ -73,7 +73,7 @@ export default function PaymentIntakePanel({ onChanged }) {
       ) : null}
 
       {!loading && !error && rows.length ? (
-        <div data-testid={INTAKE.table} className="overflow-x-auto rounded-xl border bg-card">
+        <div data-testid={INTAKE.table} className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <table className="w-full text-sm">
             <thead className="bg-secondary/60 text-xs uppercase text-muted-foreground">
               <tr>

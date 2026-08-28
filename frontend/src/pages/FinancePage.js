@@ -51,7 +51,7 @@ export default function FinancePage() {
     <div data-testid={FINANCE.page} className="space-y-5">
       <div className="flex items-center gap-2">
         <Wallet className="h-5 w-5 text-primary" />
-        <h1 className="font-heading text-2xl font-semibold tracking-tight">Keuangan</h1>
+        <h1 className="page-title">Keuangan</h1>
       </div>
 
       <Tabs value={active} onValueChange={onTab}>

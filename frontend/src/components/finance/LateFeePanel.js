@@ -117,7 +117,7 @@ export default function LateFeePanel({ dealId, unitCode, onChanged }) {
   };
 
   return (
-    <div data-testid={P58.panel} className="space-y-2.5 rounded-xl border bg-card p-3">
+    <div data-testid={P58.panel} className="space-y-2.5 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
       <Tabs defaultValue="keadaan">
         <TabsList>
           <TabsTrigger data-testid={P59.waiverTabState} value="keadaan">

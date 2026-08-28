@@ -17,7 +17,7 @@ export default function FixedAssetsPage() {
       <div className="flex items-center gap-2">
         <Landmark className="h-5 w-5 text-primary" />
         <div>
-          <h1 className="font-heading text-xl font-semibold">Aset Tetap & Penyusutan</h1>
+          <h1 className="page-title">Aset Tetap & Penyusutan</h1>
           <p className="text-xs text-muted-foreground">
             Akun 1-2100 Aset Tetap · 1-2200 Akumulasi Penyusutan · 6-1500 Beban Penyusutan.
             Kelompok fiskal mengikuti Pasal 11 UU PPh.

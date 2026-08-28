@@ -104,7 +104,7 @@ export default function PublicShowroom() {
 
   return (
     <div data-testid={SHOWROOM.page} className="min-h-screen bg-secondary/20 pb-16">
-      <header className="sticky top-0 z-20 border-b bg-card/95 backdrop-blur">
+      <header className="sticky top-0 z-20 border-b bg-card/95 backdrop-blur shadow-[var(--shadow-card)]">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
           <div className="flex items-center gap-2.5">
             <div className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground">
@@ -135,7 +135,7 @@ export default function PublicShowroom() {
         className="border-b bg-gradient-to-br from-primary/10 via-card to-card">
         <div className="mx-auto max-w-6xl px-4 py-8">
           <h1 data-testid={SHOWROOM.headline}
-            className="font-heading text-2xl font-bold leading-tight sm:text-3xl">
+            className="page-title sm:text-3xl">
             {project.headline || `${project.name || "Proyek kami"} — pilih kavling favorit Anda`}
           </h1>
           <p className="mt-1.5 flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -221,7 +221,7 @@ export default function PublicShowroom() {
             </div>
           </div>
         ) : (
-          <p className="rounded-2xl border bg-card p-6 text-center text-sm text-muted-foreground">
+          <p className="rounded-2xl border bg-card p-6 text-center text-sm text-muted-foreground shadow-[var(--shadow-card)]">
             Peta kavling sedang disiapkan — daftar kavling di bawah tetap bisa dilihat.
           </p>
         )}
@@ -231,11 +231,11 @@ export default function PublicShowroom() {
             <Compass className="h-4 w-4 text-primary" /> Daftar kavling
           </h2>
           {!units.length ? (
-            <p className="rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground">
+            <p className="rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground shadow-[var(--shadow-card)]">
               Belum ada kavling yang dipublikasikan untuk proyek ini.
             </p>
           ) : !visible.length ? (
-            <p className="rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground">
+            <p className="rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground shadow-[var(--shadow-card)]">
               Tidak ada kavling yang cocok dengan filter Anda.
             </p>
           ) : (
@@ -249,7 +249,7 @@ export default function PublicShowroom() {
         </div>
 
         <div className="rounded-2xl border bg-card p-5 text-center shadow-sm">
-          <p className="font-heading text-base font-semibold">Butuh bantuan memilih kavling?</p>
+          <p className="section-title">Butuh bantuan memilih kavling?</p>
           <p className="mt-1 text-sm text-muted-foreground">
             Tinggalkan nama & nomor WhatsApp — tim marketing akan membantu Anda.
           </p>

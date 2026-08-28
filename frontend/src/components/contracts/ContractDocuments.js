@@ -69,10 +69,10 @@ export default function ContractDocuments({ contract, onChanged }) {
   };
 
   return (
-    <section data-testid={P53.docPanel} className="space-y-3 rounded-lg border bg-card p-4">
+    <section data-testid={P53.docPanel} className="space-y-3 rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
-          <h3 className="font-heading text-base font-semibold">Dokumen kontrak</h3>
+          <h3 className="section-title">Dokumen kontrak</h3>
           <p className="text-xs text-muted-foreground">
             SPR & SPKT dibuat dari template ASLI (docs/source_templates) dengan angka kontrak
             ini — lalu bisa dicetak.

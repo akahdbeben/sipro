@@ -176,7 +176,7 @@ export default function WithholdingPanel() {
         </p>
         <p className="text-xs text-muted-foreground">{cands?.detail}</p>
         {(cands?.rows || []).length ? (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Pihak dipotong</TableHead>
@@ -185,7 +185,7 @@ export default function WithholdingPanel() {
                 <TableHead className="text-right">Dasar</TableHead>
                 <TableHead className="text-right">Tarif</TableHead>
                 <TableHead className="text-right">Potongan</TableHead>
-                <TableHead className="text-right">Aksi</TableHead>
+                <TableHead className="col-actions-head text-right">Aksi</TableHead>
               </TableRow></TableHeader>
               <TableBody>
                 {cands.rows.map((r) => (
@@ -209,7 +209,7 @@ export default function WithholdingPanel() {
                     <TableCell className="text-right tabular-nums text-sm font-semibold">
                       {formatIDR(r.amount)}
                     </TableCell>
-                    <TableCell className="text-right">
+                    <TableCell className="col-actions text-right">
                       {canIssue ? (
                         <Button size="sm" data-testid={P49.bupotCandidateIssueBtn} data-ref={r.ref_id}
                           disabled={busy === r.ref_id} onClick={() => issueFromCandidate(r)}>
@@ -265,7 +265,7 @@ export default function WithholdingPanel() {
         <EmptyState icon={ReceiptText} title="Belum ada bukti potong pada masa ini"
           description="Bukti potong terbit otomatis saat tagihan dibayar dengan potong PPh, atau bisa diterbitkan manual dari daftar kandidat di atas." />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader><TableRow>
               <TableHead>Nomor</TableHead>
@@ -275,7 +275,7 @@ export default function WithholdingPanel() {
               <TableHead className="text-right">Tarif</TableHead>
               <TableHead className="text-right">Potongan</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead className="text-right">Aksi</TableHead>
+              <TableHead className="col-actions-head text-right">Aksi</TableHead>
             </TableRow></TableHeader>
             <TableBody>
               {rows.map((d) => (
@@ -317,7 +317,7 @@ export default function WithholdingPanel() {
                       <p className="mt-1 max-w-[180px] text-[11px] text-rose-700">{d.cancel_reason}</p>
                     ) : null}
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="col-actions">
                     <div className="flex flex-wrap justify-end gap-1.5">
                       <Button size="sm" variant="outline" data-testid={P49.bupotPdfBtn}
                         data-number={d.number} disabled={busy === d.id} onClick={() => openPdf(d)}>

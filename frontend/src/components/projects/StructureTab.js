@@ -192,7 +192,7 @@ export default function StructureTab({ tree, projectId, onChanged, canManage }) 
       <div className="space-y-3">
         {clusters.map((c) => (
           <div key={c.id} data-testid={MASTERPLAN.clusterRow}
-            className="rounded-lg border bg-card">
+            className="rounded-lg border bg-card shadow-[var(--shadow-card)]">
             <div className="flex flex-wrap items-center justify-between gap-2 p-3">
               <button type="button" className="flex items-center gap-2 text-left"
                 onClick={() => toggle(c.id)}>
@@ -236,7 +236,7 @@ export default function StructureTab({ tree, projectId, onChanged, canManage }) 
             {open.has(c.id) ? (
               <div className="border-t bg-secondary/40 p-3">
                 {(c.blocks || []).length ? (
-                  <div className="overflow-x-auto rounded-md border bg-card">
+                  <div className="overflow-x-auto rounded-md border bg-card shadow-[var(--shadow-card)]">
                     <table className="w-full text-sm">
                       <thead className="bg-secondary text-left">
                         <tr>

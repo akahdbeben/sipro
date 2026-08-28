@@ -104,7 +104,7 @@ export default function AdvancesPanel() {
             format="idr" />
         </div>
         <div className="flex items-center justify-between">
-          <h3 className="font-heading text-base font-semibold">Uang muka subkontraktor</h3>
+          <h3 className="section-title">Uang muka subkontraktor</h3>
           {canCreate ? (
             <Button data-testid={T.advanceAddBtn} size="sm" onClick={() => setAdvOpen(true)}>
               <Plus className="mr-1.5 h-4 w-4" /> Ajukan uang muka
@@ -116,13 +116,13 @@ export default function AdvancesPanel() {
             description={"Uang muka mobilisasi dicatat sebagai HAK TAGIH (aset), bukan biaya, "
               + "lalu diangsur dari termin berikutnya — biaya proyek tidak dihitung dua kali."} />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Nomor / SPK</TableHead><TableHead>Subkontraktor</TableHead>
                 <TableHead className="text-right">Nilai</TableHead>
                 <TableHead className="text-right">Sisa</TableHead>
-                <TableHead>Status</TableHead><TableHead className="text-right">Aksi</TableHead>
+                <TableHead>Status</TableHead><TableHead className="col-actions-head text-right">Aksi</TableHead>
               </TableRow></TableHeader>
               <TableBody>
                 {advances.data.map((a) => (
@@ -141,7 +141,7 @@ export default function AdvancesPanel() {
                       {formatIDR(a.outstanding)}</TableCell>
                     <TableCell>
                       <StatusPill status={a.state} group="advance_state" /></TableCell>
-                    <TableCell className="text-right">
+                    <TableCell className="col-actions text-right">
                       <div className="flex justify-end gap-1.5">
                         {a.state === "draft" && canManage ? (
                           <>
@@ -178,7 +178,7 @@ export default function AdvancesPanel() {
             format="idr" />
         </div>
         <div className="flex items-center justify-between">
-          <h3 className="font-heading text-base font-semibold">Potongan termin</h3>
+          <h3 className="section-title">Potongan termin</h3>
           {canCreate ? (
             <Button data-testid={T.deductionAddBtn} size="sm" variant="outline"
               onClick={() => setDedOpen(true)}>
@@ -191,7 +191,7 @@ export default function AdvancesPanel() {
             description={"Angsuran uang muka, denda keterlambatan, dan bon material dicatat di "
               + "sini; potongan yang menunggu otomatis mengurangi termin berikutnya."} />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Jenis</TableHead><TableHead>SPK / Subkontraktor</TableHead>
@@ -211,7 +211,7 @@ export default function AdvancesPanel() {
                     <TableCell>
                       <StatusPill status={d.state} group="deduction_state" /></TableCell>
                     <TableCell className="max-w-xs text-xs text-muted-foreground">{d.reason}</TableCell>
-                    <TableCell className="text-right">
+                    <TableCell className="col-actions text-right">
                       {d.state === "pending" && canCreate ? (
                         <Button data-testid={T.deductionCancelBtn} size="sm" variant="ghost"
                           onClick={() => cancelDeduction(d)}>Batalkan</Button>

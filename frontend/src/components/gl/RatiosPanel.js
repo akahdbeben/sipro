@@ -46,7 +46,7 @@ export default function RatiosPanel({ period }) {
     <div data-testid={GL.ratioPanel} className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
-          <p className="font-heading text-base font-semibold">Analisa Rasio Keuangan</p>
+          <p className="section-title">Analisa Rasio Keuangan</p>
           <p className="text-xs text-muted-foreground">
             Periode {data.period.label} · {data.counts.healthy} sehat · {data.counts.watch} perhatian ·
             {" "}{data.counts.risk} berisiko · {data.counts.na} belum cukup data
@@ -83,7 +83,7 @@ export default function RatiosPanel({ period }) {
         </div>
       ))}
 
-      <div className="rounded-xl border bg-card p-4">
+      <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
         <p className="mb-2 font-heading text-sm font-semibold">Dasar perhitungan</p>
         <div className="grid gap-2 text-sm sm:grid-cols-2 lg:grid-cols-3">
           {[["Aset lancar", inp.current_assets], ["Liabilitas jangka pendek", inp.current_liabilities],

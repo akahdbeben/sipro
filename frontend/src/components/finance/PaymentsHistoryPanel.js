@@ -49,7 +49,7 @@ export default function PaymentsHistoryPanel({ refreshKey = 0 }) {
         <EmptyState icon={Banknote} title="Belum ada pembayaran"
           description="Pembayaran tagihan vendor/subkontraktor akan tercatat di sini." />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <Table>
             <TableHeader><TableRow>
               <TableHead>Waktu</TableHead><TableHead>Vendor</TableHead>

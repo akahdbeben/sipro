@@ -44,7 +44,7 @@ export default function ShowroomUnitSheet({ unit, labels = {}, onClose, onAsk })
           </SheetDescription>
         </SheetHeader>
 
-        <div className="mt-4 rounded-xl border bg-card p-3">
+        <div className="mt-4 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
           <Row label="Blok" value={unit.block || "-"} />
           <Row label="Luas tanah" value={`${unit.luas_tanah || 0} m²`} />
           <Row label="Luas bangunan" value={`${unit.luas_bangunan || 0} m²`} />

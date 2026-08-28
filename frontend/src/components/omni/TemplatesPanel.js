@@ -91,7 +91,7 @@ export default function TemplatesPanel() {
       ) : (
         <div className="grid gap-2 md:grid-cols-2">
           {rows.map((t) => (
-            <div key={t.id} data-testid={OMNI.tmplRow} className="rounded-xl border bg-card p-3">
+            <div key={t.id} data-testid={OMNI.tmplRow} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">

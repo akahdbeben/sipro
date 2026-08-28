@@ -193,7 +193,7 @@ export default function ConfigPanel() {
               </div>
               <div className="mt-1 flex flex-wrap gap-1.5">
                 {(s.items || []).map((it, i) => (
-                  <span key={i} className="rounded-full border bg-card px-2 py-0.5 text-[11px] text-muted-foreground">
+                  <span key={i} className="rounded-full border bg-card px-2 py-0.5 text-[11px] text-muted-foreground shadow-[var(--shadow-card)]">
                     {it.label} · {it.basis === "percent" ? `${it.value}%` : formatIDR(it.value)} · jatuh tempo +{it.due_offset_days} hari
                   </span>
                 ))}
@@ -240,7 +240,7 @@ export default function ConfigPanel() {
               </p>
               <div className="mt-1 flex flex-wrap gap-1.5">
                 {(s.tiers || []).map((t, i) => (
-                  <span key={i} className="rounded-full border bg-card px-2 py-0.5 text-[11px] text-muted-foreground">
+                  <span key={i} className="rounded-full border bg-card px-2 py-0.5 text-[11px] text-muted-foreground shadow-[var(--shadow-card)]">
                     {formatIDR(t.min_amount)}–{t.max_amount ? formatIDR(t.max_amount) : "∞"} → {t.rate_pct}%
                   </span>
                 ))}

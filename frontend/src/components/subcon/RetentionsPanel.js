@@ -104,7 +104,7 @@ function RetentionRow({ row: r, canRequest, canRelease, canWaive, onAction, onWa
   const adaYangBisaDiabaikan = blocks.some((b) => b.waivable);
 
   return (
-    <div data-testid={T.retentionRow} data-state={r.state} className="rounded-xl border bg-card p-4">
+    <div data-testid={T.retentionRow} data-state={r.state} className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">

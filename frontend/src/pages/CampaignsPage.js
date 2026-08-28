@@ -29,10 +29,10 @@ export default function CampaignsPage() {
   return (
     <div data-testid={ADS.page} className="space-y-4">
       <div>
-        <h1 className="font-heading text-2xl font-semibold tracking-tight">
+        <h1 className="page-title">
           Kampanye &amp; Biaya Iklan
         </h1>
-        <p className="text-sm text-muted-foreground">
+        <p className="page-desc">
           Master kampanye per platform, biaya iklan harian (input manual atau impor CSV
           idempoten), dan kinerja per kampanye: CPL, biaya per lead terkualifikasi, CAC, ROAS.
           Setiap angka biaya membawa <strong>label asal datanya</strong>; bila biaya sebuah

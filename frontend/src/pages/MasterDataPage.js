@@ -18,7 +18,7 @@ export default function MasterDataPage() {
     <div data-testid={MASTER.page} className="space-y-5">
       <div className="flex items-center gap-2">
         <Database className="h-5 w-5 text-primary" />
-        <h1 className="font-heading text-xl font-semibold tracking-tight">Master Data & Integritas</h1>
+        <h1 className="page-title">Master Data & Integritas</h1>
       </div>
       <p className="text-sm text-muted-foreground">
         Kelola template dokumen legal dan checklist QC, serta pantau konsistensi data

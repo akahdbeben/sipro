@@ -62,7 +62,7 @@ export default function ComplaintsPanel() {
   return (
     <div data-testid={PORTAL.complaintsPanel} className="space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="font-heading text-base font-semibold">Komplain & Bantuan</h2>
+        <h2 className="section-title">Komplain & Bantuan</h2>
         <Button data-testid={PORTAL.complaintAddBtn} size="sm" onClick={() => setOpen(true)}>
           <Plus className="mr-1.5 h-4 w-4" /> Ajukan Komplain
         </Button>

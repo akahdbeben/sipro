@@ -26,8 +26,8 @@ export default function ConfigCenterPage() {
       <div className="flex items-center gap-2">
         <SlidersHorizontal className="h-5 w-5 text-primary" />
         <div>
-          <h1 className="font-heading text-xl font-semibold">Pusat Konfigurasi</h1>
-          <p className="text-sm text-muted-foreground">
+          <h1 className="page-title">Pusat Konfigurasi</h1>
+          <p className="page-desc">
             Aturan bisnis, dokumen syarat, komponen biaya, skema pembayaran, spek tambahan, tipe unit, dan
             kesiapan integrasi pihak ketiga — semuanya bisa diubah tanpa mengubah kode.
           </p>

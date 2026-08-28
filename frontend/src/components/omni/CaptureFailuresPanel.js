@@ -111,7 +111,7 @@ export default function CaptureFailuresPanel({ onCountChange }) {
 
   return (
     <div data-testid={OMNI.capturePanel} className="space-y-3">
-      <div className="rounded-xl border bg-card p-3">
+      <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
         <p className="flex flex-wrap items-center gap-2 text-sm font-semibold">
           <Inbox className="h-4 w-4 text-primary" /> Lead gagal masuk (antrean penyelamatan)
         </p>
@@ -128,7 +128,7 @@ export default function CaptureFailuresPanel({ onCountChange }) {
               { k: "resolved", label: "Diselamatkan", v: summary.resolved, tone: "text-emerald-700" },
               { k: "discarded", label: "Dibuang", v: summary.discarded, tone: "text-muted-foreground" },
             ].map((c) => (
-              <div key={c.k} className="rounded-lg border bg-card px-2.5 py-1.5">
+              <div key={c.k} className="rounded-lg border bg-card px-2.5 py-1.5 shadow-[var(--shadow-card)]">
                 <p className="text-[11px] text-muted-foreground">{c.label}</p>
                 <p className={`text-lg font-semibold tabular-nums ${c.tone}`}>{c.v ?? 0}</p>
               </div>
@@ -158,21 +158,21 @@ export default function CaptureFailuresPanel({ onCountChange }) {
       </div>
 
       {loading ? (
-        <p className="rounded-xl border bg-card p-4 text-sm text-muted-foreground">Memuat antrean…</p>
+        <p className="rounded-xl border bg-card p-4 text-sm text-muted-foreground shadow-[var(--shadow-card)]">Memuat antrean…</p>
       ) : error ? (
         <p className="rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900">
           {error}
         </p>
       ) : rows.length === 0 ? (
         <p data-testid={OMNI.captureEmpty}
-          className="rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground">
+          className="rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground shadow-[var(--shadow-card)]">
           Tidak ada lead yang tertahan. Semua payload webhook masuk dengan bersih.
         </p>
       ) : (
         <div className="space-y-2">
           {rows.map((r) => (
             <div key={r.id} data-testid={OMNI.captureRow}
-              className="rounded-xl border bg-card p-3 text-sm">
+              className="rounded-xl border bg-card p-3 text-sm shadow-[var(--shadow-card)]">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="flex flex-wrap items-center gap-2">
                   <b>{labelOf("lead_source", r.provider) || r.provider}</b>

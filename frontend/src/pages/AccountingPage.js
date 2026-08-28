@@ -19,7 +19,7 @@ export default function AccountingPage() {
     <div data-testid={GL.accountingPage} className="space-y-5">
       <div className="flex items-center gap-2">
         <BookOpen className="h-5 w-5 text-primary" />
-        <h1 className="font-heading text-xl font-semibold">Buku Besar & Jurnal</h1>
+        <h1 className="page-title">Buku Besar & Jurnal</h1>
       </div>
       <Tabs value={tab} onValueChange={setTab}>
         <TabsList className="flex-wrap">

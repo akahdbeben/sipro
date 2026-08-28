@@ -123,7 +123,7 @@ export default function RealizationPanel({ projectId }) {
             </span>
           </span>
           <Link to={health.config_link}
-            className="inline-flex items-center gap-1 rounded-md border bg-card px-2 py-1 font-medium">
+            className="inline-flex items-center gap-1 rounded-md border bg-card px-2 py-1 font-medium shadow-[var(--shadow-card)]">
             <Settings2 className="h-3.5 w-3.5" /> Ubah kebijakan
           </Link>
         </div>
@@ -190,7 +190,7 @@ export default function RealizationPanel({ projectId }) {
           <div>
             <p className="mb-2 text-sm font-semibold">Per kategori anggaran</p>
             <div data-testid={BUDGET.categoryTable}
-              className="overflow-x-auto rounded-xl border bg-card">
+              className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
               <Table>
                 <TableHeader><TableRow>
                   <TableHead>Kategori</TableHead>
@@ -257,7 +257,7 @@ export default function RealizationPanel({ projectId }) {
           {/* item + tombol tembus dokumen (lapis 3) */}
           <div>
             <p className="mb-2 text-sm font-semibold">Item anggaran &amp; jalur telusurnya</p>
-            <div className="overflow-x-auto rounded-xl border bg-card">
+            <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
               <Table>
                 <TableHeader><TableRow>
                   <TableHead>Kode</TableHead>
@@ -311,7 +311,7 @@ export default function RealizationPanel({ projectId }) {
                 ? "Angka di tabel ini cocok dengan panel Kendali Biaya (tidak ada dua kebenaran)."
                 : `TIDAK COCOK dengan panel Kendali Biaya: ${JSON.stringify(rab.tie_out?.diff)} — laporkan sebagai cacat.`}
             </p>
-            <div data-testid={BUDGET.rabTable} className="overflow-x-auto rounded-xl border bg-card">
+            <div data-testid={BUDGET.rabTable} className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
               <Table>
                 <TableHeader><TableRow>
                   <TableHead>{GROUPS.find((g) => g.value === groupBy)?.label}</TableHead>
@@ -396,7 +396,7 @@ export default function RealizationPanel({ projectId }) {
           {(unmapped.by_source || []).length ? (
             <div className="flex flex-wrap gap-2">
               {unmapped.by_source.map((s) => (
-                <span key={s.source} className="rounded-full border bg-card px-3 py-1 text-[11px]">
+                <span key={s.source} className="rounded-full border bg-card px-3 py-1 text-[11px] shadow-[var(--shadow-card)]">
                   <span className="text-muted-foreground">
                     {labelOf("cost_source", s.source)}:
                   </span>{" "}
@@ -411,7 +411,7 @@ export default function RealizationPanel({ projectId }) {
             </p>
           )}
           {(unmapped.documents || []).length ? (
-            <div className="max-h-72 overflow-auto rounded-xl border bg-card">
+            <div className="max-h-72 overflow-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
               <Table>
                 <TableHeader><TableRow>
                   <TableHead>Jenis</TableHead><TableHead>Nomor</TableHead>

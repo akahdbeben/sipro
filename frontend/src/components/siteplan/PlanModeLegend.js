@@ -53,7 +53,7 @@ export default function PlanModeLegend({
       </div>
 
       <div data-testid={SITE_PLAN.legend}
-        className="flex flex-wrap items-center gap-1.5 rounded-xl border bg-card px-2.5 py-2">
+        className="flex flex-wrap items-center gap-1.5 rounded-xl border bg-card px-2.5 py-2 shadow-[var(--shadow-card)]">
         {items.map((it) => {
           const on = highlight === it.key;
           return (

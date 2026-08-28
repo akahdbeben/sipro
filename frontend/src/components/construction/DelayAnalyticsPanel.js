@@ -123,7 +123,7 @@ export default function DelayAnalyticsPanel({ projectId, onOpenTemplates }) {
           hint="bisa langsung diterapkan ke template" />
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-card p-2.5">
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-card p-2.5 shadow-[var(--shadow-card)]">
         <p className="text-[11px] text-muted-foreground">
           Kalibrasi mengubah <b>template</b> (durasi / waktu tunggu) — jadwal rumah yang sudah
           dibuat tidak bergeser. Angka baru dipakai saat jadwal berikutnya dibuat.
@@ -141,7 +141,7 @@ export default function DelayAnalyticsPanel({ projectId, onOpenTemplates }) {
           </p>
           {recs.map((r, i) => (
             <div key={i} data-testid={BUILD.analyticsRec}
-              className="rounded-lg border bg-card p-2.5">
+              className="rounded-lg border bg-card p-2.5 shadow-[var(--shadow-card)]">
               <p className="text-xs font-semibold">{r.title}</p>
               <p className="mt-0.5 text-[11px] text-muted-foreground">{r.detail}</p>
               <div className="mt-1.5 flex flex-wrap items-center justify-between gap-2">
@@ -169,7 +169,7 @@ export default function DelayAnalyticsPanel({ projectId, onOpenTemplates }) {
         </div>
       ) : null}
 
-      <div className="rounded-xl border bg-card p-3">
+      <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
         <h4 className="mb-2 inline-flex items-center gap-1.5 text-sm font-semibold">
           <AlertTriangle className="h-4 w-4 text-rose-600" /> Pekerjaan paling sering telat
         </h4>
@@ -227,7 +227,7 @@ export default function DelayAnalyticsPanel({ projectId, onOpenTemplates }) {
       </div>
 
       <div className="grid gap-3 lg:grid-cols-2">
-        <div className="rounded-xl border bg-card p-3">
+        <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
           <h4 className="mb-2 inline-flex items-center gap-1.5 text-sm font-semibold">
             <UserCog className="h-4 w-4" /> Pelaksana paling sering telat
           </h4>
@@ -257,7 +257,7 @@ export default function DelayAnalyticsPanel({ projectId, onOpenTemplates }) {
           </div>
         </div>
 
-        <div className="rounded-xl border bg-card p-3">
+        <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
           <h4 className="mb-2 text-sm font-semibold">Keterlambatan per tipe unit</h4>
           <div className="space-y-1.5">
             {types.map((tp) => (

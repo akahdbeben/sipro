@@ -57,7 +57,7 @@ export default function ChangeOrdersSection({ spk, onChanged }) {
   };
 
   return (
-    <div data-testid={CHANGE_ORDERS.section} className="space-y-3 rounded-xl border bg-card p-4">
+    <div data-testid={CHANGE_ORDERS.section} className="space-y-3 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="flex items-center justify-between">
         <p className="flex items-center gap-1.5 text-sm font-semibold"><GitBranch className="h-4 w-4 text-primary" /> Change Order (Addendum)</p>
         {canCreate ? (

@@ -47,7 +47,7 @@ export default function OfflineQueuePanel({ kinds = null }) {
         {rows.map((j) => (
           <div key={j.id} data-testid={OFFLINE.queueRow} data-status={j.status}
             data-kind={j.kind}
-            className="rounded-lg border bg-card p-2 text-[11px] text-foreground">
+            className="rounded-lg border bg-card p-2 text-[11px] text-foreground shadow-[var(--shadow-card)]">
             <div className="flex flex-wrap items-start justify-between gap-2">
               <div>
                 <p className="font-semibold">

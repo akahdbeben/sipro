@@ -22,7 +22,7 @@ export default function CalendarMonthGrid({ days, selected, onPick }) {
   const blanks = leadingBlanks(days);
 
   return (
-    <div className="rounded-xl border bg-card p-2 sm:p-3">
+    <div className="rounded-xl border bg-card p-2 sm:p-3 shadow-[var(--shadow-card)]">
       <div className="grid grid-cols-7 gap-1 pb-1">
         {WEEKDAY_HEADER.map((w) => (
           <div key={w} className="px-1 text-center text-[11px] font-semibold text-muted-foreground">

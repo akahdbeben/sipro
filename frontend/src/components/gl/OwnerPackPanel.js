@@ -23,7 +23,7 @@ const MISSING_TEXT = {
 function Section({ title, hint, children, testValue }) {
   return (
     <div data-testid={P49.ownerPackSection} data-section={testValue}
-      className="space-y-2 rounded-xl border bg-card p-4">
+      className="space-y-2 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <div>
         <p className="font-heading text-sm font-semibold">{title}</p>
         {hint ? <p className="text-[11px] text-muted-foreground">{hint}</p> : null}
@@ -88,7 +88,7 @@ export default function OwnerPackPanel() {
 
   return (
     <div data-testid={P49.ownerPackPanel} className="space-y-4">
-      <div className="flex flex-wrap items-end justify-between gap-3 rounded-xl border bg-card p-3">
+      <div className="flex flex-wrap items-end justify-between gap-3 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
         <div className="space-y-1">
           <Label className="text-xs" htmlFor="p49-ownerpack-month">Masa laporan (bulan)</Label>
           <Input id="p49-ownerpack-month" type="month" className="w-[170px]"
@@ -191,7 +191,7 @@ export default function OwnerPackPanel() {
         {!(proj.rows || []).length ? (
           <p className="text-xs text-muted-foreground">Belum ada data laba per proyek pada masa ini.</p>
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Proyek</TableHead>
@@ -230,7 +230,7 @@ export default function OwnerPackPanel() {
         hint={`Sehat ${pack?.ratios?.counts?.healthy || 0} · perhatian ${pack?.ratios?.counts?.watch || 0} · risiko ${pack?.ratios?.counts?.risk || 0}`}>
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {(pack?.ratios?.groups || []).map((g) => (
-            <div key={g.key} className="rounded-xl border bg-card p-3">
+            <div key={g.key} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <p className="text-xs font-semibold">{g.label}</p>
               {(g.items || []).map((it) => (
                 <div key={it.name} data-testid={P49.ownerPackRatio}
@@ -251,7 +251,7 @@ export default function OwnerPackPanel() {
         {!(history?.periods || []).length ? (
           <p className="text-xs text-muted-foreground">Belum ada periode yang pernah ditutup.</p>
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Periode</TableHead>

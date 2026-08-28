@@ -47,7 +47,7 @@ export default function CustomerFinancingTab({ customer, financings = [], onChan
             const remaining = (f.plafon || 0) - (f.disbursed_total || 0);
             return (
               <div key={f.id} data-testid={CUSTOMERS.financingRow}
-                className="rounded-lg border bg-card p-3">
+                className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
                 <div className="flex items-center justify-between">
                   <span className="font-medium">{f.bank_name}</span>
                   <StatusPill status={f.status} group="financing_status" />

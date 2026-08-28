@@ -142,15 +142,23 @@ export default function NotificationsPage() {
     read: { title: "Belum ada yang dilihat", description: "Notifikasi yang Anda buka akan berpindah ke sini." },
     all: { title: "Belum ada notifikasi", description: "Sebutan, tenggat, dan kabar sistem akan muncul di sini." },
   }[query.state || "action"];
+  // Pencarian yang tidak menemukan apa pun BUKAN berarti pekerjaan sudah habis — dulu
+  // layar berbunyi "semua permintaan keputusan sudah dikerjakan" padahal hanya kata
+  // pencariannya yang tidak cocok (temuan uji Fase 67).
+  const emptyState = (query.q || "").trim()
+    ? { title: `Tidak ada notifikasi yang cocok dengan “${query.q.trim()}”`,
+        description: "Coba kata lain, lepas filter kategori, atau hapus pencarian ini.",
+        actionLabel: "Hapus pencarian", onAction: () => setQuery({ q: "" }) }
+    : emptyFor;
 
   return (
     <div data-testid={NOTIF.page} className="space-y-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="flex items-center gap-2 font-heading text-2xl font-semibold tracking-tight">
+          <h1 className="page-title flex items-center gap-2">
             <Bell className="h-5 w-5 text-primary" /> Notifikasi
           </h1>
-          <p className="text-sm text-muted-foreground">
+          <p className="page-desc">
             Yang perlu ditindak lebih dulu. Notifikasi yang pekerjaannya sudah selesai
             dicabut sendiri, jadi daftar ini bisa habis.
           </p>
@@ -199,7 +207,7 @@ export default function NotificationsPage() {
       <div className="flex flex-wrap items-center gap-2">
         <div className="relative min-w-[220px] flex-1 sm:max-w-xs">
           <Search className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input data-testid={NOTIF.search} className="h-9 bg-background pl-9"
+          <Input data-testid={NOTIF.search} className="search-field pl-9"
             aria-label="Cari notifikasi" placeholder="Cari judul atau isi notifikasi…"
             value={query.q || ""} onChange={(e) => setQuery({ q: e.target.value })} />
         </div>
@@ -230,7 +238,7 @@ export default function NotificationsPage() {
             <>
               <NotificationRows rows={data?.data || []} onRead={markRead} onDismiss={dismiss}
                 onGroupRead={groupRead} onGroupDismiss={groupDismiss}
-                emptyState={emptyFor} />
+                emptyState={emptyState} />
               {data?.total > (data?.data || []).length ? (
                 <p className="text-center text-[11px] text-muted-foreground">
                   Menampilkan {(data.data || []).length} dari {data.total}

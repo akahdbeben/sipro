@@ -41,7 +41,7 @@ export default function WarrantyClaimList({ claims = [], onAction, emptyHint }) 
     <div className="space-y-2">
       {claims.map((c) => (
         <div key={c.id} data-testid={P50.claimRow} data-state={c.state}
-          className="rounded-xl border bg-card p-3">
+          className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="min-w-0">
               <p className="text-sm font-semibold">

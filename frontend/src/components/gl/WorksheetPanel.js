@@ -55,7 +55,7 @@ export default function WorksheetPanel({ period, onDrill }) {
     <div data-testid={GL.wsPanel} className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
-          <p className="font-heading text-base font-semibold">Neraca Lajur (Worksheet)</p>
+          <p className="section-title">Neraca Lajur (Worksheet)</p>
           <p className="text-xs text-muted-foreground">
             Periode {data.period.label} · {data.rows.length} akun bergerak · klik baris untuk drill-down
           </p>
@@ -74,7 +74,7 @@ export default function WorksheetPanel({ period, onDrill }) {
         </span>
       </div>
 
-      <div className="overflow-x-auto rounded-xl border bg-card">
+      <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
         <Table>
           <TableHeader>
             <TableRow>

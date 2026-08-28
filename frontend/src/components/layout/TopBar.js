@@ -165,14 +165,14 @@ export default function TopBar({ onMenuClick }) {
   };
 
   return (
-    <header data-testid={NAV.topbar} className="sticky top-0 z-20 flex items-center justify-between border-b bg-background/80 px-4 py-3 backdrop-blur md:px-6">
+    <header data-testid={NAV.topbar} className="sticky top-0 z-20 flex items-center justify-between border-b border-border bg-card/85 px-4 py-3 shadow-[var(--shadow-card)] backdrop-blur-md md:px-6">
       <div className="flex items-center gap-3">
         <Button variant="ghost" size="icon" className="md:hidden" onClick={onMenuClick}>
           <Menu className="h-5 w-5" />
         </Button>
         <div>
-          <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">{meta.kicker}</p>
-          <h1 data-testid={NAV.pageTitle} className="font-heading text-lg font-semibold leading-tight">{meta.title}</h1>
+          <p className="eyebrow">{meta.kicker}</p>
+          <h1 data-testid={NAV.pageTitle} className="font-heading text-lg font-semibold leading-tight tracking-tight">{meta.title}</h1>
         </div>
       </div>
       <div className="flex items-center gap-2">

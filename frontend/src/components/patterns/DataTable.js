@@ -100,7 +100,7 @@ export default function DataTable({
 
       {selectable && selectedRows.length ? (
         <div data-testid={testIds.bulkBar || DT.bulkBar}
-          className="flex flex-wrap items-center gap-2 rounded-md border bg-secondary px-3 py-2">
+          className="flex flex-wrap items-center gap-2 rounded-xl border border-primary/30 bg-accent px-3 py-2 shadow-sm">
           <span className="text-sm font-medium tabular-nums">
             {selectedRows.length} baris dipilih
           </span>
@@ -123,9 +123,9 @@ export default function DataTable({
       ) : null}
 
       {!loading && !error && rows.length ? (
-        <div className="overflow-x-auto rounded-md border bg-card">
+        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-card)]">
           <Table>
-            <TableHeader className="bg-secondary">
+            <TableHeader>
               <TableRow>
                 {selectable ? (
                   <TableHead className="w-10">
@@ -141,7 +141,7 @@ export default function DataTable({
                   return (
                     <TableHead key={header.id} style={meta.width ? { width: meta.width } : undefined}
                       className={cn(meta.align === "right" && "text-right",
-                        "whitespace-nowrap text-xs font-semibold uppercase tracking-wide")}
+                        "whitespace-nowrap")}
                       aria-sort={query.sort === key
                         ? (query.direction === "desc" ? "descending" : "ascending") : undefined}>
                       {meta.sortable ? (
@@ -180,7 +180,7 @@ export default function DataTable({
                     return (
                       <TableCell key={cell.id}
                         className={cn(meta.align === "right" && "text-right tabular-nums",
-                          "align-top text-sm", meta.className)}>
+                          "align-middle text-sm", meta.className)}>
                         <table.FlexRender cell={cell} />
                       </TableCell>
                     );

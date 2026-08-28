@@ -85,7 +85,7 @@ export default function PermitsPage() {
         <div className="flex items-center gap-2">
           <Stamp className="h-5 w-5 text-primary" />
           <div>
-            <h1 className="font-heading text-xl font-semibold">Perizinan &amp; Dokumen</h1>
+            <h1 className="page-title">Perizinan &amp; Dokumen</h1>
             <p className="text-xs text-muted-foreground">
               Izin menempel pada objek (proyek → cluster → blok → unit). Izin unit juga
               tampil di Unit 360 → tab Dokumen &amp; Izin.
@@ -151,7 +151,7 @@ export default function PermitsPage() {
               actionLabel={canCreate ? "Tambah Izin" : undefined}
               onAction={() => setAddOpen(true)} />
           ) : (
-            <div className="overflow-x-auto rounded-xl border bg-card">
+            <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
               <Table>
                 <TableHeader><TableRow>
                   <TableHead>Jenis</TableHead>

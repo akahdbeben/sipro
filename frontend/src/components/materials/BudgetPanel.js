@@ -27,8 +27,8 @@ export default function BudgetPanel({ projectId, refreshKey }) {
   return (
     <div data-testid={T.panel} className="space-y-4">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="rounded-full border bg-card px-3 py-1 text-xs">Material: <b>{summary.materials}</b></span>
-        <span className="rounded-full border bg-card px-3 py-1 text-xs">Terpantau RAB: <b>{summary.tracked}</b></span>
+        <span className="rounded-full border bg-card px-3 py-1 text-xs shadow-[var(--shadow-card)]">Material: <b>{summary.materials}</b></span>
+        <span className="rounded-full border bg-card px-3 py-1 text-xs shadow-[var(--shadow-card)]">Terpantau RAB: <b>{summary.tracked}</b></span>
         <span className={`rounded-full border px-3 py-1 text-xs ${summary.over_budget ? "border-rose-200 bg-rose-50 text-rose-700" : "bg-card"}`}>
           Melebihi RAB: <b>{summary.over_budget}</b>
         </span>

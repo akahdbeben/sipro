@@ -78,7 +78,7 @@ export default function LoanDetailSheet({ loanId, onClose, onChanged }) {
 
         {loading ? <LoadingCards count={2} /> : error ? <ErrorState message={error} onRetry={load} /> : l ? (
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border bg-card p-3">
+            <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <Row label="Jenis fasilitas" value={<RefLabel group="loan_type" value={l.loan_type} />} />
               <Row label="Jenis pemberi pinjaman" value={<RefLabel group="lender_type" value={l.lender_type} />} />
               <Row label="Metode amortisasi" value={<RefLabel group="amortization_method" value={l.amortization_method} />} />
@@ -128,7 +128,7 @@ export default function LoanDetailSheet({ loanId, onClose, onChanged }) {
                   Σ pokok jadwal: <span className="font-semibold tabular-nums">{formatIDR(principalTotal)}</span>
                 </p>
               </div>
-              <div className="max-h-96 overflow-y-auto rounded-xl border bg-card">
+              <div className="max-h-96 overflow-y-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -139,7 +139,7 @@ export default function LoanDetailSheet({ loanId, onClose, onChanged }) {
                       <TableHead className="text-right">Total</TableHead>
                       <TableHead className="text-right">Terbayar</TableHead>
                       <TableHead>Status</TableHead>
-                      {l.status === "active" ? <TableHead className="text-right">Aksi</TableHead> : null}
+                      {l.status === "active" ? <TableHead className="col-actions-head text-right">Aksi</TableHead> : null}
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -157,7 +157,7 @@ export default function LoanDetailSheet({ loanId, onClose, onChanged }) {
                           <StatusPill status={r.status} group="installment_status" />
                         </TableCell>
                         {l.status === "active" ? (
-                          <TableCell className="text-right">
+                          <TableCell className="col-actions text-right">
                             {r.status !== "paid" ? (
                               <Button size="sm" data-testid={LOANS.payBtn}
                                 onClick={() => setPay({ loan: l, item: r })}>Bayar</Button>
@@ -176,7 +176,7 @@ export default function LoanDetailSheet({ loanId, onClose, onChanged }) {
                 <p className="mb-2 text-xs font-semibold uppercase text-muted-foreground">
                   Riwayat pembayaran ({data.payments.length})
                 </p>
-                <div className="max-h-64 overflow-y-auto rounded-xl border bg-card">
+                <div className="max-h-64 overflow-y-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
                   <Table>
                     <TableHeader>
                       <TableRow>

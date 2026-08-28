@@ -62,7 +62,7 @@ export default function BalanceSheetPanel({ period, onDrill }) {
     <div data-testid={GL.bsPanel} className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
-          <p className="font-heading text-base font-semibold">Neraca</p>
+          <p className="section-title">Neraca</p>
           <p className="text-xs text-muted-foreground">Posisi per {formatDateWIB(data.as_of)} · klik akun untuk drill-down</p>
         </div>
         <Button data-testid={GL.exportBtn} size="sm" variant="outline" onClick={exportCsv}>
@@ -79,7 +79,7 @@ export default function BalanceSheetPanel({ period, onDrill }) {
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <div className="rounded-xl border bg-card p-4">
+        <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
           <p className="font-heading text-sm font-semibold">Aset</p>
           <p className="mb-1 mt-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Aset Lancar</p>
           {cur(data.assets, true).length ? cur(data.assets, true).map((r) => <Line key={r.code} row={r} onDrill={onDrill} />)
@@ -92,7 +92,7 @@ export default function BalanceSheetPanel({ period, onDrill }) {
           <Total label="TOTAL ASET" value={data.total_assets} strong />
         </div>
 
-        <div className="rounded-xl border bg-card p-4">
+        <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
           <p className="font-heading text-sm font-semibold">Liabilitas &amp; Ekuitas</p>
           <p className="mb-1 mt-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Liabilitas Jangka Pendek</p>
           {cur(data.liabilities, true).length ? cur(data.liabilities, true).map((r) => <Line key={r.code} row={r} onDrill={onDrill} />)

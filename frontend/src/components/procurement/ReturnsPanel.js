@@ -81,7 +81,7 @@ export default function ReturnsPanel() {
             description={"Barang yang rusak, salah kirim, atau kelebihan terima dikembalikan di "
               + "sini — stok gudang dan nilai penerimaan PO ikut turun otomatis."} />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Nomor</TableHead><TableHead>PO / GRN</TableHead>

@@ -152,7 +152,7 @@ export default function RefundDebtPanel() {
         <p className="text-[12px] font-medium">Proyeksi kas keluar (6 bulan, dari jatuh tempo)</p>
         <div className="grid gap-2 sm:grid-cols-6">
           {(proj.periods || []).map((p) => (
-            <div key={p.label} className="rounded-lg border bg-card px-2.5 py-1.5">
+            <div key={p.label} className="rounded-lg border bg-card px-2.5 py-1.5 shadow-[var(--shadow-card)]">
               <p className="text-[11px] text-muted-foreground">{p.label}</p>
               <p className="font-semibold tabular-nums"><MoneyText value={p.outflow} /></p>
             </div>
@@ -174,7 +174,7 @@ export default function RefundDebtPanel() {
               + "2-1460 bersih. Ini kabar baik, bukan data yang hilang."} />
         </div>
       ) : (
-        <div className="overflow-x-auto rounded-lg border bg-card">
+        <div className="overflow-hidden rounded-lg border bg-card shadow-[var(--shadow-card)]">
           <Table>
             <TableHeader>
               <TableRow>

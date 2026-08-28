@@ -13,6 +13,7 @@ import { useAuth } from "@/context/AuthContext";
 import { formatIDR, formatDateWIB } from "@/utils/formatters";
 import api from "@/services/apiClient";
 import { GL } from "@/constants/testIds";
+import SearchInput from "@/components/patterns/SearchInput";
 
 
 export default function JournalPanel() {
@@ -40,7 +41,9 @@ export default function JournalPanel() {
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Cari no. jurnal / keterangan…" className="w-full sm:w-72" />
+        <SearchInput value={q} onChange={setQ} testId="journal-search"
+          placeholder="Cari no. jurnal / keterangan…"
+          className="w-full sm:w-72" />
         {canManage ? (
           <Button data-testid={GL.journalAddBtn} size="sm" onClick={() => setAddOpen(true)}>
             <Plus className="mr-1.5 h-4 w-4" /> Jurnal Manual
@@ -53,7 +56,7 @@ export default function JournalPanel() {
             description="Jurnal otomatis terposting dari transaksi (pembayaran, AP, komisi, pendapatan) atau buat jurnal manual."
             actionLabel={canManage ? "Jurnal Manual" : undefined} onAction={() => setAddOpen(true)} />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>No. Jurnal</TableHead><TableHead>Tanggal</TableHead><TableHead>Keterangan</TableHead>

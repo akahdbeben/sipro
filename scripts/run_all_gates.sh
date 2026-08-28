@@ -105,6 +105,10 @@ GATES=(
   # TERCETAK (dibuktikan dengan membaca PDF), dan gaya tabel (garis transparan, nama kolom
   # tidak tampil) menjadi konfigurasi — bukan permintaan fitur.
   verify_p66.py
+  # Fase 67 — gate ke-58: kedalaman & konsistensi tampilan. Menjaga agar layar tidak
+  # kembali "flat": kanvas berlapis, primitif berbayang + fokus 2px, satu ukuran judul
+  # halaman, dan afordansi (search bar berikon, status bertitik, kartu angka beraksen).
+  verify_p67.py
 )
 
 fail=0

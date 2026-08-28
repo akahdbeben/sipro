@@ -20,7 +20,7 @@ export function CustomerUnitsTab({ units = [] }) {
       {units.map((u) => (
         <div key={u.id} data-testid="customer-unit-row" data-unit={u.code}
           aria-label={`Unit ${u.code}`}
-          className="flex flex-wrap items-center justify-between gap-3 rounded-lg border bg-card p-3">
+          className="flex flex-wrap items-center justify-between gap-3 rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
           <div>
             <p className="text-sm font-medium">
               <Link className="text-primary hover:underline" to={`/units/${u.id}`}>{u.code}</Link>
@@ -59,7 +59,7 @@ export function CustomerComplaintsTab({ complaints = [] }) {
     <div className="space-y-2">
       {complaints.map((c) => (
         <div key={c.id} data-testid="customer-complaint-row" data-complaint={c.id}
-          aria-label={`Komplain ${c.subject}`} className="rounded-lg border bg-card p-3">
+          aria-label={`Komplain ${c.subject}`} className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <p className="text-sm font-medium">{c.subject}</p>
             <div className="flex items-center gap-2">

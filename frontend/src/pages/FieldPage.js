@@ -15,7 +15,7 @@ export default function FieldPage() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <ClipboardList className="h-5 w-5 text-primary" />
-          <h1 className="font-heading text-xl font-semibold">Buku Harian & Punch List</h1>
+          <h1 className="page-title">Buku Harian & Punch List</h1>
         </div>
         <ProjectSelect value={projectId} onChange={setProjectId} testId={FIELD.projectSelect} />
       </div>

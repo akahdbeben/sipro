@@ -22,15 +22,16 @@ export default function DataTableToolbar({
   const searchId = `${testIds.search || DT.search}-input`;
   return (
     <div className="space-y-2">
-      <div className="flex flex-wrap items-center gap-2">
-        <div className="relative min-w-[220px] flex-1">
-          <Search className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+      <div className="toolbar">
+        <div className="relative min-w-[240px] flex-1">
+          <Search className="pointer-events-none absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input id={searchId} data-testid={testIds.search || DT.search}
-            className="bg-background pl-9" aria-label={searchPlaceholder}
+            className="search-field pl-9" aria-label={searchPlaceholder}
             placeholder={searchPlaceholder} value={query.q || ""}
             onChange={(e) => onQueryChange?.({ q: e.target.value })} />
         </div>
         {filters}
+        <span aria-hidden="true" className="mx-0.5 hidden h-6 w-px bg-border sm:block" />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button data-testid={testIds.columns || DT.columns} variant="outline" size="sm">

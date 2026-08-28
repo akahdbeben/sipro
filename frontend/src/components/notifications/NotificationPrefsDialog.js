@@ -98,7 +98,7 @@ export default function NotificationPrefsDialog({ open, onOpenChange, onSaved })
             const Icon = CATEGORY_ICON[kat] || SlidersHorizontal;
             return (
               <div key={kat} data-testid={`${NOTIF.prefsRow}-${kat}`}
-                className="flex flex-col gap-2 rounded-lg border bg-card px-3 py-2 sm:flex-row sm:items-center sm:gap-3">
+                className="flex flex-col gap-2 rounded-lg border bg-card px-3 py-2 sm:flex-row sm:items-center sm:gap-3 shadow-[var(--shadow-card)]">
                 <span className="flex flex-1 items-center gap-2 text-sm">
                   <Icon className="h-3.5 w-3.5 text-muted-foreground" />
                   {labelOf("notification_category", kat)}
@@ -122,7 +122,7 @@ export default function NotificationPrefsDialog({ open, onOpenChange, onSaved })
           })}
         </div>
 
-        <div className="rounded-lg border bg-card p-3">
+        <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <p className="text-xs text-muted-foreground">
               Ringkasan WhatsApp disiapkan sistem, <strong>Anda</strong> yang menekan kirim —

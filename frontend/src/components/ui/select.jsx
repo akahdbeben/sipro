@@ -17,7 +17,7 @@ const SelectTrigger = React.forwardRef(({ className, children, ...props }, ref) 
       // `bg-background` + `[&>span]:truncate`: pemilih harus punya latar sendiri (lihat
       // catatan di ui/input.jsx) dan pilihan yang panjang dipotong dengan elipsis alih-alih
       // hilang terpangkas di tengah kata (mis. nama template jadwal yang panjang).
-      "flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:truncate [&>span]:text-left",
+      "flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm ring-offset-background transition-[border-color,box-shadow] duration-150 data-[placeholder]:text-muted-foreground/80 hover:border-input/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-ring/30 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:truncate [&>span]:text-left",
       className
     )}
     {...props}>

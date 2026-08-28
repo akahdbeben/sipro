@@ -125,7 +125,7 @@ export default function HandoverChecklistPanel({ unitId, unitCode, onChanged }) 
           const Icon = ICON[it.state] || CircleHelp;
           return (
             <div key={it.code} data-testid={P50.handoverCheckItem} data-state={it.state}
-              className="flex flex-wrap items-start justify-between gap-3 rounded-xl border bg-card p-3">
+              className="flex flex-wrap items-start justify-between gap-3 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <div className="flex items-start gap-2.5">
                 <Icon className={`mt-0.5 h-4 w-4 ${it.state === "ok" ? "text-emerald-600"
                   : it.state === "blocking" ? "text-rose-600"
@@ -167,7 +167,7 @@ export default function HandoverChecklistPanel({ unitId, unitCode, onChanged }) 
           <p className="flex items-center gap-1.5 text-sm font-medium">
             <ShieldCheck className="h-4 w-4 text-primary" /> Masa garansi yang akan berlaku
           </p>
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <table className="w-full text-[13px]">
               <thead className="bg-secondary/60 text-left text-[12px] text-muted-foreground">
                 <tr>

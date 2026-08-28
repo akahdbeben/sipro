@@ -142,7 +142,7 @@ export default function DepreciationPanel() {
         <EmptyState icon={CalendarClock} title="Belum ada penyusutan terposting"
           description="Pilih periode lalu klik Jalankan Penyusutan untuk membukukan beban penyusutan bulanan." />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader>
               <TableRow>

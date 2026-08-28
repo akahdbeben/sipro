@@ -48,7 +48,7 @@ export default function PartnerWebhookCard({ partner, webhook, canManage, onDone
   };
 
   return (
-    <div data-testid={PARTNER_HOOK.card} className="rounded-lg border bg-card p-4">
+    <div data-testid={PARTNER_HOOK.card} className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
       <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold">
         <Webhook className="h-4 w-4 text-primary" /> Webhook Lead
         {webhook?.enabled ? (

@@ -52,7 +52,7 @@ export default function SiteDiaryPanel({ projectId }) {
         ) : (
           <div className="space-y-3">
             {rows.map((d) => (
-              <div key={d.id} data-testid={FIELD.diaryRow} className="rounded-xl border bg-card p-4">
+              <div key={d.id} data-testid={FIELD.diaryRow} className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <p className="font-heading text-sm font-semibold">{formatDateWIB(d.log_date)}</p>
                   <div className="flex items-center gap-3 text-xs text-muted-foreground">

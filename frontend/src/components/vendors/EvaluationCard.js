@@ -27,10 +27,10 @@ export default function EvaluationCard({ evaluation, compact = false }) {
   const comps = Object.entries(evaluation.components || {});
   return (
     <div data-testid={T.evalCard} data-grade={grade}
-      className="space-y-3 rounded-xl border bg-card p-4">
+      className="space-y-3 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <p className="font-heading text-base font-semibold">
+          <p className="section-title">
             {evaluation.vendor_name || "Rekanan"}</p>
           <p className="text-xs text-muted-foreground">{evaluation.detail}</p>
         </div>

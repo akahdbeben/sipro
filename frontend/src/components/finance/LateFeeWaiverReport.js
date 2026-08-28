@@ -164,7 +164,7 @@ export default function LateFeeWaiverReport({ dealId, unitCode }) {
         </div>
       ) : (
         <>
-          <div className="overflow-x-auto rounded-lg border bg-card">
+          <div className="overflow-hidden rounded-lg border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader>
                 <TableRow>

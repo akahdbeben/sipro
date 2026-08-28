@@ -143,7 +143,7 @@ export default function AgingReportTab() {
         ))}
       </div>
 
-      <div className="rounded-lg border bg-card">
+      <div className="rounded-lg border bg-card shadow-[var(--shadow-card)]">
         <div className="border-b px-4 py-3">
           <h3 className="text-sm font-semibold">Per tahap · {report?.label}</h3>
           <p data-testid={AGINGREPORT.policy} className="text-xs text-muted-foreground">
@@ -226,7 +226,7 @@ export default function AgingReportTab() {
         )}
       </div>
 
-      <div data-testid={AGINGREPORT.overview} className="rounded-lg border bg-card">
+      <div data-testid={AGINGREPORT.overview} className="rounded-lg border bg-card shadow-[var(--shadow-card)]">
         <div className="border-b px-4 py-3">
           <h3 className="text-sm font-semibold">
             Lintas domain · {overview?.totals?.over_sla || 0} objek lewat SLA

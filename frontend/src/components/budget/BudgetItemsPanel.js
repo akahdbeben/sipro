@@ -109,7 +109,7 @@ export default function BudgetItemsPanel({ projectId, onChanged }) {
           actionLabel={canCreate ? "Tambah Item Anggaran" : undefined}
           onAction={() => setDialogFor(null)} />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <Table>
             <TableHeader><TableRow>
               <TableHead>Kode</TableHead>

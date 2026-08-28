@@ -16,7 +16,7 @@ function LineRow({ label, code, value, bold }) {
 
 function Section({ title, children }) {
   return (
-    <div className="rounded-xl border bg-card p-4">
+    <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <p className="mb-1 text-sm font-semibold">{title}</p>
       {children}
     </div>

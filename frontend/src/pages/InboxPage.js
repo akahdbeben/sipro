@@ -95,7 +95,7 @@ export default function InboxPage() {
     <div data-testid={INBOX.page} className="space-y-4">
       <div className="flex flex-wrap items-center gap-2">
         <MessagesSquare className="h-5 w-5 text-primary" />
-        <h1 className="font-heading text-xl font-semibold">Inbox WhatsApp</h1>
+        <h1 className="page-title">Inbox WhatsApp</h1>
         <StatusPill status="simulation" />
         <div className="ml-auto flex gap-1">
           {FILTERS.map((f) => (
@@ -139,7 +139,7 @@ export default function InboxPage() {
             </div>
 
             {/* Thread */}
-            <div data-testid={INBOX.thread} className="flex h-[560px] flex-col rounded-xl border bg-card md:col-span-2">
+            <div data-testid={INBOX.thread} className="flex h-[560px] flex-col rounded-xl border bg-card md:col-span-2 shadow-[var(--shadow-card)]">
               {thread ? (
                 <>
                   <div className="flex items-center justify-between border-b px-4 py-2.5">
@@ -215,7 +215,7 @@ export default function InboxPage() {
                 <InboxContextPanel leadId={thread.conversation.lead_id}
                   conversationId={thread.conversation.id} onChanged={refresh} />
               ) : (
-                <div className="rounded-xl border bg-card p-4 text-sm text-muted-foreground">Konteks lead tampil di sini.</div>
+                <div className="rounded-xl border bg-card p-4 text-sm text-muted-foreground shadow-[var(--shadow-card)]">Konteks lead tampil di sini.</div>
               )}
             </div>
           </div>

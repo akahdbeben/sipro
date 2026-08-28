@@ -16,7 +16,7 @@ export default function CorporateFinancingPage() {
       <div className="flex items-center gap-2">
         <Banknote className="h-5 w-5 text-primary" />
         <div>
-          <h1 className="font-heading text-xl font-semibold">Pembiayaan Korporat</h1>
+          <h1 className="page-title">Pembiayaan Korporat</h1>
           <p className="text-xs text-muted-foreground">
             Fasilitas kredit bank/leasing perusahaan · akun 2-2100 Utang Bank/Leasing,
             bunga & provisi ke 6-1600.

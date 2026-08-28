@@ -196,7 +196,7 @@ export default function BudgetItemDialog({ projectId, item, open, onOpenChange, 
               </p>
             ) : (
               <div data-testid={BUDGET.itemBoq}
-                className="max-h-52 space-y-1 overflow-y-auto rounded-xl border bg-card p-2">
+                className="max-h-52 space-y-1 overflow-y-auto rounded-xl border bg-card p-2 shadow-[var(--shadow-card)]">
                 {boq.map((b) => (
                   <label key={b.id} data-testid={BUDGET.itemBoqOption}
                     className="flex cursor-pointer items-center gap-2 rounded px-2 py-1 text-xs hover:bg-secondary">

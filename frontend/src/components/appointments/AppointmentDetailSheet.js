@@ -71,7 +71,7 @@ export default function AppointmentDetailSheet({ appointment, open, onOpenChange
               </span>
             </div>
 
-            <div className="mt-4 rounded-xl border bg-card p-3">
+            <div className="mt-4 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <InfoRow icon={CalendarClock} label="Waktu" value={formatDateTimeWIB(appointment.scheduled_at)} />
               <InfoRow icon={MapPin} label="Lokasi" value={appointment.location} />
               <InfoRow icon={User2} label="Sales" value={appointment.assigned_to} />

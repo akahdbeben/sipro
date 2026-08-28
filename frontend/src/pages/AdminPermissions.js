@@ -199,13 +199,13 @@ export default function AdminPermissions() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <ShieldCheck className="h-5 w-5 text-primary" />
-          <h1 className="font-heading text-xl font-semibold">Hak Akses (RBAC)</h1>
+          <h1 className="page-title">Hak Akses (RBAC)</h1>
         </div>
         <div className="flex items-center gap-2">
           <div className="relative">
             <Search className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input data-testid={ADMIN.permsSearch} value={q} onChange={(e) => setQ(e.target.value)}
-              placeholder="Cari resource…" className="h-9 w-56 pl-8" />
+              placeholder="Cari resource…" className="search-field h-9 w-56 pl-9" />
           </div>
           {editable ? (
             <>
@@ -276,12 +276,12 @@ export default function AdminPermissions() {
 
       {!resources.length ? (
         <div data-testid={ADMIN.permsEmpty}
-          className="rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground">
+          className="rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground shadow-[var(--shadow-card)]">
           Tidak ada resource yang cocok dengan “{q}”. Kosongkan pencarian untuk melihat
           seluruh {server?.resources?.length || 0} resource.
         </div>
       ) : (
-        <div data-testid={ADMIN.permsMatrix} className="overflow-x-auto rounded-xl border bg-card">
+        <div data-testid={ADMIN.permsMatrix} className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <table className="w-full min-w-[1100px] text-sm">
             <thead className="bg-secondary/60 text-left text-xs uppercase text-muted-foreground">
               <tr>

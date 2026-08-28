@@ -50,13 +50,13 @@ export default function CoAPanel() {
         !data?.data?.length ? (
           <EmptyState icon={BookOpen} title="Belum ada akun" description="Bagan akun standar akan otomatis dibuat." />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Kode</TableHead><TableHead>Nama Akun</TableHead><TableHead>Tipe</TableHead>
                 <TableHead className="text-right">Debit</TableHead><TableHead className="text-right">Kredit</TableHead>
                 <TableHead className="text-right">Saldo</TableHead>
-                {canManage ? <TableHead className="text-right">Aksi</TableHead> : null}
+                {canManage ? <TableHead className="col-actions-head text-right">Aksi</TableHead> : null}
               </TableRow></TableHeader>
               <TableBody>
                 {data.data.map((a) => (
@@ -68,7 +68,7 @@ export default function CoAPanel() {
                     <TableCell className="text-right tabular-nums text-sm">{a.credit ? formatIDR(a.credit) : "-"}</TableCell>
                     <TableCell className="text-right tabular-nums font-medium">{formatIDR(a.balance)}</TableCell>
                     {canManage ? (
-                      <TableCell className="text-right">
+                      <TableCell className="col-actions text-right">
                         <Button data-testid="gl-account-edit-btn" data-account-code={a.code}
                           aria-label={`Ubah akun ${a.code} ${a.name}`}
                           title={`Ubah akun ${a.code} — ${a.name}`}

@@ -82,23 +82,23 @@ export default function PayrollDetailSheet({ payrollId, open, onOpenChange, onCh
         {p && !loading && !error ? (
           <div className="mt-4 space-y-4">
             <div className="grid grid-cols-3 gap-2">
-              <div className="rounded-lg border bg-card p-3">
+              <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
                 <p className="text-[11px] text-muted-foreground">Upah pokok</p>
                 <MoneyText value={p.base_total} className="text-sm font-semibold" />
               </div>
-              <div className="rounded-lg border bg-card p-3">
+              <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
                 <p className="text-[11px] text-muted-foreground">
                   Lembur ({p.overtime_hours || 0} jam)
                 </p>
                 <MoneyText value={p.overtime_total} className="text-sm font-semibold" />
               </div>
-              <div className="rounded-lg border bg-card p-3">
+              <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
                 <p className="text-[11px] text-muted-foreground">Total dibayar</p>
                 <MoneyText value={p.total} className="text-sm font-semibold text-emerald-700" />
               </div>
             </div>
 
-            <div className="overflow-x-auto rounded-xl border bg-card">
+            <div className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
               <table className="w-full text-sm">
                 <thead className="bg-secondary/60 text-xs uppercase text-muted-foreground">
                   <tr>
@@ -202,7 +202,7 @@ export default function PayrollDetailSheet({ payrollId, open, onOpenChange, onCh
               </Button>
             ) : null}
 
-            <div className="rounded-lg border bg-card p-3">
+            <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <p className="text-xs font-medium uppercase text-muted-foreground">Riwayat</p>
               <ul className="mt-1.5 space-y-1 text-xs">
                 {(p.history || []).map((h, i) => (

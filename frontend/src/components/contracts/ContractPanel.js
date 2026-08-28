@@ -108,7 +108,7 @@ export default function ContractPanel({ dealId = null, contractId = null, custom
   const inv = plan.invoice || {};
 
   const header = (
-    <div className="flex flex-wrap items-start justify-between gap-3 rounded-lg border bg-card p-4">
+    <div className="flex flex-wrap items-start justify-between gap-3 rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="min-w-0">
         <p className="flex flex-wrap items-center gap-2 text-sm font-medium">
           <ScrollText className="h-4 w-4" />
@@ -144,7 +144,7 @@ export default function ContractPanel({ dealId = null, contractId = null, custom
     return (
       <div className="space-y-3">
         {header}
-        <div className="rounded-lg border bg-card p-4 text-sm">
+        <div className="rounded-lg border bg-card p-4 text-sm shadow-[var(--shadow-card)]">
           <p className="flex flex-wrap items-baseline gap-2">
             <span className="text-muted-foreground">Total ditagihkan:</span>
             <MoneyText value={bd.total_bill} className="font-medium" />
@@ -177,10 +177,10 @@ export default function ContractPanel({ dealId = null, contractId = null, custom
       {header}
 
       {/* ---------------- rincian komponen (satu baris per komponen) ---------------- */}
-      <section className="space-y-2 rounded-lg border bg-card p-4">
+      <section className="space-y-2 rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
         <div className="flex flex-wrap items-start justify-between gap-2">
           <div>
-            <h3 className="font-heading text-base font-semibold">Rincian harga & biaya</h3>
+            <h3 className="section-title">Rincian harga & biaya</h3>
             <p className="text-xs text-muted-foreground">
               Setiap komponen adalah BARIS tersendiri — add-on, kelebihan tanah, hook, dan
               biaya transaksi tidak dilebur ke harga unit.
@@ -248,7 +248,7 @@ export default function ContractPanel({ dealId = null, contractId = null, custom
       </section>
 
       {/* ---------------- rencana bayar dari AR ---------------- */}
-      <section className="space-y-2 rounded-lg border bg-card p-4">
+      <section className="space-y-2 rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
         <div className="flex flex-wrap items-start justify-between gap-2">
           <div>
             <h3 className="flex items-center gap-2 font-heading text-base font-semibold">

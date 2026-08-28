@@ -82,12 +82,12 @@ export default function ClaimsPanel() {
             description="Ajukan termin progres untuk SPK yang aktif."
             actionLabel={canSubmit ? "Ajukan Termin" : undefined} onAction={() => setAddOpen(true)} />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>No. Termin</TableHead><TableHead>SPK / Subkon</TableHead><TableHead>Dasar tagihan</TableHead>
                 <TableHead>Progres</TableHead><TableHead className="text-right">Nilai</TableHead>
-                <TableHead>Status</TableHead><TableHead className="text-right">Aksi</TableHead>
+                <TableHead>Status</TableHead><TableHead className="col-actions-head text-right">Aksi</TableHead>
               </TableRow></TableHeader>
               <TableBody>
                 {data.data.map((c) => (
@@ -123,7 +123,7 @@ export default function ClaimsPanel() {
                       {c.status === "approved" ? <div className="text-[11px] text-muted-foreground">net {formatIDR(c.net)}</div> : null}
                     </TableCell>
                     <TableCell><StatusPill status={c.status} group="claim_status" /></TableCell>
-                    <TableCell>
+                    <TableCell className="col-actions">
                       <div className="flex justify-end gap-1.5">
                         {c.status === "submitted" && canSubmit ? (
                           <Button size="sm" variant="outline" data-testid={CLAIMS.verifyBtn}

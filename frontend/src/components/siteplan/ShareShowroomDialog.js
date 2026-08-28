@@ -92,7 +92,7 @@ export default function ShareShowroomDialog({ open, onOpenChange, projectId, pro
           <p className="rounded-lg border border-rose-200 bg-rose-50 p-3 text-sm text-rose-700">{error}</p>
         ) : (
           <div className="space-y-4">
-            <div className="flex items-center justify-between rounded-xl border bg-card p-3">
+            <div className="flex items-center justify-between rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <div>
                 <p className="text-sm font-semibold">Aktifkan halaman publik</p>
                 <p className="text-xs text-muted-foreground">
@@ -104,7 +104,7 @@ export default function ShareShowroomDialog({ open, onOpenChange, projectId, pro
                 onCheckedChange={(v) => save({ enabled: v })} />
             </div>
 
-            <div className="flex items-center justify-between rounded-xl border bg-card p-3">
+            <div className="flex items-center justify-between rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <div>
                 <p className="text-sm font-semibold">Tampilkan harga</p>
                 <p className="text-xs text-muted-foreground">

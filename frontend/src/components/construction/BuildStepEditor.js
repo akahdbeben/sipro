@@ -31,7 +31,7 @@ export default function BuildStepEditor({ step, index, allCodes = [], onChange, 
 
   return (
     <div data-testid={BUILD.stepRow} data-step={step.code || `baru-${index}`}
-      className="rounded-xl border bg-card p-3">
+      className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
           <Input aria-label={`Kode item ${index + 1}`} data-testid={`${BUILD.stepRow}-code`}

@@ -52,10 +52,10 @@ export default function ComplaintsPage() {
       <div className="flex items-center gap-2">
         <Headset className="h-5 w-5 text-primary" />
         <div>
-          <h1 className="font-heading text-2xl font-semibold tracking-tight">
+          <h1 className="page-title">
             Komplain &amp; Layanan Pelanggan
           </h1>
-          <p className="text-sm text-muted-foreground">
+          <p className="page-desc">
             Klik angka untuk membuka daftar yang sudah terfilter.
           </p>
         </div>

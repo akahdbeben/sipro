@@ -62,7 +62,7 @@ function DealPlan({ deal, plan, late, onChanged }) {
   const inv = plan?.data;
   if (!inv) {
     return (
-      <div data-testid={CRMC.planEmpty} className="rounded-xl border bg-card p-4">
+      <div data-testid={CRMC.planEmpty} className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
         <p className="font-medium">{deal.unit_code || "Unit"} · belum ada jadwal tagihan</p>
         <p className="mt-1 text-[13px] text-muted-foreground">
           Transaksi ini belum punya jadwal tagihan (AR). Jadwalnya dibuat Keuangan dari skema
@@ -82,10 +82,10 @@ function DealPlan({ deal, plan, late, onChanged }) {
     (a, i) => a + (Number(i.amount || 0) - paidOf(i)), 0);
 
   return (
-    <div data-testid={CRMC.planDeal} className="space-y-3 rounded-xl border bg-card p-4">
+    <div data-testid={CRMC.planDeal} className="space-y-3 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
-          <p className="font-heading text-base font-semibold">
+          <p className="section-title">
             {deal.unit_code || inv.unit_code || "Unit"}
           </p>
           <p className="text-[12px] text-muted-foreground">
@@ -135,7 +135,7 @@ function DealPlan({ deal, plan, late, onChanged }) {
         </p>
       ) : null}
 
-      <div className="overflow-x-auto rounded-lg border bg-card">
+      <div className="overflow-x-auto rounded-lg border bg-card shadow-[var(--shadow-card)]">
         <table className="w-full text-[13px]">
           <thead className="bg-secondary/60 text-left text-[12px] text-muted-foreground">
             <tr>

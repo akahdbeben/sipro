@@ -206,9 +206,16 @@ export default function DocLayoutPanel() {
           <Button size="sm" variant="outline" data-testid={P60.resetBtn} onClick={reset}>
             <RotateCcw className="mr-1.5 h-3.5 w-3.5" /> Bawaan
           </Button>
-          <Button size="sm" data-testid={P60.saveBtn} onClick={simpan} disabled={!dirty}>
-            <Save className="mr-1.5 h-3.5 w-3.5" /> {dirty ? "Simpan tampilan" : "Tersimpan"}
-          </Button>
+          {dirty ? (
+            <Button size="sm" data-testid={P60.saveBtn} onClick={simpan}>
+              <Save className="mr-1.5 h-3.5 w-3.5" /> Simpan tampilan
+            </Button>
+          ) : (
+            <span data-testid={P60.saveBtn}
+              className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-emerald-200 bg-emerald-50 px-3 text-xs font-semibold text-emerald-800">
+              <Save className="h-3.5 w-3.5" /> Tersimpan
+            </span>
+          )}
         </div>
       </div>
 
@@ -219,7 +226,7 @@ export default function DocLayoutPanel() {
       </p>
 
       <div className="grid gap-3 lg:grid-cols-2">
-        <div className="rounded-xl border bg-card p-3">
+        <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
           <Tabs defaultValue="script">
             <TabsList className="flex-wrap">
               <TabsTrigger data-testid={P60.tabScript} value="script">Naskah</TabsTrigger>

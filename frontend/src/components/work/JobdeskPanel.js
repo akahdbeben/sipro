@@ -93,7 +93,7 @@ export default function JobdeskPanel({ division, canManage, onChanged }) {
 
   return (
     <div data-testid={WORK.jobdeskPanel} className="space-y-3">
-      <p className="rounded-xl border bg-card p-3 text-xs text-muted-foreground">
+      <p className="rounded-xl border bg-card p-3 text-xs text-muted-foreground shadow-[var(--shadow-card)]">
         {rows.length} jobdesk. <span className="font-medium text-foreground">Otomatis</span> lahir
         dari event sistem, <span className="font-medium text-foreground">Berulang</span> dibuat
         sesuai jadwal, <span className="font-medium text-foreground">Manual</span> ditugaskan
@@ -195,7 +195,7 @@ export default function JobdeskPanel({ division, canManage, onChanged }) {
           </DialogHeader>
           {edit ? (
             <div className="space-y-4">
-              <div className="flex items-center justify-between rounded-lg border bg-card px-3 py-2">
+              <div className="flex items-center justify-between rounded-lg border bg-card px-3 py-2 shadow-[var(--shadow-card)]">
                 <Label htmlFor="jd-active">Jobdesk aktif</Label>
                 <Switch id="jd-active" data-testid={WORK.jobdeskActive} checked={!!edit.is_active}
                   onCheckedChange={(v) => setEdit({ ...edit, is_active: v })} />

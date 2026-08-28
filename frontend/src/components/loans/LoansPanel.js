@@ -86,7 +86,7 @@ export default function LoansPanel() {
             actionLabel="Tambah Fasilitas" onAction={() => setOpenAdd(true)} />
         </div>
       ) : (
-        <div data-testid={LOANS.table} className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div data-testid={LOANS.table} className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader>
               <TableRow>
@@ -98,7 +98,7 @@ export default function LoansPanel() {
                 <TableHead>Bunga / Tenor</TableHead>
                 <TableHead>Angsuran Berikut</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead className="text-right">Aksi</TableHead>
+                <TableHead className="col-actions-head text-right">Aksi</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -138,7 +138,7 @@ export default function LoansPanel() {
                     ) : "—"}
                   </TableCell>
                   <TableCell><StatusPill status={r.status} group="loan_status" /></TableCell>
-                  <TableCell className="text-right">
+                  <TableCell className="col-actions text-right">
                     <Button size="sm" variant="ghost" data-testid={LOANS.detailBtn}
                       onClick={() => setDetailId(r.id)}>
                       {r.status === "draft" ? "Cairkan / Detail" : "Detail & Angsuran"}

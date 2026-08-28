@@ -15,7 +15,7 @@ export default function TaxPeriodBar({
   period, onChange, periods = [], inputId, inputTestId, quickTestId, onRefresh, children,
 }) {
   return (
-    <div className="flex flex-wrap items-end justify-between gap-3 rounded-xl border bg-card p-3">
+    <div className="flex flex-wrap items-end justify-between gap-3 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
       <div className="space-y-1">
         <Label className="text-xs" htmlFor={inputId}>Masa pajak (bulan)</Label>
         <Input id={inputId} type="month" className="w-[170px]" data-testid={inputTestId}

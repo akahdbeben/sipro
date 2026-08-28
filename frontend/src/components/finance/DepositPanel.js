@@ -89,7 +89,7 @@ export default function DepositPanel() {
         <EmptyState icon={PiggyBank} title="Belum ada titipan pelanggan"
           description="Titipan muncul saat pembeli membayar lebih dari sisa tagihan (dengan persetujuan kasir) atau menyetor di muka lewat tombol Terima Titipan." />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader>
               <TableRow>
@@ -100,7 +100,7 @@ export default function DepositPanel() {
                 <TableHead className="text-right">Dipakai</TableHead>
                 <TableHead className="text-right">Dikembalikan</TableHead>
                 <TableHead className="text-right">Sisa Tagihan</TableHead>
-                <TableHead className="text-right">Aksi</TableHead>
+                <TableHead className="col-actions-head text-right">Aksi</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -116,7 +116,7 @@ export default function DepositPanel() {
                   <TableCell className="text-right tabular-nums text-muted-foreground">{formatIDR(r.applied_total)}</TableCell>
                   <TableCell className="text-right tabular-nums text-muted-foreground">{formatIDR(r.refunded_total)}</TableCell>
                   <TableCell className="text-right tabular-nums">{formatIDR(outstandingOf(r.deal_id))}</TableCell>
-                  <TableCell>
+                  <TableCell className="col-actions">
                     <div className="flex justify-end gap-1.5">
                       <Button size="sm" variant="ghost" data-testid={FINANCE.depositHistoryBtn}
                         onClick={() => setHistory(r)}>
@@ -303,7 +303,7 @@ function HistoryDialog({ row, onOpenChange }) {
           {!(row?.entries || []).length ? (
             <p className="text-sm text-muted-foreground">Belum ada mutasi.</p>
           ) : (row.entries || []).slice().reverse().map((e) => (
-            <div key={e.id} className="flex items-center justify-between rounded-lg border bg-card p-2.5 text-sm">
+            <div key={e.id} className="flex items-center justify-between rounded-lg border bg-card p-2.5 text-sm shadow-[var(--shadow-card)]">
               <div>
                 <p className="font-medium"><RefLabel group="deposit_txn" value={e.type} /></p>
                 <p className="text-[11px] text-muted-foreground">{formatDateWIB(e.created_at)} · {e.note || "-"}</p>

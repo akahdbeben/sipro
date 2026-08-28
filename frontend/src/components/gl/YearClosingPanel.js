@@ -123,7 +123,7 @@ export default function YearClosingPanel({ onChanged }) {
         {(check?.items || []).map((item) => (
           <div key={item.code} data-testid={P49.yearCheckItem} data-code={item.code}
             data-state={item.state}
-            className="flex flex-wrap items-start gap-2 rounded-xl border bg-card p-3">
+            className="flex flex-wrap items-start gap-2 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
             {item.state === "ok"
               ? <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
               : <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-rose-600" />}
@@ -144,7 +144,7 @@ export default function YearClosingPanel({ onChanged }) {
         ))}
       </div>
 
-      <div className="overflow-x-auto rounded-xl border bg-card">
+      <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
         <Table>
           <TableHeader><TableRow>
             <TableHead>Tahun</TableHead>
@@ -152,7 +152,7 @@ export default function YearClosingPanel({ onChanged }) {
             <TableHead className="text-right">Laba (rugi)</TableHead>
             <TableHead>Jurnal penutup</TableHead>
             <TableHead>Jejak</TableHead>
-            <TableHead className="text-right">Aksi</TableHead>
+            <TableHead className="col-actions-head text-right">Aksi</TableHead>
           </TableRow></TableHeader>
           <TableBody>
             {yearList.map((y) => (
@@ -175,7 +175,7 @@ export default function YearClosingPanel({ onChanged }) {
                   ) : null}
                   {!y.closed_by && !y.reversal_entry_no ? "Belum ada jejak penutupan" : null}
                 </TableCell>
-                <TableCell className="text-right">
+                <TableCell className="col-actions text-right">
                   {!canClose ? (
                     <span className="text-[11px] text-muted-foreground">khusus Direksi</span>
                   ) : y.state === "closed" ? (

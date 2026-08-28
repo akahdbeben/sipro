@@ -45,7 +45,7 @@ export default function CalendarUnscheduledPanel({ rows, canSchedule, onDone }) 
   };
 
   return (
-    <div data-testid={CAL.unscheduled} className="rounded-xl border bg-card p-3">
+    <div data-testid={CAL.unscheduled} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
       <p className="inline-flex items-center gap-1.5 text-sm font-semibold">
         <ClipboardCheck className="h-4 w-4 text-violet-600" />
         Inspeksi belum dijadwalkan

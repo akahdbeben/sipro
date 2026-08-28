@@ -232,7 +232,7 @@ export default function TargetPanel({ projectId }) {
               <TargetPeriodTable periods={progress.periods} />
 
               {(progress.history || []).length ? (
-                <div data-testid={BUDGET.history} className="rounded-xl border bg-card p-3">
+                <div data-testid={BUDGET.history} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                   <p className="flex items-center gap-1.5 text-sm font-semibold">
                     <History className="h-4 w-4" /> Jejak penyesuaian target
                   </p>

@@ -101,7 +101,7 @@ export default function DealLegalDialog({ deal, open, onOpenChange, onChanged })
               </div>
 
               {/* Payment */}
-              <div className="rounded-xl border bg-card p-3">
+              <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
                 <div className="mb-1 flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">Pembayaran</span>
                   <span className="tabular-nums font-medium">{formatIDR(pay.paid)} / {formatIDR(pay.total)}</span>
@@ -114,7 +114,7 @@ export default function DealLegalDialog({ deal, open, onOpenChange, onChanged })
 
               {/* Financing */}
               {legal?.financing ? (
-                <div className="flex items-center gap-2 rounded-xl border bg-card p-3 text-sm">
+                <div className="flex items-center gap-2 rounded-xl border bg-card p-3 text-sm shadow-[var(--shadow-card)]">
                   <Landmark className="h-4 w-4 text-primary" />
                   <span>KPR {legal.financing.bank} · plafon {formatIDR(legal.financing.plafon)}</span>
                   <span className="ml-auto"><StatusPill status={legal.financing.status} group="financing_status" /></span>
@@ -123,7 +123,7 @@ export default function DealLegalDialog({ deal, open, onOpenChange, onChanged })
 
               {/* PPJB / AJB records */}
               {legal?.ppjb ? (
-                <div className="rounded-lg border bg-card p-2.5 text-sm">
+                <div className="rounded-lg border bg-card p-2.5 text-sm shadow-[var(--shadow-card)]">
                   <div className="flex items-center justify-between">
                     <span className="font-medium">PPJB {legal.ppjb.number}</span>
                     <span className="text-xs text-muted-foreground">{formatDateWIB(legal.ppjb.signed_date)}</span>

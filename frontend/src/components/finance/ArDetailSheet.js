@@ -18,7 +18,7 @@ import { FINANCE } from "@/constants/testIds";
 
 function Stat({ label, value, tone = "" }) {
   return (
-    <div className="rounded-xl border bg-card p-3">
+    <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
       <p className="text-[11px] text-muted-foreground">{label}</p>
       <p className={`mt-0.5 text-sm font-semibold tabular-nums ${tone}`}>{value}</p>
     </div>
@@ -149,7 +149,7 @@ export default function ArDetailSheet({ dealId, open, onOpenChange, onChanged })
               <h4 className="font-heading text-sm font-semibold">Jadwal Termin</h4>
               <div className="mt-2 space-y-2">
                 {(inv.items || []).map((it) => (
-                  <div key={it.id} className="flex items-center justify-between rounded-lg border bg-card p-2.5 text-sm">
+                  <div key={it.id} className="flex items-center justify-between rounded-lg border bg-card p-2.5 text-sm shadow-[var(--shadow-card)]">
                     <div>
                       <p className="font-medium">{it.label}</p>
                       <p className="text-[11px] text-muted-foreground">Jatuh tempo {formatDateWIB(it.due_date)}</p>
@@ -163,7 +163,7 @@ export default function ArDetailSheet({ dealId, open, onOpenChange, onChanged })
               </div>
             </div>
 
-            <div className="rounded-lg border bg-card p-3">
+            <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <h4 className="font-heading text-sm font-semibold">Ganti Skema Pembayaran</h4>
               <div className="mt-2 flex gap-2">
                 <Select value={schemeId} onValueChange={setSchemeId}>
@@ -192,7 +192,7 @@ export default function ArDetailSheet({ dealId, open, onOpenChange, onChanged })
               ) : (
                 <div className="mt-2 space-y-2">
                   {data.receipts.map((rc) => (
-                    <div key={rc.id} className="flex items-center justify-between rounded-lg border bg-card p-2.5 text-sm">
+                    <div key={rc.id} className="flex items-center justify-between rounded-lg border bg-card p-2.5 text-sm shadow-[var(--shadow-card)]">
                       <div>
                         <p className="font-medium tabular-nums">{formatIDR(rc.applied)}
                           {Number(rc.deposit_amount || 0) > 0 ? (

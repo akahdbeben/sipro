@@ -4,40 +4,60 @@
 
 @layer base {
     :root {
-        --background: 36 33% 98%;
+        /* Fase 67 — KANVAS BERLAPIS.
+           Latar lama (36 33% 98% — krem hangat) hampir tidak bisa dibedakan dari kartu
+           putih, sehingga seluruh aplikasi terlihat "flat": kartu, tabel, dan search bar
+           lenyap ke dalam latar. Kanvas sekarang slate dingin yang jelas lebih gelap dari
+           kartu, dengan garis batas yang benar-benar terlihat dan bayangan tipis. */
+        --background: 220 20% 96%;
         --foreground: 222 47% 11%;
         --card: 0 0% 100%;
         --card-foreground: 222 47% 11%;
+        --surface-sunken: 220 16% 93%;   /* dasar untuk toolbar/kepala tabel */
+        --surface-raised: 0 0% 100%;
         --popover: 0 0% 100%;
         --popover-foreground: 222 47% 11%;
-        --primary: 196 84% 34%;
+        /* Aksen teal-biru DIPERTEGAS (permintaan pemakai: tetap teal/biru, lebih tegas) */
+        --primary: 194 92% 27%;
+        --primary-hover: 194 92% 22%;
         --primary-foreground: 0 0% 100%;
-        --secondary: 210 20% 96%;
-        --secondary-foreground: 222 47% 11%;
-        --muted: 210 20% 96%;
-        --muted-foreground: 215 16% 40%;
-        --accent: 174 55% 92%;
-        --accent-foreground: 196 84% 20%;
-        --destructive: 0 72% 52%;
+        --secondary: 214 24% 92%;
+        --secondary-hover: 214 22% 87%;
+        --secondary-foreground: 222 47% 14%;
+        --muted: 220 16% 93%;
+        --muted-foreground: 215 18% 38%;
+        --accent: 190 60% 94%;
+        --accent-foreground: 194 92% 22%;
+        --destructive: 354 74% 47%;
+        --destructive-hover: 354 74% 40%;
         --destructive-foreground: 0 0% 100%;
-        --border: 214 20% 90%;
-        --input: 214 20% 90%;
-        --ring: 196 84% 34%;
-        --radius: 0.75rem;
-        --chart-1: 196 84% 34%;
-        --chart-2: 28 90% 55%;
-        --chart-3: 152 55% 38%;
+        --border: 215 18% 85%;
+        --input: 215 18% 80%;
+        --ring: 194 92% 34%;
+        --radius: 0.625rem;
+        --shadow-card: 0 1px 2px hsl(222 47% 11% / 0.05), 0 1px 3px hsl(222 47% 11% / 0.04);
+        --shadow-raised: 0 2px 4px hsl(222 47% 11% / 0.06), 0 8px 20px -8px hsl(222 47% 11% / 0.12);
+        --chart-1: 194 92% 30%;
+        --chart-2: 28 90% 50%;
+        --chart-3: 152 55% 34%;
         --chart-4: 222 47% 35%;
-        --chart-5: 0 72% 52%;
+        --chart-5: 354 74% 47%;
     }
     .dark {
         --background: 222 47% 7%;
         --foreground: 210 40% 98%;
-        --card: 222 47% 9%;
+        --surface-sunken: 222 40% 12%;
+        --surface-raised: 222 47% 12%;
+        --primary-hover: 194 92% 52%;
+        --secondary-hover: 217 19% 22%;
+        --destructive-hover: 354 74% 56%;
+        --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.4);
+        --shadow-raised: 0 8px 24px -8px hsl(0 0% 0% / 0.6);
+        --card: 222 47% 10%;
         --card-foreground: 210 40% 98%;
         --popover: 222 47% 9%;
         --popover-foreground: 210 40% 98%;
-        --primary: 196 84% 45%;
+        --primary: 194 92% 45%;
         --primary-foreground: 222 47% 7%;
         --secondary: 217 19% 16%;
         --secondary-foreground: 210 40% 98%;
@@ -47,8 +67,8 @@
         --accent-foreground: 196 84% 70%;
         --destructive: 0 62% 40%;
         --destructive-foreground: 210 40% 98%;
-        --border: 217 19% 16%;
-        --input: 217 19% 16%;
+        --border: 217 19% 20%;
+        --input: 217 19% 24%;
         --ring: 196 84% 45%;
         --chart-1: 196 84% 45%;
         --chart-2: 28 90% 60%;
@@ -76,6 +96,97 @@
     }
 }
 
+/* ============================================================================
+   Fase 67 — LAPISAN & HIERARKI BERSAMA.
+   Semua kelas di bawah dipakai lapisan bersama (primitif shadcn + komponen pola),
+   sehingga ~60 halaman ikut membaik tanpa menyentuh satu per satu. Tujuannya menutup
+   keluhan nyata: "semua flat, warnanya sama dengan latar, search bar tanpa gaya,
+   tulisan tidak konsisten, aksi penting tidak terlihat penting".
+   ========================================================================== */
+@layer components {
+    /* Judul & keterangan halaman — SATU ukuran untuk seluruh aplikasi (dulu campur
+       text-xl dan text-2xl, dan keterangan melebar melintasi layar). */
+    .page-title {
+        @apply font-heading text-2xl font-semibold leading-tight tracking-tight text-foreground;
+    }
+    .page-desc {
+        @apply mt-1 max-w-3xl text-sm leading-relaxed text-muted-foreground;
+    }
+    .section-title {
+        @apply font-heading text-base font-semibold leading-tight tracking-tight;
+    }
+    .eyebrow {
+        @apply text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-foreground;
+    }
+
+    /* Permukaan: kartu (naik) vs panel cekung (toolbar, kepala tabel, catatan). */
+    .surface-card {
+        @apply rounded-xl border border-border bg-card;
+        box-shadow: var(--shadow-card);
+    }
+    .surface-sunken {
+        @apply rounded-xl border border-border;
+        background-color: hsl(var(--surface-sunken));
+    }
+    .surface-raised {
+        @apply rounded-xl border border-border bg-card;
+        box-shadow: var(--shadow-raised);
+    }
+
+    /* Search bar: latar sendiri + bayangan (indentasi kiri untuk ikon diberikan komponen
+       sebagai utilitas `pl-9`, karena `px-3` milik Input berada di layer utilities dan akan
+       mengalahkan @apply di layer components). */
+    .search-field {
+        @apply bg-card shadow-sm;
+    }
+
+    /* Baris alat di atas tabel/daftar — punya permukaannya sendiri agar tidak menempel
+       ke latar halaman. */
+    .toolbar {
+        @apply flex flex-wrap items-center gap-2 rounded-xl border border-border p-2;
+        background-color: hsl(var(--surface-sunken));
+    }
+
+    /* Kolom AKSI yang MENEMPEL di kanan saat tabel digulir mendatar (Fase 67, temuan uji):
+       tombol aksi paling kanan dulu berada di luar pandangan pada layar 1366px sehingga
+       pemakai harus menggulir dulu tanpa tahu ada tombol di sana. */
+    .col-actions {
+        @apply sticky right-0 z-10 bg-card;
+        box-shadow: -12px 0 12px -12px hsl(222 47% 11% / 0.25);
+    }
+    .col-actions-head {
+        @apply sticky right-0 z-10;
+        background-color: hsl(var(--surface-sunken));
+        box-shadow: -12px 0 12px -12px hsl(222 47% 11% / 0.25);
+    }
+
+    /* Angka uang: selalu tabular & rata kanan supaya kolom bisa dibandingkan sekilas. */
+    .money {
+        @apply whitespace-nowrap text-right font-mono tabular-nums;
+    }
+
+    /* Penanda kegentingan pada baris tabel/kartu (kognitif: merah = tertinggal). */
+    .row-danger {
+        @apply border-l-2 border-l-rose-500 bg-rose-50/40;
+    }
+    .row-warning {
+        @apply border-l-2 border-l-amber-500 bg-amber-50/40;
+    }
+
+    /* Titik berdenyut untuk hal yang menuntut tindakan. */
+    .dot-pulse {
+        @apply relative inline-flex h-1.5 w-1.5 rounded-full bg-current;
+    }
+    .dot-pulse::after {
+        content: "";
+        @apply absolute inset-0 rounded-full bg-current opacity-60;
+        animation: sipro-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    @keyframes sipro-ping {
+        75%, 100% { transform: scale(2.4); opacity: 0; }
+    }
+}
+
 /* Subtle noise texture for the app shell background (design_guidelines) */
 .app-noise {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.035'/></svg>");
@@ -99,7 +210,13 @@
 /* Semantic status pills — consistent across domains */
 @layer components {
     .status-pill {
-        @apply inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium;
+        @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold shadow-sm;
+    }
+    /* Titik warna di depan teks: status bisa dikenali dari BENTUK+WARNA, tidak hanya warna
+       (membantu pemakai yang sulit membedakan warna, dan mempercepat pembacaan tabel). */
+    .status-pill::before {
+        content: "";
+        @apply h-1.5 w-1.5 shrink-0 rounded-full bg-current opacity-80;
     }
     .status-available { @apply bg-emerald-50 text-emerald-800 border-emerald-200; }
     .status-holding { @apply bg-amber-50 text-amber-900 border-amber-200; }

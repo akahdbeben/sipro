@@ -145,7 +145,7 @@ export default function ReportsPanel() {
       ) : !rows.length ? (
         <EmptyState icon={FileText} title="Belum ada data" description={`Laporan "${meta.label}" belum memiliki data.`} />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader>
               <TableRow>

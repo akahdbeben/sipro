@@ -117,7 +117,7 @@ export default function RemindersPanel() {
         </p>
       </div>
 
-      <div data-testid={T.remindersSettings} className="rounded-xl border bg-card p-3">
+      <div data-testid={T.remindersSettings} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="flex items-center gap-1.5 text-sm font-medium">
             <Settings2 className="h-4 w-4 text-muted-foreground" /> Ambang batas yang berlaku
@@ -206,7 +206,7 @@ export default function RemindersPanel() {
             {cands.data.map((c) => (
               <div key={c.dedup_key} data-testid={T.remindersCandidateRow}
                 data-kind={c.kind} data-blocked={c.blocked_code || ""}
-                className="rounded-xl border bg-card p-3 text-sm">
+                className="rounded-xl border bg-card p-3 text-sm shadow-[var(--shadow-card)]">
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
@@ -267,7 +267,7 @@ export default function RemindersPanel() {
             {hist.data.map((r) => (
               <div key={r.id} data-testid={T.remindersHistoryRow}
                 data-status={r.status} data-kind={r.kind}
-                className="rounded-xl border bg-card p-3 text-sm">
+                className="rounded-xl border bg-card p-3 text-sm shadow-[var(--shadow-card)]">
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">

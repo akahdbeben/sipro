@@ -95,7 +95,7 @@ export default function LeadLifecyclePanel({ lead, lifecycle, onAction, onChange
   return (
     <div data-testid={LEADS.lifecycle} className="space-y-3">
       {/* Stepper tahap */}
-      <div data-testid={LEADS.stepper} className="rounded-xl border bg-card p-3">
+      <div data-testid={LEADS.stepper} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
         <div className="flex flex-wrap items-center gap-1.5">
           {order.map((s, i) => (
             <React.Fragment key={s}>
@@ -124,7 +124,7 @@ export default function LeadLifecyclePanel({ lead, lifecycle, onAction, onChange
             </p>
             {nextReqs.map((r) => (
               <div key={r.key} data-testid={LEADS.requirement} data-met={r.met ? "1" : "0"}
-                className="flex items-center justify-between gap-2 rounded-lg border bg-card px-2.5 py-1.5">
+                className="flex items-center justify-between gap-2 rounded-lg border bg-card px-2.5 py-1.5 shadow-[var(--shadow-card)]">
                 <span className="flex items-center gap-2 text-xs">
                   {r.met ? <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                     : <Circle className="h-4 w-4 text-muted-foreground" />}
@@ -171,7 +171,7 @@ export default function LeadLifecyclePanel({ lead, lifecycle, onAction, onChange
       <LeadSlikPanel lead={lead} lifecycle={lifecycle} onChanged={onChanged} />
 
       {/* Penilaian kualitatif respons lead */}
-      <div data-testid={LEADS.dispositionBar} className="rounded-xl border bg-card p-3">
+      <div data-testid={LEADS.dispositionBar} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
         <p className="mb-2 text-xs font-semibold uppercase text-muted-foreground">
           Respons lead (penilaian agen)
           {lifecycle.disposition ? (
@@ -206,7 +206,7 @@ export default function LeadLifecyclePanel({ lead, lifecycle, onAction, onChange
 
       {/* Langkah berikutnya */}
       {actions.length ? (
-        <div data-testid={LEADS.nba} className="rounded-xl border bg-card p-3">
+        <div data-testid={LEADS.nba} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
           <p className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase text-muted-foreground">
             <Sparkles className="h-3.5 w-3.5 text-primary" /> Langkah berikutnya
           </p>
@@ -214,7 +214,7 @@ export default function LeadLifecyclePanel({ lead, lifecycle, onAction, onChange
             {actions.map((a) => (
               <button key={a.key} type="button" data-testid={LEADS.nbaItem}
                 onClick={() => onAction && onAction(a.key)}
-                className="flex w-full items-center justify-between gap-2 rounded-lg border bg-card px-2.5 py-2 text-left transition-colors hover:bg-secondary/60">
+                className="flex w-full items-center justify-between gap-2 rounded-lg border bg-card px-2.5 py-2 text-left transition-colors hover:bg-secondary/60 shadow-[var(--shadow-card)]">
                 <span>
                   <span className="block text-sm font-medium">{a.label}</span>
                   <span className="block text-[11px] text-muted-foreground">{a.reason}</span>
@@ -228,7 +228,7 @@ export default function LeadLifecyclePanel({ lead, lifecycle, onAction, onChange
 
       {/* Riwayat tahap */}
       {history.length ? (
-        <div className="rounded-xl border bg-card p-3">
+        <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
           <p className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase text-muted-foreground">
             <History className="h-3.5 w-3.5" /> Riwayat tahap ({history.length})
           </p>

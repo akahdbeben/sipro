@@ -61,7 +61,7 @@ export default function LeadSurveyTab({
           {appointments.map((ap) => (
             <div key={ap.id} data-testid="lead-appointment-row" data-appointment={ap.id}
               aria-label={`Survei ${ap.title}`}
-              className="flex flex-wrap items-center justify-between gap-2 rounded-lg border bg-card p-3">
+              className="flex flex-wrap items-center justify-between gap-2 rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <div>
                 <p className="text-sm font-medium">{ap.title}</p>
                 <p className="text-xs text-muted-foreground">

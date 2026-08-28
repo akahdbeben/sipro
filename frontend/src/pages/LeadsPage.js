@@ -177,8 +177,8 @@ export default function LeadsPage() {
     <div data-testid={LEADS.page} className="space-y-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="font-heading text-2xl font-semibold tracking-tight">Pipeline Lead</h1>
-          <p className="text-sm text-muted-foreground">
+          <h1 className="page-title">Pipeline Lead</h1>
+          <p className="page-desc">
             Semua lead dengan umur, tahap, dan kelengkapan dokumennya — urutkan yang paling
             perlu dikerjakan.
           </p>

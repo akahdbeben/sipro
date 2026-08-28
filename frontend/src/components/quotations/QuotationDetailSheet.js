@@ -114,7 +114,7 @@ export default function QuotationDetailSheet({ quotationId, open, onOpenChange, 
             <QuotationBreakdown calc={q} />
 
             {q.discount_reason ? (
-              <div className="rounded-lg border bg-card p-3 text-sm">
+              <div className="rounded-lg border bg-card p-3 text-sm shadow-[var(--shadow-card)]">
                 <p className="text-xs font-medium uppercase text-muted-foreground">
                   Alasan diskon
                 </p>
@@ -206,7 +206,7 @@ export default function QuotationDetailSheet({ quotationId, open, onOpenChange, 
               ) : null}
             </div>
 
-            <div className="rounded-lg border bg-card p-3">
+            <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <p className="flex items-center gap-1.5 text-xs font-medium uppercase text-muted-foreground">
                 <History className="h-3.5 w-3.5" /> Riwayat
               </p>

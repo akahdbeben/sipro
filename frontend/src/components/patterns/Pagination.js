@@ -26,7 +26,7 @@ export default function Pagination({
 
   return (
     <div data-testid={testId}
-      className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-card px-3 py-2">
+      className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-card px-3 py-2 shadow-[var(--shadow-card)]">
       <p data-testid={WORK.pageInfo} className="text-xs text-muted-foreground">
         Menampilkan <span className="font-medium text-foreground tabular-nums">{from}–{to}</span>
         {" "}dari <span className="font-medium text-foreground tabular-nums">{total}</span> {label}

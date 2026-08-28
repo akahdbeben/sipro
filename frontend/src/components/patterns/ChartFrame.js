@@ -34,7 +34,7 @@ export default function ChartFrame({
       className={cn("rounded-lg border bg-card p-4", className)}>
       <div className="mb-3 flex flex-wrap items-start justify-between gap-2 sm:flex-nowrap">
         <div className="min-w-0">
-          <h3 data-testid={CHART.title} className="font-heading text-base font-semibold">
+          <h3 data-testid={CHART.title} className="section-title">
             {title}
           </h3>
           {description ? (

@@ -24,7 +24,7 @@ export default function CalibrationStepTable({ steps, canCalibrate, onCalibrate 
   }
 
   return (
-    <div data-testid={CALIB.stepPanel} className="overflow-x-auto rounded-xl border bg-card">
+    <div data-testid={CALIB.stepPanel} className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
       <table className="w-full text-xs">
         <thead className="bg-secondary text-left">
           <tr>

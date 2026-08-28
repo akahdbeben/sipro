@@ -79,7 +79,7 @@ export default function IntegrationHealthTab() {
       <div data-testid={ADS.healthTable} className="grid gap-3 lg:grid-cols-2">
         {rows.map((r) => (
           <div key={r.target} data-testid={ADS.healthRow} data-target={r.target}
-            data-mode={r.mode} className="rounded-lg border bg-card p-4">
+            data-mode={r.mode} className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
             <div className="flex items-start justify-between gap-2">
               <div>
                 <h3 className="font-heading text-sm font-semibold">{r.label}</h3>

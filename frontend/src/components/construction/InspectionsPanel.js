@@ -96,7 +96,7 @@ export default function InspectionsPanel({ projectId, phases = [] }) {
           <div className="space-y-2">
             {rows.map((i) => (
               <button key={i.id} data-testid={INSPECTION.row} onClick={() => setDetail(i)}
-                className="flex w-full items-center justify-between rounded-lg border bg-card p-3 text-left hover:bg-accent">
+                className="flex w-full items-center justify-between rounded-lg border bg-card p-3 text-left hover:bg-accent shadow-[var(--shadow-card)]">
                 <div className="min-w-0">
                   <p className="text-sm font-medium">{i.inspection_number} <span className="text-muted-foreground">· <RefLabel group="inspection_category" value={i.category} /></span></p>
                   <p className="text-xs text-muted-foreground">{i.title} · {i.pass_count}/{i.items.length} lulus{i.fail_count ? ` · ${i.fail_count} gagal` : ""}</p>
@@ -192,7 +192,7 @@ function InspectionDetail({ inspection, canUpdate, onClose, onChanged }) {
 
         <div className="space-y-2 py-2">
           {items.map((it) => (
-            <div key={it.key} className="rounded-lg border bg-card p-3">
+            <div key={it.key} className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <div className="flex items-center justify-between gap-3">
                 <span className="text-sm">{it.label || it.key}</span>
                 {editable ? (

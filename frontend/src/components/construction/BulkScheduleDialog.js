@@ -200,7 +200,7 @@ export default function BulkScheduleDialog({ projectId, open, onOpenChange, onDo
 
         {/* `bg-card`: panel berbingkai WAJIB punya latar sendiri. Tanpa itu daftar rumah di
             dalam dialog terlihat "menggantung" tanpa kartu — temuan D1 ui_audit_dialogs. */}
-        <div className="rounded-xl border bg-card">
+        <div className="rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <div className="flex items-center justify-between border-b bg-secondary px-3 py-2">
             <label className="flex items-center gap-2 text-xs font-semibold">
               <Checkbox checked={allPicked} onCheckedChange={toggleAll}

@@ -56,9 +56,9 @@ export default function LegalTimeline({ contract, onChanged }) {
   };
 
   return (
-    <section className="space-y-3 rounded-lg border bg-card p-4">
+    <section className="space-y-3 rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
       <div>
-        <h3 className="font-heading text-base font-semibold">Tahap legal pembeli</h3>
+        <h3 className="section-title">Tahap legal pembeli</h3>
         <p className="text-xs text-muted-foreground">
           {contract?.scheme === "kpr"
             ? "Skema KPR: AJB menyusul AKAD KREDIT (bukan menunggu serah terima kunci)."

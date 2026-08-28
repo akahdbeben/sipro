@@ -91,7 +91,7 @@ export default function QuotationsTab({ leadId, leadName, onChanged }) {
       ) : null}
 
       {!loading && !panel && (rows || []).length ? (
-        <div className="overflow-x-auto rounded-xl border bg-card">
+        <div className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
           <table data-testid={QUOTE.table} className="w-full text-sm">
             <thead className="bg-secondary/60 text-xs uppercase text-muted-foreground">
               <tr>

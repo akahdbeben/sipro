@@ -199,7 +199,7 @@ export default function QuotationForm({ open, onOpenChange, leadId, source, onDo
                   onClick={addAddon}><Plus className="h-4 w-4" /></Button>
               </div>
               {form.addons.map((a, i) => (
-                <div key={a.code} className="flex items-center gap-2 rounded-md border bg-card px-2 py-1.5">
+                <div key={a.code} className="flex items-center gap-2 rounded-md border bg-card px-2 py-1.5 shadow-[var(--shadow-card)]">
                   <span className="flex-1 text-sm">{a.name || a.code}</span>
                   <Input type="number" min="0.1" step="0.1" value={a.qty}
                     aria-label={`Volume tambahan ${a.name || a.code}`} className="w-24"

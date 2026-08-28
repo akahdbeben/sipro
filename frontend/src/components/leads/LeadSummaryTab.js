@@ -70,7 +70,7 @@ export default function LeadSummaryTab({
 
   return (
     <div data-testid={LEADPROFILE.summary} className="space-y-4">
-      <section className="rounded-lg border bg-card p-4">
+      <section className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
         <h2 className="mb-3 font-heading text-base font-semibold">Data lead</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Field label="Telepon" value={lead.phone} />
@@ -103,7 +103,7 @@ export default function LeadSummaryTab({
           onChanged={onChanged} />
       )}
 
-      <section className="rounded-lg border bg-card p-4">
+      <section className="rounded-lg border bg-card p-4 shadow-[var(--shadow-card)]">
         <h2 className="mb-2 font-heading text-base font-semibold">Catatan cepat</h2>
         <Label htmlFor="lead-note" className="text-xs">Catatan untuk lead ini</Label>
         <div className="mt-1.5 flex gap-2">

@@ -77,7 +77,7 @@ export default function CollectionsPanel() {
         <EmptyState icon={CheckCircle2} title="Tidak ada tagihan tertunggak"
           description="Semua piutang lancar. Worklist penagihan akan menampilkan akun yang menunggak / jatuh tempo dekat." />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader>
               <TableRow>
@@ -88,7 +88,7 @@ export default function CollectionsPanel() {
                 <TableHead className="text-right">Tunggakan</TableHead>
                 <TableHead className="text-right">Denda (est.)</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead className="text-right">Aksi</TableHead>
+                <TableHead className="col-actions-head text-right">Aksi</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -109,7 +109,7 @@ export default function CollectionsPanel() {
                     </span>
                     {r.reminded_at ? <div className="mt-0.5 text-[10px] text-muted-foreground">Diingatkan {formatDateWIB(r.reminded_at)}</div> : null}
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="col-actions">
                     <div className="flex justify-end gap-1.5">
                       <Button size="sm" variant="outline" data-testid={FINANCE.remindBtn}
                         onClick={() => remind(r)} disabled={busy === r.deal_id + ":remind"}>

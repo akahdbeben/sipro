@@ -70,7 +70,7 @@ export default function SpkAttachmentsSection({ spk, canManage, onChanged }) {
   const label = (k) => (KINDS.find(([v]) => v === k) || [k, k])[1];
 
   return (
-    <div data-testid={P62.attachSection} className="space-y-3 rounded-xl border bg-card p-4">
+    <div data-testid={P62.attachSection} className="space-y-3 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
       <p className="flex items-center gap-1.5 text-sm font-semibold">
         <Paperclip className="h-4 w-4 text-primary" /> Lampiran SPK (gambar kerja &amp; spesifikasi)
       </p>

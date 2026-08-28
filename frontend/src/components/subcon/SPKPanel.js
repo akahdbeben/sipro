@@ -77,7 +77,7 @@ export default function SPKPanel() {
             description="Buat Surat Perintah Kerja untuk mengikat subkontraktor ke proyek."
             actionLabel={canManage ? "Buat SPK" : undefined} onAction={() => setAddOpen(true)} />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>No. SPK</TableHead><TableHead>Subkontraktor</TableHead><TableHead>Pekerjaan</TableHead>

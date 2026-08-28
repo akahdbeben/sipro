@@ -26,8 +26,8 @@ export default function AttributionPage() {
   return (
     <div data-testid={ADS.attrPage} className="space-y-4">
       <div>
-        <h1 className="font-heading text-2xl font-semibold tracking-tight">Atribusi &amp; CAPI</h1>
-        <p className="text-sm text-muted-foreground">
+        <h1 className="page-title">Atribusi &amp; CAPI</h1>
+        <p className="page-desc">
           Dari mana lead benar-benar datang, dan apa yang sudah kita kirim balik ke platform
           iklan supaya optimasinya membaik. Semua angka lead di sini berasal dari pipeline
           yang sama dengan halaman Lead — tidak ada perhitungan kedua.

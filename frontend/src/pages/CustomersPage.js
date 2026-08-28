@@ -21,8 +21,8 @@ export default function CustomersPage() {
   return (
     <div data-testid={CUSTOMERS.page} className="space-y-4">
       <div>
-        <h1 className="font-heading text-2xl font-semibold tracking-tight">Customer & Kontrak</h1>
-        <p className="text-sm text-muted-foreground">
+        <h1 className="page-title">Customer & Kontrak</h1>
+        <p className="page-desc">
           Satu alur: unit &amp; deal → pembeli (KYC) → dokumen legal → KPR → serah terima.
           Klik baris untuk membuka profil lengkap.
         </p>

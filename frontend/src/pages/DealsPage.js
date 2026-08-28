@@ -18,8 +18,8 @@ export default function DealsPage() {
   return (
     <div data-testid={DEALS.page} className="space-y-4">
       <div>
-        <h1 className="font-heading text-2xl font-semibold tracking-tight">Deal & Unit</h1>
-        <p className="text-sm text-muted-foreground">
+        <h1 className="page-title">Deal & Unit</h1>
+        <p className="page-desc">
           Ketersediaan unit dan deal berjalan — reservasi, konfirmasi booking, SPR, dan legal.
         </p>
       </div>

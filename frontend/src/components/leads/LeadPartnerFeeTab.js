@@ -93,7 +93,7 @@ export default function LeadPartnerFeeTab({ leadId, lead }) {
         </p>
       ) : null}
       <div data-testid={CRMC.feeAttribution}
-        className="rounded-xl border bg-card p-3 text-[13px]">
+        className="rounded-xl border bg-card p-3 text-[13px] shadow-[var(--shadow-card)]">
         <p className="flex items-center gap-1.5 font-medium">
           <Handshake className="h-4 w-4 text-primary" /> Atribusi mitra
         </p>
@@ -148,7 +148,7 @@ export default function LeadPartnerFeeTab({ leadId, lead }) {
               </div>
             ))}
           </div>
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <table className="w-full text-[13px]">
               <thead className="bg-secondary/60 text-left text-[12px] text-muted-foreground">
                 <tr>

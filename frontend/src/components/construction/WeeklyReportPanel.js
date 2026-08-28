@@ -95,7 +95,7 @@ export default function WeeklyReportPanel({ projectId, focusReportId }) {
   const t = detail?.totals || {};
   return (
     <div data-testid={BUILD.reportPanel} className="space-y-4">
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-card p-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
         <div>
           <p className="text-sm font-semibold">Laporan mingguan pembangunan</p>
           <p className="text-[11px] text-muted-foreground">
@@ -140,9 +140,9 @@ export default function WeeklyReportPanel({ projectId, focusReportId }) {
 
       {detail ? (
         <div data-testid={BUILD.reportDetail} className="space-y-3">
-          <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-card p-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
             <div>
-              <p className="font-heading text-base font-semibold">
+              <p className="section-title">
                 {detail.project_name} — pekan {detail.week_key}
               </p>
               <p className="inline-flex items-center gap-1 text-[11px] text-muted-foreground">
@@ -170,7 +170,7 @@ export default function WeeklyReportPanel({ projectId, focusReportId }) {
           </div>
 
           {(detail.curve || []).length ? (
-            <div data-testid={BUILD.reportCurve} className="rounded-xl border bg-card p-3">
+            <div data-testid={BUILD.reportCurve} className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <h4 className="mb-1 text-sm font-semibold">Rencana vs realisasi (kumulatif)</h4>
               <ResponsiveContainer width="100%" height={210}>
                 <AreaChart data={detail.curve} margin={{ top: 8, right: 12, left: -18, bottom: 0 }}>
@@ -188,7 +188,7 @@ export default function WeeklyReportPanel({ projectId, focusReportId }) {
             </div>
           ) : null}
 
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-x-auto rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <table className="w-full text-xs">
               <thead className="bg-secondary text-left">
                 <tr>
@@ -224,7 +224,7 @@ export default function WeeklyReportPanel({ projectId, focusReportId }) {
           </div>
 
           {(detail.delays_top || []).length ? (
-            <div className="rounded-xl border bg-card p-3">
+            <div className="rounded-xl border bg-card p-3 shadow-[var(--shadow-card)]">
               <h4 className="mb-1.5 text-sm font-semibold">Pekerjaan paling sering telat pekan ini</h4>
               <div className="space-y-1.5">
                 {detail.delays_top.map((d) => (

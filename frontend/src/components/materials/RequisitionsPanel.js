@@ -81,7 +81,7 @@ export default function RequisitionsPanel({ projectId, materials, phases, canCre
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap gap-2">
           {chips.map((c) => (
-            <span key={c.k} className="rounded-full border bg-card px-3 py-1 text-xs">
+            <span key={c.k} className="rounded-full border bg-card px-3 py-1 text-xs shadow-[var(--shadow-card)]">
               {c.label}: <b className="tabular-nums">{summary[c.k] ?? 0}</b>
             </span>
           ))}
@@ -105,7 +105,7 @@ export default function RequisitionsPanel({ projectId, materials, phases, canCre
             const totIss = r.items.reduce((a, i) => a + Number(i.qty_issued || 0), 0);
             return (
               <div key={r.id} data-testid={T.row}
-                className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-card p-3 hover:border-primary/40">
+                className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-card p-3 hover:border-primary/40 shadow-[var(--shadow-card)]">
                 <button className="min-w-0 flex-1 text-left" onClick={() => setDetail(r)}>
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-xs text-muted-foreground">{r.req_number}</span>
@@ -170,7 +170,7 @@ export default function RequisitionsPanel({ projectId, materials, phases, canCre
             {(detail?.items || []).map((it) => {
               const done = Number(it.qty_issued) >= Number(it.qty_requested);
               return (
-                <div key={it.material_id} className="flex items-center justify-between rounded-lg border bg-card p-2 text-sm">
+                <div key={it.material_id} className="flex items-center justify-between rounded-lg border bg-card p-2 text-sm shadow-[var(--shadow-card)]">
                   <div><span className="font-mono text-xs text-muted-foreground">{it.code}</span> <span className="font-medium">{it.name}</span></div>
                   <div className="tabular-nums">
                     <span className={done ? "text-emerald-600" : ""}>{it.qty_issued}</span>

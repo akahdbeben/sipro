@@ -38,8 +38,8 @@ export default function BuildHubPage() {
   return (
     <div data-testid={HUB.build} className="space-y-4">
       <div>
-        <h1 className="font-heading text-2xl font-semibold tracking-tight">Pembangunan</h1>
-        <p className="text-sm text-muted-foreground">
+        <h1 className="page-title">Pembangunan</h1>
+        <p className="page-desc">
           Satu pintu pembangunan yang berpusat pada RUMAH: papan unit, jadwal, laporan
           lapangan, mutu, analitik, dan template tahapan. Klik unit untuk membuka Unit 360.
         </p>

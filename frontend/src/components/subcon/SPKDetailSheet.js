@@ -72,7 +72,7 @@ export default function SPKDetailSheet({ spk, open, canManage, onOpenChange, onC
           <SendDocWaButton kind="spk" id={spk.id} label="Kirim SPK via WhatsApp" />
         </div>
         <div className="mt-5 space-y-5">
-          <div className="rounded-xl border bg-card p-4">
+          <div className="rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
             <div className="mb-2"><StatusPill status={spk.status} group="spk_status" /></div>
             <Row label="Subkontraktor" value={spk.subcontractor_name} />
             <Row label="Proyek" value={spk.project_name} />
@@ -92,7 +92,7 @@ export default function SPKDetailSheet({ spk, open, canManage, onOpenChange, onC
           <SpkAttachmentsSection spk={spk} canManage={canManage} onChanged={onChanged} />
 
           {canManage ? (
-            <div className="space-y-3 rounded-xl border bg-card p-4">
+            <div className="space-y-3 rounded-xl border bg-card p-4 shadow-[var(--shadow-card)]">
               <p className="text-sm font-semibold">Kelola SPK</p>
               {itemBased ? (
                 <p className="rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-[12px] text-emerald-900">

@@ -58,7 +58,7 @@ export default function CommissionsPanel() {
         <EmptyState icon={BadgePercent} title="Belum ada komisi"
           description="Komisi dihitung otomatis (skema bertingkat) saat unit di-booking / lunas." />
       ) : (
-        <div className="overflow-x-auto rounded-xl border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border bg-card shadow-sm">
           <Table>
             <TableHeader>
               <TableRow>
@@ -70,7 +70,7 @@ export default function CommissionsPanel() {
                 <TableHead className="text-right">Komisi</TableHead>
                 <TableHead>Trigger</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead className="text-right">Aksi</TableHead>
+                <TableHead className="col-actions-head text-right">Aksi</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -84,7 +84,7 @@ export default function CommissionsPanel() {
                   <TableCell className="text-right font-semibold tabular-nums text-primary">{formatIDR(r.amount)}</TableCell>
                   <TableCell className="text-muted-foreground"><RefLabel group="commission_trigger" value={r.trigger} /></TableCell>
                   <TableCell><StatusPill status={r.status} group="commission_status" /></TableCell>
-                  <TableCell>
+                  <TableCell className="col-actions">
                     <div className="flex justify-end">
                       {r.status === "pending" ? (
                         <Button size="sm" variant="outline" data-testid={FINANCE.commissionApproveBtn}

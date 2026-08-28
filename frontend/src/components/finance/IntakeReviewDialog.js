@@ -89,11 +89,11 @@ export default function IntakeReviewDialog({ intake, open, onOpenChange, onDone,
 
         <div className="space-y-3">
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-lg border bg-card p-3">
+            <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <p className="text-xs text-muted-foreground">Nominal diklaim</p>
               <MoneyText value={intake.amount} className="font-heading text-lg font-semibold" />
             </div>
-            <div className="rounded-lg border bg-card p-3">
+            <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <p className="text-xs text-muted-foreground">Sisa tagihan saat dikirim</p>
               {intake.outstanding_at_submit === null
                 || intake.outstanding_at_submit === undefined ? (
@@ -101,13 +101,13 @@ export default function IntakeReviewDialog({ intake, open, onOpenChange, onDone,
                 ) : <MoneyText value={intake.outstanding_at_submit}
                   className="font-heading text-lg font-semibold" />}
             </div>
-            <div className="rounded-lg border bg-card p-3">
+            <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <p className="text-xs text-muted-foreground">Status</p>
               <div className="mt-1"><StatusPill status={intake.state} group="payment_intake_state" /></div>
             </div>
           </div>
 
-          <div className="rounded-lg border bg-card p-3">
+          <div className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
             <p className="text-xs font-medium text-muted-foreground">Lampiran bukti</p>
             <div className="mt-1.5 flex flex-wrap gap-2">
               {(intake.files || []).map((f, i) => (f.id ? (

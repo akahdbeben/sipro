@@ -58,7 +58,7 @@ export default function ScriptForm({ script, content, onChange, onSave, onUseDef
           {(script.placeholders || []).map((p) => (
             <button key={p.token} type="button" data-testid={`${P60.scriptPlaceholder}-${p.token}`}
               onClick={() => insert(p.token)} title={`Contoh: ${p.sample}`}
-              className="rounded-full border bg-card px-2.5 py-1 font-mono text-[11px] transition-colors hover:bg-secondary">
+              className="rounded-full border bg-card px-2.5 py-1 font-mono text-[11px] transition-colors hover:bg-secondary shadow-[var(--shadow-card)]">
               {`{{${p.token}}}`} <span className="font-sans text-muted-foreground">{p.label}</span>
             </button>
           ))}

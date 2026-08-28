@@ -73,7 +73,7 @@ export default function NavMigrationDialog() {
         <div className="space-y-2">
           {rows.map((r) => (
             <div key={r.old} data-testid={HUB.navMapRow} data-old={r.old}
-              className="rounded-lg border bg-card p-3">
+              className="rounded-lg border bg-card p-3 shadow-[var(--shadow-card)]">
               <div className="flex flex-wrap items-center gap-2 text-sm">
                 <span className="font-medium text-muted-foreground line-through">{r.old}</span>
                 <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />

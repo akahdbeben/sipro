@@ -65,7 +65,7 @@ export default function VendorsPanel() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="relative w-full sm:w-72">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input value={q} onChange={(e) => setQ(e.target.value)} className="pl-8"
+          <Input value={q} onChange={(e) => setQ(e.target.value)} className="search-field pl-9"
             placeholder="Cari nama atau kode vendor…" aria-label="Cari vendor" />
         </div>
         {canCreate ? (
@@ -82,7 +82,7 @@ export default function VendorsPanel() {
               + "vendor sebagai teks bebas — riwayat, harga, dan penilaiannya baru bisa "
               + "dikumpulkan setelah vendor punya master."} />
         ) : (
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div className="overflow-hidden rounded-xl border bg-card shadow-[var(--shadow-card)]">
             <Table>
               <TableHeader><TableRow>
                 <TableHead>Kode / Nama</TableHead>
@@ -115,7 +115,7 @@ export default function VendorsPanel() {
                       <StatusPill status={v.is_active ? "active" : "archived"}
                         label={v.is_active ? "Aktif" : "Nonaktif"} />
                     </TableCell>
-                    <TableCell className="text-right">
+                    <TableCell className="col-actions text-right">
                       <Button data-testid={T.detailBtn} size="sm" variant="outline"
                         onClick={() => setDetailId(v.id)}>Buka</Button>
                     </TableCell>
